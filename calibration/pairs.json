@@ -1,0 +1,6002 @@
+[
+ {
+  "pair": 1,
+  "storyTitle": "AI misidentification results in wrongful arrest; man seeks justice",
+  "a": {
+   "id": 48469564,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I sincerely hope this man get seek redress for this disgusting miscarriage of justice."
+  },
+  "b": {
+   "id": 48469761,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Reasonable, yes, but they won't happen, because prosecutors never prosecute themselves."
+  }
+ },
+ {
+  "pair": 2,
+  "storyTitle": "Let's Encrypt bans certificate usage in any US sanctioned territory [pdf]",
+  "a": {
+   "id": 48466772,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "> Is Let's Encrypt the only provider of SSL certificates? No."
+  },
+  "b": {
+   "id": 48466924,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "The way you are using these words seems to indicate you might be confused about how this works. The US has not \"sanctioned\" LetsEncrypt or ISRG. The US sanctions foreign entities as punishment for various reasons precisely because they are not subject to US law. That's the entire point of leveraging a sanction -- to pressure those outside of your legal jurisdiction. If they were in your jurisdiction, you'd simply arrest them. People and organizations basically anywhere not permitted to do business with anyone your country has sanctioned. Anyone who does business internationally should be aware of their country's sanctioned list. That applies no matter where you live on the planet."
+  }
+ },
+ {
+  "pair": 3,
+  "storyTitle": "AI misidentification results in wrongful arrest; man seeks justice",
+  "a": {
+   "id": 48469564,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I sincerely hope this man get seek redress for this disgusting miscarriage of justice."
+  },
+  "b": {
+   "id": 48469766,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "What does 85% accurate even mean?"
+  }
+ },
+ {
+  "pair": 4,
+  "storyTitle": "Apple decided not to roll out Siri in EU after denied request for exemption",
+  "a": {
+   "id": 48468174,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "People the world over: (die for the right to vote) One comedian: LOL they only killed them to make you think it was valuable. The Internet: (sagely) What a wise assessment by a wise man of wisdom."
+  },
+  "b": {
+   "id": 48465324,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Like they now hand over all your contacts, your location, calendar entries, microphone access, camera access. If you choose to do so. Nothing holds them from having designed this as an API that others can use where the user has permission toggles of what data they want to share with the LLM provider."
+  }
+ },
+ {
+  "pair": 5,
+  "storyTitle": "Starlink shifts hardware from one-time purchase to $10/month rental",
+  "a": {
+   "id": 48469784,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Don't forget \"sudden price hikes\" and \"aggressively overselling\"..."
+  },
+  "b": {
+   "id": 48469763,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Nah, it will just become untenable to rent a router, because of the added obligations."
+  }
+ },
+ {
+  "pair": 6,
+  "storyTitle": "Lies We Tell Ourselves About Email Addresses",
+  "a": {
+   "id": 48469729,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Email is just like physical mail and thankfully just as endearingly human (sometimes). Once upon a time (1970/80s) I lived on and off in a mystic land called West Germany. Our postal addresses ended with incantations such as BFPO 40. Around 1985ish my granny send a Christmas card to us. I should note that she was at this time nearly seventy and sadly suffering from Parkinsons. She addressed the card, in rather crabbed but legible handwriting, to: Graham and Heath BFPO 40 My mum's name is abbreviated - her daughter. At that time Rheindahlen (nr Moenchengladbach) had a pretty large contingent of Brits in it - it was HQ (BAOR). The card arrived well before Chrimbo and it took about a week judging by the post mark, which was petty normal in those days. She shoved it into a post box in Ipplepen, nr Newton Abbot, Devon and it found its way to an obscure address in another country. I seem to recall she also forgot the stamp but it still got th"
+  },
+  "b": {
+   "id": 48445978,
+   "score": 4,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I enjoyed the deep dice. A lot of sensible advice, and enjoyed the deep dive. A lot of articles do not get a lot of that as right as this article does. Anyone who also enjoyed it would probably get a kick out of my article on the same subject that goes into the regex (which has some valid use cases): https://hackernoon.com/on-the-practicality-of-regex-for-emai..."
+  }
+ },
+ {
+  "pair": 7,
+  "storyTitle": "Claude Fable 5",
+  "a": {
+   "id": 48464454,
+   "score": 0.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "Huh? It's a benchmark by Cognition which (1) is building their own models and (2) offers all providers and thus has an incentive to avoid hyping up any one too much."
+  },
+  "b": {
+   "id": 48466567,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I got the codex to write near perfect code with somewhat strict agents.md and coding standards(a separate .md file referenced from agents.md). My .md files have examples and a long list of do's and don'ts I accumulated over the last 6 months or so, totaling 300-400 lines. I plan every feature with it until I am satisfied with the general approach it wants to take, and then it oneshots it in 95% of cases. The planning takes anywhere from 5 to 30 minutes. The actual execution has gotten stupidly fast, most of the times it is faster than making a cup of coffee."
+  }
+ },
+ {
+  "pair": 8,
+  "storyTitle": "Flat Datacenter Networks at Scale at Amazon",
+  "a": {
+   "id": 48468915,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Well I guess I'd like to see those guarantees, but more specifically, the variance of them. I think Section 9, and Figures 13/14 in the Arxiv preprint sort of address this, but it doesn't mention anything about accounting for real-world failures in fat trees. I haven't had a chance to read it all, though..."
+  },
+  "b": {
+   "id": 48467738,
+   "score": 4,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Interesting reading this because this is essentially the principle behind https://socketcluster.io/ scalability; the sharding of channels across available brokers is pseudo-random. It uses a hash function for determinism but the distribution appears to be random and that was also the best way I could find to distribute load evenly between available nodes. It is key to its embarrassingly parallel design. It's interesting to see it being done at the data centre level as well."
+  }
+ },
+ {
+  "pair": 9,
+  "storyTitle": "Apple decided not to roll out Siri in EU after denied request for exemption",
+  "a": {
+   "id": 48466234,
+   "score": 1.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "The market regulators don't give a fuck if companies screw over their customers privacy wise, as long as it's to the advantage of European companies and European customers. This can lead to absolute insanity as companies try to satisfy both privacy and market conditions. It's not simple. How many years did google waste with Sandbox?"
+  },
+  "b": {
+   "id": 48466497,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "EU doesn't come out looking good here. Clearly the onerous regulation is stifling innovation. It was always hard to argue otherwise, but the hits keep coming."
+  }
+ },
+ {
+  "pair": 10,
+  "storyTitle": "Test-case reducers are underappreciated debugging tools",
+  "a": {
+   "id": 48467855,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "> I read the first part of this article, then gave up and Googled \"Test-case Reducers\". It's answered pretty early on: >> Test-case reducers try to reduce the length of an input If that still doesn't answer the question, try this extension: >> Test-case reducers try to reduce the length of an [error causing or interesting] input"
+  },
+  "b": {
+   "id": 48469656,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Nice share. Increasingly I am thinking about ways to improve verification (\"interestingness tests\"), ever since reading https://www.jasonwei.net/blog/asymmetry-of-verification-and-..."
+  }
+ },
+ {
+  "pair": 11,
+  "storyTitle": "Biff.core: system composition for Clojure web apps",
+  "a": {
+   "id": 48466515,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Maybe I'm just lucky, but I almost never run into paren-matching issues. Hooked to a working REPL, Clojure isn't merely \"good\", I'd say it is dominant compared to a lot of other langs."
+  },
+  "b": {
+   "id": 48465318,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "> Is AI any good at Clojure? It's okay when you use it just like any other PL, which is roughly the Unix/pipe model - batch-style. Agent spawns process -> reads stdout/stderr -> spawns next process. State lives in-between the calls and in files. Each tool invocation is stateless. Things get far more interesting when you give an LLM a true Lisp REPL. LLM stops guessing and starts empirically analyzing current state of things and produces working solution faster, costing far less tokens. And you get to watch it solve things interactively, e.g. I often let AI poke through our UI (via Playwright-driven Clojurescript REPL), while monitoring situation in k8s - through nrepl port, connected to Clojure REPL."
+  }
+ },
+ {
+  "pair": 12,
+  "storyTitle": "Making Graphics Like it's 1993",
+  "a": {
+   "id": 48460809,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I really loved that article. Creating games always seemed so daunting to me since I don't know a lot about how it's done, there are so many different processes involved. The solutions described here are so satisfyingly compact and so easy to understand given the simple constraints, and yet they produce an actual game that looks nice."
+  },
+  "b": {
+   "id": 48461083,
+   "score": 5,
+   "features": {
+    "duel": 1,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 1,
+    "specifics": 2,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Yeah, even this model[0] i made a few years ago for a game i wanted to make for the OG xbox (which has a GeForce3-like GPU) has ~2230 triangles and the entire first level of Post Apocalyptic Petra is ~5800 triangles, so you could say that even a turn of the century 3D character has more or less the same polycount as an entire 90s level (the game i wanted to make would have many characters on screen so i kept the polycount low but i've heard games having 5-6K character or more - e.g. Kingdom Under Fire had ~10K triangles for the main character and a game like Dead or Alive where there are few characters on screen had 15-20K triangles). Meanwhile more current games have much higher polycounts, easily going above 100K triangles - e.g. Dante from DMC5, a ~7 year old game, apparently has ~190K triangles and that had to run on the more anemic PS4/XBone hardware :-P (though i'm not sure if it used the full 190K model there or some cut down ver"
+  }
+ },
+ {
+  "pair": 13,
+  "storyTitle": "Claude Fable 5",
+  "a": {
+   "id": 48467895,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": ">HN is extremely pro free speech It is most definitively not, at least in the 10ish year's I've lurked. It is \"pro free speech\" in the sense Elon Musk is a \"free speech absolutist\": in pretty much the diametrically opposed meaning of the phrase."
+  },
+  "b": {
+   "id": 48467977,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I hate how the Instagram/TikTok/YouTube influencer cancer is getting into AI. With early access and all that. It made sense for people doing proper and fair AI breakdowns waiting on an embargo, but now it's just slop I don't trust anymore."
+  }
+ },
+ {
+  "pair": 14,
+  "storyTitle": "Biff.core: system composition for Clojure web apps",
+  "a": {
+   "id": 48466138,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "It's the language best positioned for AI with world class nREPL."
+  },
+  "b": {
+   "id": 48464693,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "It is but it remains shockingly bad at closing sufficiently deeply nested parens at least as far as chatGPT"
+  }
+ },
+ {
+  "pair": 15,
+  "storyTitle": "Upcoming breaking changes for NPM v12",
+  "a": {
+   "id": 48469227,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "The \"aw geez, enough is enough\" release. Finally."
+  },
+  "b": {
+   "id": 48469631,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "So npm is now pnpm, great job"
+  }
+ },
+ {
+  "pair": 16,
+  "storyTitle": "Lies We Tell Ourselves About Email Addresses",
+  "a": {
+   "id": 48469584,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "> Clickable links sent in email are more secure than passwords so I'll stop supporting passwords and instead rely on email delivery of a link for all logins God, I fucking hate that. I have a fucking password manager, I have various machines and things open. Just let me fucking log in. If anyone is reading this who is in charge of the internet please stop doing this."
+  },
+  "b": {
+   "id": 48469519,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "If you have a password reset form, you probably already have a log-in with email with extra steps functionality."
+  }
+ },
+ {
+  "pair": 17,
+  "storyTitle": "Launch HN: Transload (YC P26) – Measuring freight items with CCTV",
+  "a": {
+   "id": 48464131,
+   "score": 1.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "This is really cool. Congrats guys. Just because I'm curious, how does the market for this look? How much revenue are you saving your customers with this? Also, surely this is very applicable in many many industries, do you have expansion plans? Nevertheless, this is awesome and I wish I'd built it :)"
+  },
+  "b": {
+   "id": 48465090,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "1 + 4) If the bbox fit is accurate, we are below 1.5 inch MAE today. Improving bbox fit accuracy is where most of our effort goes. We're confident this gets to <1 inch at full coverage. The tail is bounded by data and model scale, both of which we're actively closing. 2) Not necessarily. Models like MapAnything/MoGe predict calibration params directly and GeoCalib is good for distortion coefficients. We still calibrate manually on-site, but mainly to validate these models actually hold up in real warehouses and collect our own calibration training data. We are confident the future is calibration-free. 3) carriers lose money every day because shippers understate dimensions and LTL is priced by volume. Every understated shipment is lost revenue. Thats the wedge we sre going after."
+  }
+ },
+ {
+  "pair": 18,
+  "storyTitle": "Claude Fable 5",
+  "a": {
+   "id": 48468888,
+   "score": 4,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 2,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I've personally liked 4.6 the best to date, preferring it by far to 4.7 and 4.8 (even with these on max effort!), both in Claude Code and for non-coding tasks in the chat UIs. Still early but from my first few interactions with Fable on high in both settings, it feels like it might finally dethrone 4.6 for me, but time will tell. Hoping it doesn't get nerfed and eventually comes back to the subscriptions."
+  },
+  "b": {
+   "id": 48467547,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "This feels like the start of a much bigger plan for anthropic to close off the use cases of its models and eat any of its competitors."
+  }
+ },
+ {
+  "pair": 19,
+  "storyTitle": "AI misidentification results in wrongful arrest; man seeks justice",
+  "a": {
+   "id": 48469087,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 2,
+    "question": 0
+   },
+   "text": "This is horrifying. The prosecutor who sought an extradition based on an 85% accurate AI model should be disbarred."
+  },
+  "b": {
+   "id": 48469786,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I have bad news about Prosecutorial Immunity. It is damn near impossible to punish a prosecutor for anything done in the line of work."
+  }
+ },
+ {
+  "pair": 20,
+  "storyTitle": "Lies We Tell Ourselves About Email Addresses",
+  "a": {
+   "id": 48469519,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "If you have a password reset form, you probably already have a log-in with email with extra steps functionality."
+  },
+  "b": {
+   "id": 48469715,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "IIIRC in terms of clients mutt (&co) will actually handle “@“ in the local part correctly. > But the real reason I do that is just because I just like to sit in anger whenever this breaks the user experience because of programming errors or inconsistencies. Genuinely delighted by the fact that I’m not alone in that."
+  }
+ },
+ {
+  "pair": 21,
+  "storyTitle": "Ultrafast machine learning on FPGAs via Kolmogorov-Arnold Networks",
+  "a": {
+   "id": 48467363,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I'm not in HFT, but I assume this is also an interesting applicable domain?"
+  },
+  "b": {
+   "id": 48469618,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 1,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Sure, if they worked for 100 years maybe.. FPGA guy at jane st probably makes 600k to low seven figures... Maybe. Not everyone in quant is a centi-millionaire, probably almost none of them in r&d actually."
+  }
+ },
+ {
+  "pair": 22,
+  "storyTitle": "A giant star may have destroyed itself in one of the rarest explosions",
+  "a": {
+   "id": 48464976,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "It was a supergiant, hence died at a young age, and unlikely to have evolved life of any kind in its system."
+  },
+  "b": {
+   "id": 48463423,
+   "score": 3,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 1,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "There is a wiki on pair-instability supernovas. Antimatter (in the form of positrons) is a key factor. https://en.wikipedia.org/wiki/Pair-instability_supernova"
+  }
+ },
+ {
+  "pair": 23,
+  "storyTitle": "If Claude Fable stops helping you, you'll never know",
+  "a": {
+   "id": 48469365,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "There will be a brief(or, depending on the underlying rules of reality ASI uncovers, not-so-brief) period where A and B do overlap - we have superintelligence but still have to run experiments, manufacture robots, test new drugs in vivo, etc. That period is in and of itself dangerous for the labs, because many entities can just stop them by denying necessary inputs. For the labs to conquer the world, they'll need cooperation - from the state, from robotics companies, from compute companies, from the mining and energy and agriculture sectors. There will be a period of time where markets attempt to run in a business-as-usual way while the transactions that matter happen as power-sharing arrangements - spots on the \"AI Governance Board\" or the \"uploaded to von neumann probe\" club. Markets will still matter in that the labs will need the state to overturn market obstacles to control of the world. The existence of the A-B overlap also sugges"
+  },
+  "b": {
+   "id": 48468987,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Because this effectively hinders 0% of people. I understand why people don't like it but day to day this is nothing. If you're using it for coding, it won't stop you. The pearl clenching here and over reacting is predictable and sad. If you are working for a large organization and you were going through the vendor procurement process, questions like Can this produce pornography? Can this tell my employees how to break the law? are normal and anyone wiht half a brain knows that this is the case. Before people jump on that, I understand people have access to the internet. Your question \"how businesses could trust cloud LLMs going forward\" is absurd and you know it. There is an extremely small set of edge cases that effect 0% of people day to day. You can trust them just fine."
+  }
+ },
+ {
+  "pair": 24,
+  "storyTitle": "Let's Encrypt bans certificate usage in any US sanctioned territory [pdf]",
+  "a": {
+   "id": 48469493,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "> How can you check other people's certs? There are red flags you can look for, but you need to confirm with the domain owner to be sure. CAA records can tell you what CAs are supposed to issue a certificate. Many companies always use the same CA, so a change to a different one could be suspect. For the wiretapping scenario, domain verified certificates do not protect against that scenario. If the wiretap has full control of your server's network, then it can issue a certificate of its own. No need to compromise a CA."
+  },
+  "b": {
+   "id": 48466950,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Yes. If you are, for example, even a US citizen, permanently living in Crimea, you are still subject to limitations, imposed by sanctions."
+  }
+ },
+ {
+  "pair": 25,
+  "storyTitle": "CEOs Who Think AI Replaces Their Employees Are Just Bad CEOs",
+  "a": {
+   "id": 48468319,
+   "score": 1.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 1.5,
+    "question": 0
+   },
+   "text": "This is true. I have always prided myself on writing concise, high-Quality code, because it tends to be quite debt-free. So far, LLMs seem to deliver code with \"Louie Da Loan Shark\"-levels of tech debt."
+  },
+  "b": {
+   "id": 48468474,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "You can actually get high-quality code out of them -- at least with Claude; not had a great experience with Gemini -- but for complex tasks requires riding them very, very hard and really understanding where things can go wrong and poking at them repeatedly. Iterate, iterate, iterate."
+  }
+ },
+ {
+  "pair": 26,
+  "storyTitle": "FCC wants to kill burner phones by forcing telecoms to get all customers' IDs",
+  "a": {
+   "id": 48465046,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "In what way? Activating it still needs KYC."
+  },
+  "b": {
+   "id": 48466572,
+   "score": 2.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 1.5,
+    "question": 0
+   },
+   "text": "More and more things require having a smartphone. Scan this QR code to install the app to cross the border. Install the app to use the street parking in this city. Install the app to board the bus. Install the app to get your filing status with department xyz. I admire your spirit of rebellion, but avoiding using a smartphone in daily life in most places will result in a lifestyle contorted specifically to avoid using a smartphone, and will cut you off from activities that were previously doable without smartphones 20 years ago."
+  }
+ },
+ {
+  "pair": 27,
+  "storyTitle": "Let's Encrypt bans certificate usage in any US sanctioned territory [pdf]",
+  "a": {
+   "id": 48467248,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "The only countries that do not have sanctions are the ones who lack the economic leverage to do so. All developed countries have them."
+  },
+  "b": {
+   "id": 48465152,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I use them in some cases to avoid the rate limits on LetsEncrypt, and they have better support for some older platforms (like ancient Android versions), and I'm pretty happy so far. I have a paid account to support them, but it's not a requirement for ACME certs. It works without issue with Kubernetes Certbot, and seamless to switch between ZeroSSL and LetsEncrypt. I can't comment on the EU part though - not that relevant in my case."
+  }
+ },
+ {
+  "pair": 28,
+  "storyTitle": "FCC wants to kill burner phones by forcing telecoms to get all customers' IDs",
+  "a": {
+   "id": 48464912,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Yep, they'll still prompt for the info."
+  },
+  "b": {
+   "id": 48467175,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Not really. Rural America you don't need a mobile phone. I can go days without ever touching my phone. And if it wasn't for my bank, I wouldn't need it at all. Even then I could just go to the bank but I'm too lazy to do that."
+  }
+ },
+ {
+  "pair": 29,
+  "storyTitle": "Upcoming breaking changes for NPM v12",
+  "a": {
+   "id": 48468671,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "An idea might be to not just pin \"package xyz allowed\", but \"package xyz postinstall allowed with hash <1234>\"."
+  },
+  "b": {
+   "id": 48469381,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "NPM (the company) was about to go under in 2020. They raised VC but never found a sustainable business model. GitHub acquired them to keep the ecosystem alive. The acquisition hasn't really benefitted GitHub much at all."
+  }
+ },
+ {
+  "pair": 30,
+  "storyTitle": "A giant star may have destroyed itself in one of the rarest explosions",
+  "a": {
+   "id": 48463634,
+   "score": 8.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 2,
+    "primary": 1,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 1.5,
+    "question": 0
+   },
+   "text": "I just want to live long enough for space telescopes to evolve exponentially to observe kilonovas in the visual spectrum I mean laser interferometers are an amazing advancement but just imagine seeing an earth-sized chunk of gold pop out of a kilonova (probably not my lifetime but eventually a human will see it happen) Thank goodness this administration did not frack with Nancy Grace Roman Telescope, I thought the name alone would make them cancel it or rename it after him, wait maybe I shouldn't even mention that idea... * https://science.nasa.gov/mission/roman-space-telescope/ * https://en.wikipedia.org/wiki/Nancy_Grace_Roman_Space_Telesc..."
+  },
+  "b": {
+   "id": 48468408,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "My favourite kind of supernova, due to their absurdity."
+  }
+ },
+ {
+  "pair": 31,
+  "storyTitle": "OpenCV 5 Is Here: The Biggest Leap in Years for Computer Vision",
+  "a": {
+   "id": 48464212,
+   "score": 0.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "> This is not just another incremental release. OpenCV 5 is a major step forward. Am I the only one that finds this sentence very cheesey?"
+  },
+  "b": {
+   "id": 48463932,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "One can... and should report when stuff is broken, or the project becomes worthless to all but one persons passing interest. =3"
+  }
+ },
+ {
+  "pair": 32,
+  "storyTitle": "Let's Encrypt bans certificate usage in any US sanctioned territory [pdf]",
+  "a": {
+   "id": 48469192,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "To be fair the US is a bit on an outlier here, as it is not afraid to come down on US companies for things subsidiaries do in other jurisdictions, on questionable grounds. So it would not be enough for Let's Encrypt to operate a European operation to sign European certificates. Should the US wish to sanction the Hague, somewhat famous for its international court of justice, they would absolutely go after ISRG and it would not be enough for them to sever the ties of the hypothetical Let's Encrypt Europe. That would not be legal or last least highly questionable in most other democratic countries."
+  },
+  "b": {
+   "id": 48468778,
+   "score": -4,
+   "features": {
+    "duel": 1,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "You obviously don't know how DNSSEC works. The DNS root of trust is ICANN, not a government."
+  }
+ },
+ {
+  "pair": 33,
+  "storyTitle": "Starlink shifts hardware from one-time purchase to $10/month rental",
+  "a": {
+   "id": 48469759,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "For AU consumers it puts even more obligations onto starlink. Only Telstra does this, that I am aware of, and their rental device comes with full remote configuration support for the duration. Telstra of course is targeting \"Sell this product to your in laws and you never have to give them router support again\". Starlink on the other hand, are trying the old Wisp gamble of hoping that people keep paying for their hardware long after it has paid off, which is probably a poor decision at least where Australia is concerned."
+  },
+  "b": {
+   "id": 48469744,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "This might be reflected in upcoming metrics reported on Friday if the IPO goes through. It seems aligned with improving subscriber growth metrics, smoothing out upfront hardware costs into predictable monthly revenue, and generally increasing adoption by lowering the barrier to entry. Curious if anyone closely following the IPO story has more context on this."
+  }
+ },
+ {
+  "pair": 34,
+  "storyTitle": "OpenCV 5 Is Here: The Biggest Leap in Years for Computer Vision",
+  "a": {
+   "id": 48465715,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "To see if it’s a ‘shop."
+  },
+  "b": {
+   "id": 48460533,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 2,
+    "question": 0
+   },
+   "text": "The diagrams definitely look like LLM output as well"
+  }
+ },
+ {
+  "pair": 35,
+  "storyTitle": "If Claude Fable stops helping you, you'll never know",
+  "a": {
+   "id": 48468990,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "The level of oppression necessary to get software geeks to stop making progress on AI is similar to that necessary to get Ukrainian geeks to stop making progress on drones."
+  },
+  "b": {
+   "id": 48468332,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 2,
+    "question": 0
+   },
+   "text": "It is absolutely fine to distill the IP of everyone else, but you'd be violating the TOS to distill ours :)"
+  }
+ },
+ {
+  "pair": 36,
+  "storyTitle": "Let's Encrypt bans certificate usage in any US sanctioned territory [pdf]",
+  "a": {
+   "id": 48467044,
+   "score": -3,
+   "features": {
+    "duel": 1,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "DANE is entirely dependent on DNSSEC, and DNSSEC is, by design, under the government control, with all the bureaucratic mess and mistakes this implies. This would be pretty terrible if anyone actually cared about DNSSEC, but luckily for us, no one cares.. So let's keep things this way."
+  },
+  "b": {
+   "id": 48458014,
+   "score": 3,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 1,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "The privacy policy is under legal in the footer, exactly where I'd expect it to be honest. It also gives the company registration: > 1.1. We, ZeroSSL GmbH, FN 443956b (the “Company“) and below that the company address (registered in Austria). Don't get me wrong, I agree that there is some lack of \"who actually runs/controls this\", especially on the about page where I expect such things to be. At the very least it's not as transparent as I'd wish from a CA. E.g their Certificate Agreement is from Sectigo, so are they involved? No mention anywhere else from what I can see."
+  }
+ },
+ {
+  "pair": 37,
+  "storyTitle": "AI misidentification results in wrongful arrest; man seeks justice",
+  "a": {
+   "id": 48469651,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "This isn't just AI misidentification. This is also an eye witness picking him out of a lineup. This is really AI extending the reach of the already sketchy eye witness practice."
+  },
+  "b": {
+   "id": 48469679,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "That's why we don't trust them alone or can demand tests from different sources. AI, however, gets sold as an ultimate cure. Just like anything computers touch, it is assumed infallible."
+  }
+ },
+ {
+  "pair": 38,
+  "storyTitle": "Test-case reducers are underappreciated debugging tools",
+  "a": {
+   "id": 48467910,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Brilliant tools, well worth investigating for any system-critical applications. They don't seem to get enough attention outside of the FP community."
+  },
+  "b": {
+   "id": 48467213,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "> To make things even worse, the community that has most thoroughly embraced them are compiler authors, who many programmers think of as being an impossibly skilled elite The article's approach seems super ad-hoc, leaving you to have to think hard, do all the work, and make all the mistakes. If you were to go down the other path, you might try dividing and conquering the problem. An arbitrary Pair<A,B> is trivially constructed from an arbitrary A and an arbitrary B. So if you can generate a string, and a number, you could generate a User full of number and string fields. If your generate function accepts a number describing how complex a string to make, then you can also choose how complicated to make your User. That's all shrinking needs to be. Repeatedly trying smaller Ns while the problem still happens (the problem being one of your unit tests - not an additional \"interestingness\" test you need to write.) You'll probably way more lik"
+  }
+ },
+ {
+  "pair": 39,
+  "storyTitle": "Claude Fable 5",
+  "a": {
+   "id": 48465950,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "> while us labs raise the price , that's a sign of confidence Regardless of what others are doing, US labs here are just rushing to IPO. It's NOT a sign of confidence. It's the equivalent of saying you have confidence in SpaceX making revenue by renting out their data center (instead of their AI making bank)."
+  },
+  "b": {
+   "id": 48469312,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "What pisses me off is that everything people are doing is so walled garden / closed source. Sharing knowledge between companies would be so fucking useful to humanity."
+  }
+ },
+ {
+  "pair": 40,
+  "storyTitle": "Claude Fable 5",
+  "a": {
+   "id": 48464380,
+   "score": 4,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 2,
+    "question": 0
+   },
+   "text": "We, globally, can stop it. It has worked (so far) for nuclear disarmament, and could work for training large models. I know that policing the usage of computer clusters is not a popular opinion in technical forums, but something has to be done. Specially when talking about potential superintelligences. And if people think that's impossible, remember that current models would have been considered science fiction just a few years ago."
+  },
+  "b": {
+   "id": 48466262,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "so should I use it with workflows?"
+  }
+ },
+ {
+  "pair": 41,
+  "storyTitle": "Biff.core: system composition for Clojure web apps",
+  "a": {
+   "id": 48465620,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I would guess the parens will be problematic because of tokenization. something like `)))` is a single token and so is ')])'. I think having strings like that as single tokens probably makes the link between open and closing parens harder to associate. Probably could be papered over with harness help."
+  },
+  "b": {
+   "id": 48464997,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Yes. Generally, it's quite good. It does have a blind spot with parens, but good old Claude Opus then cranks up a python script (yes!) to sort it all out. I wouldn't leave any of the models out on their own - you'll still have to clean up some obviously crazy stuff, but it's pretty clear what needs to done. In conclusion, Claude and ChatGPT are quite decent at Clojure. Oh, I do like Biff."
+  }
+ },
+ {
+  "pair": 42,
+  "storyTitle": "Let's Encrypt bans certificate usage in any US sanctioned territory [pdf]",
+  "a": {
+   "id": 48465590,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Then try not to be completely dependent on the products of a company that is under the control of your enemy."
+  },
+  "b": {
+   "id": 48465925,
+   "score": 4,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 1.5,
+    "question": 1
+   },
+   "text": "> Let's Encrypt certificates continue to be available in both Iran and Russia, just not for the Iranian and Russian governments. According to https://news.ycombinator.com/item?id=48457280 it affects all people ordinarily resident in those territories, not just their governments: > You are not a person or entity that is: > (a) located in, organized under the laws of, or ordinarily resident in any country or territory that is the target of comprehensive U.S. sanctions; > [other 'or' conditions]"
+  }
+ },
+ {
+  "pair": 43,
+  "storyTitle": "Exif Smuggling",
+  "a": {
+   "id": 48468185,
+   "score": 1.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 1.5,
+    "question": 0
+   },
+   "text": "Mildly annoying how almost everything strips out EXIF data nowadays, in part due to security concerns like this, and then I can't find out what camera, lens, and settings were used to take photos."
+  },
+  "b": {
+   "id": 48469383,
+   "score": 1.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "Many many years ago I saw someone using an image hoster which only checked mime type, and not filename. That's the important bit after all right? Uploading an image as image.php worked, and if the exif comment contained php code, it ran."
+  }
+ },
+ {
+  "pair": 44,
+  "storyTitle": "Upcoming breaking changes for NPM v12",
+  "a": {
+   "id": 48468244,
+   "score": 2.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 2,
+    "question": 1
+   },
+   "text": "Looks good? But doesn't this just change the compromise window from first installation to first run?"
+  },
+  "b": {
+   "id": 48469720,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I would've assumed lockfile-by-default. We're still going with auto-updating?"
+  }
+ },
+ {
+  "pair": 45,
+  "storyTitle": "Apple decided not to roll out Siri in EU after denied request for exemption",
+  "a": {
+   "id": 48466926,
+   "score": 1.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "You know what would also damage their brand? Fancois Normal installing a 3rd party AI service which turns out to have zero security and actively just harvesting private data. Tell me which company in your opinion would be in the LOUD headlines, Apple or the random 3rd party?"
+  },
+  "b": {
+   "id": 48463269,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 2,
+    "question": 0
+   },
+   "text": "The EU is only interested in interoperability and centralization of data so they can put their citizens under surveillance. I hope Apple continues to exit this market on the edges."
+  }
+ },
+ {
+  "pair": 46,
+  "storyTitle": "CEOs Who Think AI Replaces Their Employees Are Just Bad CEOs",
+  "a": {
+   "id": 48468420,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "If AI makes you more capable, it’s basically like having a capital injection. CEOs that look at that and think they need to reduce headcount seem to also be signaling they don’t know what to do with increased resources"
+  },
+  "b": {
+   "id": 48468567,
+   "score": 4,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "From your tone, it sounds like you may just be intending to warn me that it's cringe not to agree with any criticism of Zuckerberg? If that's so, I have to respectfully disagree; I think this is a bad attitude that leads towards being poorly informed about the world. If you're interested in discussing the specific claims you're making, I really don't think that billions of people are hopelessly addicted to social media, and I would love to hear your basis for claiming this. My understanding (from e.g. https://www.nature.com/articles/s41598-025-27053-2 ) is that genuine compulsive use of social media is quite rare, and most people who describe themselves as \"addicted\" are just regular users who enjoy it but kinda feel like it's a waste of time."
+  }
+ },
+ {
+  "pair": 47,
+  "storyTitle": "Ultrafast machine learning on FPGAs via Kolmogorov-Arnold Networks",
+  "a": {
+   "id": 48467104,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "This guy will be hired by a high-frequency trading firm, and the next time we hear about him, he will have a net worth in 9 figures."
+  },
+  "b": {
+   "id": 48469618,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 1,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Sure, if they worked for 100 years maybe.. FPGA guy at jane st probably makes 600k to low seven figures... Maybe. Not everyone in quant is a centi-millionaire, probably almost none of them in r&d actually."
+  }
+ },
+ {
+  "pair": 48,
+  "storyTitle": "Test-case reducers are underappreciated debugging tools",
+  "a": {
+   "id": 48467855,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "> I read the first part of this article, then gave up and Googled \"Test-case Reducers\". It's answered pretty early on: >> Test-case reducers try to reduce the length of an input If that still doesn't answer the question, try this extension: >> Test-case reducers try to reduce the length of an [error causing or interesting] input"
+  },
+  "b": {
+   "id": 48467213,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "> To make things even worse, the community that has most thoroughly embraced them are compiler authors, who many programmers think of as being an impossibly skilled elite The article's approach seems super ad-hoc, leaving you to have to think hard, do all the work, and make all the mistakes. If you were to go down the other path, you might try dividing and conquering the problem. An arbitrary Pair<A,B> is trivially constructed from an arbitrary A and an arbitrary B. So if you can generate a string, and a number, you could generate a User full of number and string fields. If your generate function accepts a number describing how complex a string to make, then you can also choose how complicated to make your User. That's all shrinking needs to be. Repeatedly trying smaller Ns while the problem still happens (the problem being one of your unit tests - not an additional \"interestingness\" test you need to write.) You'll probably way more lik"
+  }
+ },
+ {
+  "pair": 49,
+  "storyTitle": "Test-case reducers are underappreciated debugging tools",
+  "a": {
+   "id": 48467407,
+   "score": 1.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 1.5,
+    "question": 0
+   },
+   "text": "Property-based testing frameworks will often do test case reduction as well (called shrinking)."
+  },
+  "b": {
+   "id": 48469656,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Nice share. Increasingly I am thinking about ways to improve verification (\"interestingness tests\"), ever since reading https://www.jasonwei.net/blog/asymmetry-of-verification-and-..."
+  }
+ },
+ {
+  "pair": 50,
+  "storyTitle": "Biff.core: system composition for Clojure web apps",
+  "a": {
+   "id": 48465318,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "> Is AI any good at Clojure? It's okay when you use it just like any other PL, which is roughly the Unix/pipe model - batch-style. Agent spawns process -> reads stdout/stderr -> spawns next process. State lives in-between the calls and in files. Each tool invocation is stateless. Things get far more interesting when you give an LLM a true Lisp REPL. LLM stops guessing and starts empirically analyzing current state of things and produces working solution faster, costing far less tokens. And you get to watch it solve things interactively, e.g. I often let AI poke through our UI (via Playwright-driven Clojurescript REPL), while monitoring situation in k8s - through nrepl port, connected to Clojure REPL."
+  },
+  "b": {
+   "id": 48467125,
+   "score": 5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 1,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I wrote a book about setting up a small gleam project, covers organization of the project in general. A draft is live at https://escherize.com/gleam-katas"
+  }
+ },
+ {
+  "pair": 51,
+  "storyTitle": "Exif Smuggling",
+  "a": {
+   "id": 48468265,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "if anything i would use EXIF data to enhance stego. generally its the JPEG standard that allows the payload, manipulation by abusing EXIF is how you operate the exploit. there is a 64k file segment specified for JPEG, and you can abuse it to hold any \"data\" you want, as well as extending to other segments, for more storage. the raw steganography in most primative form is a comparison of two photos, one of which is pixelshifted to encode the data. in advanced form, the pixels hold the encrypted data, but the application segments of the JPEG hold keys and or matrix values, and you need a reference image. you can move fairly large volumes of ASCII representation like this before its noticed you basicly write a webpage that local caches the payload and keys, then abuses EXIF to build and execute an exploit on the target."
+  },
+  "b": {
+   "id": 48469383,
+   "score": 1.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "Many many years ago I saw someone using an image hoster which only checked mime type, and not filename. That's the important bit after all right? Uploading an image as image.php worked, and if the exif comment contained php code, it ran."
+  }
+ },
+ {
+  "pair": 52,
+  "storyTitle": "Starlink shifts hardware from one-time purchase to $10/month rental",
+  "a": {
+   "id": 48469759,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "For AU consumers it puts even more obligations onto starlink. Only Telstra does this, that I am aware of, and their rental device comes with full remote configuration support for the duration. Telstra of course is targeting \"Sell this product to your in laws and you never have to give them router support again\". Starlink on the other hand, are trying the old Wisp gamble of hoping that people keep paying for their hardware long after it has paid off, which is probably a poor decision at least where Australia is concerned."
+  },
+  "b": {
+   "id": 48469763,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Nah, it will just become untenable to rent a router, because of the added obligations."
+  }
+ },
+ {
+  "pair": 53,
+  "storyTitle": "Apple decided not to roll out Siri in EU after denied request for exemption",
+  "a": {
+   "id": 48463762,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "There is a widespread expectation here in the EU that every vendor in the world wants to access the common market and thus will accept any regulations and limitations that come with it. Given that our share of global GDP has dropped from 25 to 17 per cent in twenty years, with a steady downward trend, I am not convinced that this principle will hold for much longer, and this case of Siri may be one of the canaries in the coalmine. If/when we drop to single digits, many vendors won't likely care anymore."
+  },
+  "b": {
+   "id": 48464874,
+   "score": 4,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 2,
+    "question": 0
+   },
+   "text": "I find it interesting that Apple prefers to fall behind in Europe rather than opening their platform a tiny bit. It gives us European some opportunities. I have a side project at work that was heavily threatened by Siri’s new features. Now I feel more relaxed as Siri isn’t coming there anytime soon. But overall I doubt we will replace Apple."
+  }
+ },
+ {
+  "pair": 54,
+  "storyTitle": "Launch HN: Transload (YC P26) – Measuring freight items with CCTV",
+  "a": {
+   "id": 48469096,
+   "score": 4.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 1,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "Very interesting, I work in a similar space with diverse cameras and we’ve been using DepthAnything for a while, but I hadn’t seen these new models yet so thanks! The association model seems like the special sauce, anything more you can share about that? Architecture, inputs and outputs etc. I’m always really interested in unique CV models."
+  },
+  "b": {
+   "id": 48469434,
+   "score": 2.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "Yeah, DepthAnything (especially DA3) is also really good. The space is moving so quickly, and I always try to keep an eye on the trending HF depth estimation models :D We frame the association model as an instance segmentation ranking problem. Given a set of freight item segmentations, the question becomes which freight item is most likely being scanned? Our model needs to analyze the pose of the workers, consider multiple frames and map the whole scene to 3D."
+  }
+ },
+ {
+  "pair": 55,
+  "storyTitle": "AI misidentification results in wrongful arrest; man seeks justice",
+  "a": {
+   "id": 48469564,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I sincerely hope this man get seek redress for this disgusting miscarriage of justice."
+  },
+  "b": {
+   "id": 48469651,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "This isn't just AI misidentification. This is also an eye witness picking him out of a lineup. This is really AI extending the reach of the already sketchy eye witness practice."
+  }
+ },
+ {
+  "pair": 56,
+  "storyTitle": "AI misidentification results in wrongful arrest; man seeks justice",
+  "a": {
+   "id": 48469258,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I sent this to my lawyer friends who like to help so hopefully we can get some restitution for him These clowns need to be taken for all the money they can"
+  },
+  "b": {
+   "id": 48469087,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 2,
+    "question": 0
+   },
+   "text": "This is horrifying. The prosecutor who sought an extradition based on an 85% accurate AI model should be disbarred."
+  }
+ },
+ {
+  "pair": 57,
+  "storyTitle": "AI misidentification results in wrongful arrest; man seeks justice",
+  "a": {
+   "id": 48469651,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "This isn't just AI misidentification. This is also an eye witness picking him out of a lineup. This is really AI extending the reach of the already sketchy eye witness practice."
+  },
+  "b": {
+   "id": 48469429,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "This is exactly like that case from Fargo earlier this year. We got a new police chief after this, but she still hasn't been compensated and nobody got in trouble for it. https://www.mprnews.org/story/2026/03/18/fargo-polices-use-o..."
+  }
+ },
+ {
+  "pair": 58,
+  "storyTitle": "Upcoming breaking changes for NPM v12",
+  "a": {
+   "id": 48469279,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "\"First run\" certainly exists in web apps, it's just running JS in a browser rather than a shell script on a developer or CI machine. There is plenty of malicious stuff you can do from the browser."
+  },
+  "b": {
+   "id": 48469539,
+   "score": 4,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "But this is npm, the execution environment is not the browser, but the server. Most packages are imported via import/require, even if it's a browser only package. Because of SSR and reasons. Or maybe not, let's look at a random browser only example, angular and react will use SSR, so they will execute in the server, let's check Jquery: https://www.npmjs.com/package/jquery Docs suggest just using a script tag instead of npm, when using npm install, they suggest to run import statement, which can execute arbitrary code. The bottom line seems to be that if you are using npm, it's cause you are using node, and therefore you will run the imported code in the server, otherwise you would use a script tag. But maybe there's a way to define a browser only package or .js URL such that it is only downloaded and served but never executed server side? In any case, not a huge usecase of npm, which again, is designed for node which is backend. Randome"
+  }
+ },
+ {
+  "pair": 59,
+  "storyTitle": "Starlink shifts hardware from one-time purchase to $10/month rental",
+  "a": {
+   "id": 48469749,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "It will only change if it becomes illegal to rent a router."
+  },
+  "b": {
+   "id": 48469784,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Don't forget \"sudden price hikes\" and \"aggressively overselling\"..."
+  }
+ },
+ {
+  "pair": 60,
+  "storyTitle": "Lies We Tell Ourselves About Email Addresses",
+  "a": {
+   "id": 48469584,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "> Clickable links sent in email are more secure than passwords so I'll stop supporting passwords and instead rely on email delivery of a link for all logins God, I fucking hate that. I have a fucking password manager, I have various machines and things open. Just let me fucking log in. If anyone is reading this who is in charge of the internet please stop doing this."
+  },
+  "b": {
+   "id": 48469691,
+   "score": 0.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "Could they have consciously chosen to remove that functionality? E.g. to simplify code, or if they wanted all mails to have a domain (if, for example, they wanted to integrate with reputation systems that were domain oriented)?"
+  }
+ },
+ {
+  "pair": 61,
+  "storyTitle": "Making Graphics Like it's 1993",
+  "a": {
+   "id": 48468065,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 1,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I think GP is referring to EGA which also used address 0xA0000 but you had to program it in it a planer mode of 16 colors out of a palette of 64. VGA provided backward compatibility with this but introduced the 256 color modes with mode 13h being the linear addressable 320x200 res mode, however this mode sacrificed 3/4 of the video memory. This mode was also referred to as \"chained\" mode as it chained all 4 bitplanes together for convenient linear addressing. There was also unchained mode, sometimes referred to as mode-x which allowed you to access all 256kb of video memory, resize the virtual screen, page flipping, etc. at the cost of compute overhead. Lots of tradeoffs to be made in those days. Some amazing looking 16 colors VGA games were produced in the early 90s, one that comes to mind is Gods by Bitmap Brothers."
+  },
+  "b": {
+   "id": 48463120,
+   "score": 0.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "Consider a premium, boxed version. I would buy it. And I think a lot other would. Maybe try a kickstarter to see how many are interested?"
+  }
+ },
+ {
+  "pair": 62,
+  "storyTitle": "CEOs Who Think AI Replaces Their Employees Are Just Bad CEOs",
+  "a": {
+   "id": 48468467,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "more of \"we whined and cried and screamed that we needed new budget in order to buy these tools or we would literally die. now we have them, they don't work as well as we hoped, they aren't leading to productivity gains, and they're actively alienating our workforce and users alike. we're so screwed we literally have no idea how to do reverse this.\""
+  },
+  "b": {
+   "id": 48469251,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "No, look at functioning democracies. They don't need authoritarian rulers, only those that want to be authoritarians argue elsewise."
+  }
+ },
+ {
+  "pair": 63,
+  "storyTitle": "Test-case reducers are underappreciated debugging tools",
+  "a": {
+   "id": 48467870,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Shrink Ray, described in the article, is developed by D.R. MacIver who also developed Hypothesis. I remember when it was announced a while back but had forgotten about it, I guess I have something to play with tonight."
+  },
+  "b": {
+   "id": 48467117,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I've only ever known about these through compilers, very cool. On one project, through a variety of circumstances, dead code elimination was straight up not working, but we wanted to show the theoretical improvement of some approach - but we couldn't figure out why at the moment (we did spend a whole week chasing down the root cause after - maybe worth in hindsight...). We were doing it by hand at one point, but someone suggested using CReduce for shrinking the code. Definitely was an interesting test-iterate loop..."
+  }
+ },
+ {
+  "pair": 64,
+  "storyTitle": "Exif Smuggling",
+  "a": {
+   "id": 48468038,
+   "score": 2.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 2,
+    "question": 1
+   },
+   "text": "Weren't similar techniques already used years ago by malvertizers to hide malicious code into images published for ads so it wouldn't be detected? (although it might have been more like steganography)"
+  },
+  "b": {
+   "id": 48469383,
+   "score": 1.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "Many many years ago I saw someone using an image hoster which only checked mime type, and not filename. That's the important bit after all right? Uploading an image as image.php worked, and if the exif comment contained php code, it ran."
+  }
+ },
+ {
+  "pair": 65,
+  "storyTitle": "Show HN: Resonate – Low-latency, high-resolution spectral analysis",
+  "a": {
+   "id": 48428107,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "And this is a tuner using same algorithm: https://apps.apple.com/us/app/resonance-chromatic-tuner/id16... Also very old stuff :)"
+  },
+  "b": {
+   "id": 48458342,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "My email is alex@mlazev.com I will write some details when I have time."
+  }
+ },
+ {
+  "pair": 66,
+  "storyTitle": "Biff.core: system composition for Clojure web apps",
+  "a": {
+   "id": 48463850,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "How are you liking Gleam and Lustre? What went particularly well or badly?"
+  },
+  "b": {
+   "id": 48463849,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Last year, I thought it was awful. Even Opus would reliably unbalance parentheses on practically every edit and then enter a doom spiral of making things worse as it tried to figure out the right place to put a `)`. Recently, I’ve been quite impressed, at least with Claude. At some point they figured out the parens issue, and the code is largely solid and idiomatic. I’ve mostly used it with Polylith apps, so the context for any given change is naturally well-defined. Usual issues with failing to reuse existing functions or make sound decisions about architecture, but no more so than I’ve seen with TypeScript or Rust. I think there are a few points in its favour: it’s a very concise language, the documentation is terse but precise and comprehensive, and while there’s obviously nowhere near as much Clojure out there as there is JavaScript or Python, there is a lot. As the Clojure demographic skews toward experienced, senior programmers, I"
+  }
+ },
+ {
+  "pair": 67,
+  "storyTitle": "CEOs Who Think AI Replaces Their Employees Are Just Bad CEOs",
+  "a": {
+   "id": 48465984,
+   "score": 2.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 2,
+    "question": 1
+   },
+   "text": "A custom-built AI would be pretty good at replacing a CEO. Think of all the things a company could do if they reduced overhead by that much?"
+  },
+  "b": {
+   "id": 48468513,
+   "score": 0.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "Yeah and Justin Timberlake was a co star. You’re really beefing about a movie almost 2 decades old?"
+  }
+ },
+ {
+  "pair": 68,
+  "storyTitle": "Let's Encrypt bans certificate usage in any US sanctioned territory [pdf]",
+  "a": {
+   "id": 48469162,
+   "score": 0.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "When you say “our legal requirements” do you mean requirements LE imposes in its agreements or requires imposed on LE by governments?"
+  },
+  "b": {
+   "id": 48467714,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "The problem is that the current trust model is totally untrustworthy."
+  }
+ },
+ {
+  "pair": 69,
+  "storyTitle": "Lies We Tell Ourselves About Email Addresses",
+  "a": {
+   "id": 48445978,
+   "score": 4,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I enjoyed the deep dice. A lot of sensible advice, and enjoyed the deep dive. A lot of articles do not get a lot of that as right as this article does. Anyone who also enjoyed it would probably get a kick out of my article on the same subject that goes into the regex (which has some valid use cases): https://hackernoon.com/on-the-practicality-of-regex-for-emai..."
+  },
+  "b": {
+   "id": 48469673,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "> It’s likely that more people out there are being filtered by badly-implemented form validation than there are being filtered by their own need of hand-holding. I wish this was asserted with evidence. The author might suggest this because they have unrealistic views of some users. > In the year of our lord 2026, you can reasonably expect your users to know how to type their own email address - or even better, auto-input from their OS, browser, keyboard app, or password manager. This really depends on who your users are. I have multiple family members who have healthy memory, but can't accurately remember their email address everytime: the localpart, the domain, the syntax, everything. Sending an email verification isn't sufficient, because if the user has typo'd \".com\", they might never receive that email, and the user might never be back, or then have to escalate to support. Meanwhile, if a site is opinionated on TLDs, they might prev"
+  }
+ },
+ {
+  "pair": 70,
+  "storyTitle": "Starlink shifts hardware from one-time purchase to $10/month rental",
+  "a": {
+   "id": 48469708,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I suspect this will change, or not roll out in many places, or users will get the choice between up-front or rental. Router rental isn't tolerated by the market in the UK or AU from what I've seen."
+  },
+  "b": {
+   "id": 48469784,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Don't forget \"sudden price hikes\" and \"aggressively overselling\"..."
+  }
+ },
+ {
+  "pair": 71,
+  "storyTitle": "If Claude Fable stops helping you, you'll never know",
+  "a": {
+   "id": 48469045,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "There are several domain-general four-letter terms."
+  },
+  "b": {
+   "id": 48468589,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 1,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "That's what I observed with Opus. This is probably a lawsuit going to happen because you pay for tokens and you expect to get performance you pay for, instead you never know if the model suddenly become dumb and your whole session has to be started again."
+  }
+ },
+ {
+  "pair": 72,
+  "storyTitle": "If Claude Fable stops helping you, you'll never know",
+  "a": {
+   "id": 48469592,
+   "score": 3,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Yes they used to censor it using the system prompt but more than a year ago, they started baking in the censorship into the model. Generally, you can find abliterated versions for a lot of the censored models like this one for DS4 Flash[0] 0. https://huggingface.co/huihui-ai/Huihui-DeepSeek-V4-Flash-ab..."
+  },
+  "b": {
+   "id": 48468600,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "It kind of sucks, but I get the silent change. If a user was trying to use the model for something untoward, having a rejected prompt would just give signal to train on how to eventually successfully bypass security measures."
+  }
+ },
+ {
+  "pair": 73,
+  "storyTitle": "Ultrafast machine learning on FPGAs via Kolmogorov-Arnold Networks",
+  "a": {
+   "id": 48469709,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Has there been much exploration on how much benefit comes from precision in activation functions in KANs? There's a little niggle in the back of my head that maybe 90% of the benefit of KANs can be gained from a quite small variety of function shapes. Combined with input weighting, I almost feel you could have a representation that scales from a standard relu perceptron though KANs to something with weighted inputs and fancy weighted activation functions. Mark that out in 2d with axes of input weight precision and activation weight precision, you could perhaps do sweeps to find the best accuracy per parameter bit, or accuracy/speed, or some sweet spot that has a nice balance of operating speed, accuracy, and model size."
+  },
+  "b": {
+   "id": 48469770,
+   "score": 3,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 1,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "If you want to experiment with KANs yourself in a non-FPGA environment, there's a GitHub repo here: https://github.com/KindXiaoming/pykan"
+  }
+ },
+ {
+  "pair": 74,
+  "storyTitle": "Ultrafast machine learning on FPGAs via Kolmogorov-Arnold Networks",
+  "a": {
+   "id": 48469618,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 1,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Sure, if they worked for 100 years maybe.. FPGA guy at jane st probably makes 600k to low seven figures... Maybe. Not everyone in quant is a centi-millionaire, probably almost none of them in r&d actually."
+  },
+  "b": {
+   "id": 48467888,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "You're correct that this work is not very applicable for LLMs and that the focus here is primarily on latency."
+  }
+ },
+ {
+  "pair": 75,
+  "storyTitle": "Starlink shifts hardware from one-time purchase to $10/month rental",
+  "a": {
+   "id": 48469708,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I suspect this will change, or not roll out in many places, or users will get the choice between up-front or rental. Router rental isn't tolerated by the market in the UK or AU from what I've seen."
+  },
+  "b": {
+   "id": 48469759,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "For AU consumers it puts even more obligations onto starlink. Only Telstra does this, that I am aware of, and their rental device comes with full remote configuration support for the duration. Telstra of course is targeting \"Sell this product to your in laws and you never have to give them router support again\". Starlink on the other hand, are trying the old Wisp gamble of hoping that people keep paying for their hardware long after it has paid off, which is probably a poor decision at least where Australia is concerned."
+  }
+ },
+ {
+  "pair": 76,
+  "storyTitle": "Claude Fable 5",
+  "a": {
+   "id": 48464920,
+   "score": 4,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 2,
+    "question": 0
+   },
+   "text": "I've only ever had the $20 month claude plan but last night took the time to setup opencode + openrouter paying for deepseek + glm. Previous experience, while extremely awkward, I'd hit my limit within one or two chat replies and it'd take me like 4 limit cycles to complete my task. Now I'm able to complete an equivalent task entire task for less than $2 in two cycles (ask -> revise). I'm doing basic web development here utilizing animejs. Nothing too complicated (mostly saving time doing the scaffolding, still write the bulk of animations manually). Truly believe that American companies are going to get completely curb stomped by China due to greed, ineptitude, and violating the social contract."
+  },
+  "b": {
+   "id": 48464197,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "(according to the people marketing it)"
+  }
+ },
+ {
+  "pair": 77,
+  "storyTitle": "Exif Smuggling",
+  "a": {
+   "id": 48468265,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "if anything i would use EXIF data to enhance stego. generally its the JPEG standard that allows the payload, manipulation by abusing EXIF is how you operate the exploit. there is a 64k file segment specified for JPEG, and you can abuse it to hold any \"data\" you want, as well as extending to other segments, for more storage. the raw steganography in most primative form is a comparison of two photos, one of which is pixelshifted to encode the data. in advanced form, the pixels hold the encrypted data, but the application segments of the JPEG hold keys and or matrix values, and you need a reference image. you can move fairly large volumes of ASCII representation like this before its noticed you basicly write a webpage that local caches the payload and keys, then abuses EXIF to build and execute an exploit on the target."
+  },
+  "b": {
+   "id": 48468529,
+   "score": 0.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "Why is this a link to a random fork that has no commits, rather than the original?"
+  }
+ },
+ {
+  "pair": 78,
+  "storyTitle": "Launch HN: Transload (YC P26) – Measuring freight items with CCTV",
+  "a": {
+   "id": 48464066,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Oh shoot - where did it happen? Can you try again?"
+  },
+  "b": {
+   "id": 48469434,
+   "score": 2.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "Yeah, DepthAnything (especially DA3) is also really good. The space is moving so quickly, and I always try to keep an eye on the trending HF depth estimation models :D We frame the association model as an instance segmentation ranking problem. Given a set of freight item segmentations, the question becomes which freight item is most likely being scanned? Our model needs to analyze the pose of the workers, consider multiple frames and map the whole scene to 3D."
+  }
+ },
+ {
+  "pair": 79,
+  "storyTitle": "FCC wants to kill burner phones by forcing telecoms to get all customers' IDs",
+  "a": {
+   "id": 48463663,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "That's an illusion. Two days of location data and you can pin down the owner pretty well. I thought about getting a SIM when Germany was about to introduce ID requirements. I quickly realized this being a moot point."
+  },
+  "b": {
+   "id": 48463491,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "It was only a matter of time. The real issue is whether government's should have the right to metadata or the content of remote communications. Government's don't claim the right to monitor face to face communications so why should they have the right to do so for remote communications."
+  }
+ },
+ {
+  "pair": 80,
+  "storyTitle": "Making Graphics Like it's 1993",
+  "a": {
+   "id": 48463795,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I find the most interesting things are the internal tools -- like the Python script to generate the gib animation, or the other Python script to generate 2D spritesheet from Blender. OP is definitely a 10x engineer who can also do good arts. This is very rare IMO. I'm very surprised to find that OP has consistent art direction."
+  },
+  "b": {
+   "id": 48462796,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Step 0 is missing: having a great taste. One look at the video example is enough to figure out that the author keeps things in balance and in style. Explanations of why pixel grid mismatch looks wrong, or why mismatch between texture density and geometric complexity (in both ways) looks horrible, or why smoothing does not blend with pixel art are then made in retrospect. Some details are a bit too cool for 1993, though, and assume high frame rate (won't work that well at low fps). Smooth weapon animations with a lot of frames, tiny per-pixel effects on bullet holes and flash sprites, smooth movement and object position calculations that use precise math instead of fast rough estimates resemble Chasm: The Rift or Quake (the concept of idle animations, e. g. objects moving in the starting view of difficulty selection room, assumes that there is some performance to waste on details that make the world less empty)."
+  }
+ },
+ {
+  "pair": 81,
+  "storyTitle": "AI misidentification results in wrongful arrest; man seeks justice",
+  "a": {
+   "id": 48469646,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "85% accurate is doing a lot of hiding LOL. Searching a multi-million-face gallery and even high per-comparison accuray turns into mostly false positive. THese systems are only ever defensible as an investigative lead, neve as probable cause."
+  },
+  "b": {
+   "id": 48469610,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I have bad news about the accuracy of almost all forensic science, especially fingerprints and dna"
+  }
+ },
+ {
+  "pair": 82,
+  "storyTitle": "Making Graphics Like it's 1993",
+  "a": {
+   "id": 48461594,
+   "score": 1.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 1.5,
+    "question": 0
+   },
+   "text": "Not a \"shooter\", but the \"No One Lives Forever\" franchise is another example of a female protagonist in a first person game. Edit: I completed forgot Chell from Portal, too!"
+  },
+  "b": {
+   "id": 48466073,
+   "score": 0.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "@sklopec any chance you have a Mastodon or maybe Bluesky account where we can follow your work? Would love to follow development and buy your game when it's out."
+  }
+ },
+ {
+  "pair": 83,
+  "storyTitle": "Starlink shifts hardware from one-time purchase to $10/month rental",
+  "a": {
+   "id": 48469744,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "This might be reflected in upcoming metrics reported on Friday if the IPO goes through. It seems aligned with improving subscriber growth metrics, smoothing out upfront hardware costs into predictable monthly revenue, and generally increasing adoption by lowering the barrier to entry. Curious if anyone closely following the IPO story has more context on this."
+  },
+  "b": {
+   "id": 48469708,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I suspect this will change, or not roll out in many places, or users will get the choice between up-front or rental. Router rental isn't tolerated by the market in the UK or AU from what I've seen."
+  }
+ },
+ {
+  "pair": 84,
+  "storyTitle": "Upcoming breaking changes for NPM v12",
+  "a": {
+   "id": 48468336,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 2,
+    "question": 0
+   },
+   "text": "They should have added a 1-day age limit by default, so security scanners have some time."
+  },
+  "b": {
+   "id": 48468671,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "An idea might be to not just pin \"package xyz allowed\", but \"package xyz postinstall allowed with hash <1234>\"."
+  }
+ },
+ {
+  "pair": 85,
+  "storyTitle": "Upcoming breaking changes for NPM v12",
+  "a": {
+   "id": 48469299,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "The idea of the parameter is stopping the attackers from getting on your system in the first place"
+  },
+  "b": {
+   "id": 48469279,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "\"First run\" certainly exists in web apps, it's just running JS in a browser rather than a shell script on a developer or CI machine. There is plenty of malicious stuff you can do from the browser."
+  }
+ },
+ {
+  "pair": 86,
+  "storyTitle": "Show HN: Resonate – Low-latency, high-resolution spectral analysis",
+  "a": {
+   "id": 48458342,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "My email is alex@mlazev.com I will write some details when I have time."
+  },
+  "b": {
+   "id": 48469198,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "There are some piano tuners I've found who are a bit on the spectrum, who believe they can tune a piano in a way that no digital device can replicate. I'm skeptical, and would like to see how this method holds up against one of these savants."
+  }
+ },
+ {
+  "pair": 87,
+  "storyTitle": "Making Graphics Like it's 1993",
+  "a": {
+   "id": 48469337,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I was genuinely surprised how good the render -> quantized sprite looked. That quick conversion made them look crispy ."
+  },
+  "b": {
+   "id": 48466073,
+   "score": 0.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "@sklopec any chance you have a Mastodon or maybe Bluesky account where we can follow your work? Would love to follow development and buy your game when it's out."
+  }
+ },
+ {
+  "pair": 88,
+  "storyTitle": "Apple decided not to roll out Siri in EU after denied request for exemption",
+  "a": {
+   "id": 48463462,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Probably not, but it's still available. The DMA most likely would require the ability for users to be able to benefit from to the AI regardless of which email/photo/messaging provider they prefer to use."
+  },
+  "b": {
+   "id": 48463792,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Nonsense, Google is among the most aggressive when it comes to localization to the point of being oblivious. I have not been able to switch language in Sheets since 2018, and I've changed any possible setting (even account language). All guides are in English and I'm stuck with Sheets in Italian."
+  }
+ },
+ {
+  "pair": 89,
+  "storyTitle": "A giant star may have destroyed itself in one of the rarest explosions",
+  "a": {
+   "id": 48468408,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "My favourite kind of supernova, due to their absurdity."
+  },
+  "b": {
+   "id": 48468622,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Well I mean I would expect that the gold would be fired off in all directions as more of an atomic mist than a chunk"
+  }
+ },
+ {
+  "pair": 90,
+  "storyTitle": "Flat Datacenter Networks at Scale at Amazon",
+  "a": {
+   "id": 48469173,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I don't think these things have anything to do with each other."
+  },
+  "b": {
+   "id": 48469598,
+   "score": 1.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "It's much larger but fundamentally it's not that different. In each rack you have one or two switches. How do you connect those racks to each other? The standard answer (simplified) is centralized spine switches but AWS discovered that a random network where the rack switches connect directly to each other is cheaper."
+  }
+ },
+ {
+  "pair": 91,
+  "storyTitle": "Exif Smuggling",
+  "a": {
+   "id": 48468300,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "My static site generator strips out exif data from images and I would expect all sensible sites would do the same. There is a lot of personal information jammed in there - if you post a picture of your dog making a funny face to social media you don’t want the exact GPS coordinates of your house plastered over the internet. You have to be selective though, some of the EXIF data specifies things like color spaces and orientation that is used by browsers for displaying the image properly."
+  },
+  "b": {
+   "id": 48468191,
+   "score": 3,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 1,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I'm not sure if this is exactly what you're referring to, but apparently years ago there were exploits bundling JAR files into GIFs to sneakily have them executed by the Java browser plugin: https://en.wikipedia.org/wiki/Polyglot_(computing)#GIFAR_att..."
+  }
+ },
+ {
+  "pair": 92,
+  "storyTitle": "Let's Encrypt bans certificate usage in any US sanctioned territory [pdf]",
+  "a": {
+   "id": 48466833,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "This is not specific to US law ..."
+  },
+  "b": {
+   "id": 48458197,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 2,
+    "question": 0
+   },
+   "text": "It's about time SOME entities start moving from US entirely."
+  }
+ },
+ {
+  "pair": 93,
+  "storyTitle": "Lies We Tell Ourselves About Email Addresses",
+  "a": {
+   "id": 48469667,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "The people in charge of the internet are \"cybersecurity\" \"professionals\" who can't even follow NIST guidance."
+  },
+  "b": {
+   "id": 48469715,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "IIIRC in terms of clients mutt (&co) will actually handle “@“ in the local part correctly. > But the real reason I do that is just because I just like to sit in anger whenever this breaks the user experience because of programming errors or inconsistencies. Genuinely delighted by the fact that I’m not alone in that."
+  }
+ },
+ {
+  "pair": 94,
+  "storyTitle": "Let's Encrypt bans certificate usage in any US sanctioned territory [pdf]",
+  "a": {
+   "id": 48464982,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "If they do business in the US they will be expected to comply with US law - this includes their stock being traded on US stock exchanges. If they don’t have any business in the US and any financial ties to the US they won’t be subject to the sanctions. But I believe it will create issues if they want to enter the US market."
+  },
+  "b": {
+   "id": 48464499,
+   "score": 0.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "Any plans on becoming an independent CA? Would certificates issued in your name also risk being affected by US sanctions trough sentigo?"
+  }
+ },
+ {
+  "pair": 95,
+  "storyTitle": "Flat Datacenter Networks at Scale at Amazon",
+  "a": {
+   "id": 48468750,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "One interesting consequence of this is that it's now (for the first time!) possible to get unlimited AWS egress. It's not cheap, and it's limited to `us-east-1`, but it's at least _possible_ now via AWS Interconnect: https://aws.amazon.com/interconnect/lastmile/pricing/"
+  },
+  "b": {
+   "id": 48469190,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I am fairly confident that is a typo. The paper says \"Our analysis reveals that RNG topologies are 9–45% cheaper than fat trees with equivalent oversubscription ratio.\" The blogger probably left off the % sign."
+  }
+ },
+ {
+  "pair": 96,
+  "storyTitle": "Making Graphics Like it's 1993",
+  "a": {
+   "id": 48463185,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "That's beautiful. I hope it will run on a 486DX2 :D"
+  },
+  "b": {
+   "id": 48460370,
+   "score": 2.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": ">I notice the colors also become more saturated after postprocessing in your examples, is this after it finds the closest color in the palette or the result of the postprocess? It's the result of the Blender compositor postprocessing, just keep in mind it falls apart once you go low enough in resolution (it's an image space thing after all), so I'm not sure if that helps your case. EDIT: Also, your project is very cool!"
+  }
+ },
+ {
+  "pair": 97,
+  "storyTitle": "AI misidentification results in wrongful arrest; man seeks justice",
+  "a": {
+   "id": 48469258,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I sent this to my lawyer friends who like to help so hopefully we can get some restitution for him These clowns need to be taken for all the money they can"
+  },
+  "b": {
+   "id": 48469610,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I have bad news about the accuracy of almost all forensic science, especially fingerprints and dna"
+  }
+ },
+ {
+  "pair": 98,
+  "storyTitle": "OpenCV 5 Is Here: The Biggest Leap in Years for Computer Vision",
+  "a": {
+   "id": 48463932,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "One can... and should report when stuff is broken, or the project becomes worthless to all but one persons passing interest. =3"
+  },
+  "b": {
+   "id": 48462018,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "So to-the-point that it comes with a table of contents. Idk if it needs saying that ToCs have legitimate uses, but the number of search results and blog posts having one since ~2022 is, eh, interesting. You come for whatever the headline was and you get a page with thousands of words, split up into five or more chapters, many of them overlapping or a rephrasing of the same question if you've hit a true content farm. This is not that, but I also can't fathom how one could argue that slop is concise as a hallmark As for being well-written, does that refer to correct use of grammar and no typos, or do you mean that you find that bots write better than humans in any other way?"
+  }
+ },
+ {
+  "pair": 99,
+  "storyTitle": "Making Graphics Like it's 1993",
+  "a": {
+   "id": 48467122,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Huh, I always thought RoTT was the first Build engine game."
+  },
+  "b": {
+   "id": 48463854,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Bravo! Wonderful read. The comments here are a cesspool unfortunately. People bickering about pronouns used for cats, how many shots it takes for a vase to explode, or whether or not some circa-1993 software was used or mentioned."
+  }
+ },
+ {
+  "pair": 100,
+  "storyTitle": "CEOs Who Think AI Replaces Their Employees Are Just Bad CEOs",
+  "a": {
+   "id": 48469316,
+   "score": 6,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 1,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I keep seeing this sentiment in general and in this thread. I wrote about it here too: https://blog.nilesh.io/post/llms-and-jobs Just because people have a vague idea of what someone's job is and a deep understanding of their own job, it feels like AI can replace everyone but you."
+  },
+  "b": {
+   "id": 48468467,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "more of \"we whined and cried and screamed that we needed new budget in order to buy these tools or we would literally die. now we have them, they don't work as well as we hoped, they aren't leading to productivity gains, and they're actively alienating our workforce and users alike. we're so screwed we literally have no idea how to do reverse this.\""
+  }
+ },
+ {
+  "pair": 101,
+  "storyTitle": "Exif Smuggling",
+  "a": {
+   "id": 48468185,
+   "score": 1.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 1.5,
+    "question": 0
+   },
+   "text": "Mildly annoying how almost everything strips out EXIF data nowadays, in part due to security concerns like this, and then I can't find out what camera, lens, and settings were used to take photos."
+  },
+  "b": {
+   "id": 48468300,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "My static site generator strips out exif data from images and I would expect all sensible sites would do the same. There is a lot of personal information jammed in there - if you post a picture of your dog making a funny face to social media you don’t want the exact GPS coordinates of your house plastered over the internet. You have to be selective though, some of the EXIF data specifies things like color spaces and orientation that is used by browsers for displaying the image properly."
+  }
+ },
+ {
+  "pair": 102,
+  "storyTitle": "Apple decided not to roll out Siri in EU after denied request for exemption",
+  "a": {
+   "id": 48463703,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "> There are phones running alternative versions of Android with no google dependency, and there are phones running linux. Those make up 0% of the market [1], which classifies Apple and Google as gatekeepers. [1] https://gs.statcounter.com/os-market-share/mobile/europe/"
+  },
+  "b": {
+   "id": 48467992,
+   "score": -2,
+   "features": {
+    "duel": 1,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Of course, but the iPhone could send slightly altered data to avoid fingerprinting (tweaking age / weight / height slightly) like browsers do with sensors. Some data could outright be replaced (names, etc) and swapped back on device. It couldn't do it with ALL the data (eg. calendar data needs to be accurate) but just because you need to give context doesn't mean sacrificing privacy. Everything would go through an Apple proxy before reaching a theoretical 3rd-party provider. These wouldn't provide privacy GUARANTEES but could make it reasonably difficult and expensive to fingerprint?"
+  }
+ },
+ {
+  "pair": 103,
+  "storyTitle": "If Claude Fable stops helping you, you'll never know",
+  "a": {
+   "id": 48469186,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Governments need to stop contracting these companies and instead invest in public, fully open source models. These companies are owned and operated by the darkest of dark triads our species has managed to evolve. I doubt Dario is self-aware enough to realize the hypocrisy in all of this safety theater. Personally I don't even mind that they are anticompetitive and power-hungry (same as it ever was), but it's the cringe-worthy hypocrisy that grinds my gears. This new brand of self-righteous paternal savior overlords is just unbearable."
+  },
+  "b": {
+   "id": 48469101,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Or, worse: - It says your safety hypothesis is true, you incorrectly ship, killing lots of people. - It proposes dangerous experiments."
+  }
+ },
+ {
+  "pair": 104,
+  "storyTitle": "Claude Fable 5",
+  "a": {
+   "id": 48465704,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Something I never thought I would utter: Here's hoping for china to surprise us."
+  },
+  "b": {
+   "id": 48465474,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 1,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "> it automatically falls back to Claude Opus 4.8 I wonder how much of the time people will just get Opus 4.8 at 2× the cost."
+  }
+ },
+ {
+  "pair": 105,
+  "storyTitle": "FCC wants to kill burner phones by forcing telecoms to get all customers' IDs",
+  "a": {
+   "id": 48465259,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "This is standard in my country. Seemingly as a consequence, eSIMs require physically going to a store to be activated (on the telco side), which has always seemed insane to me."
+  },
+  "b": {
+   "id": 48463282,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "That’s the legal requirement yes, I’ve never seen a shop insist on it. Most of them have autofill scripts for the KYC forms."
+  }
+ },
+ {
+  "pair": 106,
+  "storyTitle": "OpenCV 5 Is Here: The Biggest Leap in Years for Computer Vision",
+  "a": {
+   "id": 48469717,
+   "score": -4,
+   "features": {
+    "duel": 1,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "You can run OpenCV on a GPU-less Raspberry Pi or other IoT device just fine. And most IoT devices aren't doing video transcoding at all. You're making some very odd assertions in this thread."
+  },
+  "b": {
+   "id": 48463058,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "We don't really know that about human written text either."
+  }
+ },
+ {
+  "pair": 107,
+  "storyTitle": "Show HN: Resonate – Low-latency, high-resolution spectral analysis",
+  "a": {
+   "id": 48428107,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "And this is a tuner using same algorithm: https://apps.apple.com/us/app/resonance-chromatic-tuner/id16... Also very old stuff :)"
+  },
+  "b": {
+   "id": 48433226,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "It is more complex than the one described here. The idea is the same but for a working solution many different coefficients are needed and adjusted properly. Resonances are adjusted to have some match to the human perception. It is all time domain as there are no real frequencies in sound. It is good to see the idea investigated by more people but the man should not try to claim it as his own. We are doing such tings for years and I want this knowledge stays to people so no one should claim it"
+  }
+ },
+ {
+  "pair": 108,
+  "storyTitle": "Making Graphics Like it's 1993",
+  "a": {
+   "id": 48463040,
+   "score": 1.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 1.5,
+    "question": 0
+   },
+   "text": "I doubt it was intentional, but in general, I am not impressed by that and don't find any value in that. Same with Hollywood's depiction of women knocking out guys twice their size. Unrealistic, ridiculous, and harmful."
+  },
+  "b": {
+   "id": 48463185,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "That's beautiful. I hope it will run on a 486DX2 :D"
+  }
+ },
+ {
+  "pair": 109,
+  "storyTitle": "CEOs Who Think AI Replaces Their Employees Are Just Bad CEOs",
+  "a": {
+   "id": 48467776,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "A company need not be a single product, and working in a worker-owned cooperative need not be a lifetime commitment to a single firm (though cooperatives ideally will have less turnover than firms owned by capital separated from labor.)"
+  },
+  "b": {
+   "id": 48467402,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Which is very short sighted. You or anyone close to you might not be replaced but it should be clear that you don't want to live in a society with 20% unemployment."
+  }
+ },
+ {
+  "pair": 110,
+  "storyTitle": "CEOs Who Think AI Replaces Their Employees Are Just Bad CEOs",
+  "a": {
+   "id": 48468106,
+   "score": 7,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 2,
+    "primary": 1,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Consumption by the top 10% of earners: https://www.wsj.com/economy/consumers/us-economy-strength-ri... As for services increasingly unaffordable by the workers providing them, that's Baumol's cost disease ( https://en.wikipedia.org/wiki/Baumol_effect ) I don't have any sources regarding someone preferring humans for certain services over robots, just intuition there, and the fact that consuming human labor and time is itself a status signal of wealth, and the current growth of personal services. As for connecting the dots, look at Brazil, one of the world's most unequal economies having a small consuming elite and a much, much larger low-wage service underclass. The gulf states as well. Granted, their circumstances don't map cleanly to a post-automation Western economy, but it does demonstrate that a largely bifurcated consumption based economy can exist and can be mildly stable. Whether the US falls into that direction too will dependi"
+  },
+  "b": {
+   "id": 48467449,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 2,
+    "question": 0
+   },
+   "text": "You’re making the case for worker-owned cooperatives. Love it — we need more of them!"
+  }
+ },
+ {
+  "pair": 111,
+  "storyTitle": "AI misidentification results in wrongful arrest; man seeks justice",
+  "a": {
+   "id": 48469679,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "That's why we don't trust them alone or can demand tests from different sources. AI, however, gets sold as an ultimate cure. Just like anything computers touch, it is assumed infallible."
+  },
+  "b": {
+   "id": 48469336,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "It sounds like a plot for this movie: Mercy [0] [0] https://www.imdb.com/title/tt31050594/"
+  }
+ },
+ {
+  "pair": 112,
+  "storyTitle": "Making Graphics Like it's 1993",
+  "a": {
+   "id": 48460489,
+   "score": 6.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 1,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 1,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 1.5,
+    "question": 0
+   },
+   "text": "Unless you plan on rendering the level on some very retro hardware (think S3 Virge, maybe Voodoo 1) you can render the entire level in OpenGL with just zbuffer and alpha tested sprites and it'll run perfectly fine - if anything with such low polycount, chances are you're going to make the renderer slower by trying to do occlusion culling on any GPU released in the 21st century :-P. If you pack the geometry in a few vertex buffers (for each unique texture) even per-frame, you'll get four digit FPS in any relatively modern GPU. As an example this[0] video shows the benchmark from Post Apocalyptic Petra running on my previous GPU (RX 5700 XT) which all it does is build a per-frame (client-side) vertex-buffer in OpenGL 1.1 (the engine was made for actual retro PCs running DOS and Win9x so it does some rudimentary occlusion culling but that mainly affects 90s hardware, not anything released since 2000 or so). If anything, the rendering has s"
+  },
+  "b": {
+   "id": 48469064,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I'd be surprised if the compiler didn't make that optimisation on its own."
+  }
+ },
+ {
+  "pair": 113,
+  "storyTitle": "Apple decided not to roll out Siri in EU after denied request for exemption",
+  "a": {
+   "id": 48465941,
+   "score": 0.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 1
+   },
+   "text": "I have never seen this argument against (admittedly I'm not big into such debates) right to repair, did it came up somewhere?"
+  },
+  "b": {
+   "id": 48464830,
+   "score": 1.5,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 1.5,
+    "question": 0
+   },
+   "text": "All of that happens only if the user chooses to do it though. Anybody is free to stay in the caged Apple garden. The EU just wants them to leave the door unlocked."
+  }
+ },
+ {
+  "pair": 114,
+  "storyTitle": "FCC wants to kill burner phones by forcing telecoms to get all customers' IDs",
+  "a": {
+   "id": 48469199,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I was a teenager when Switzerland introduced the mandatory ID check, in 2003 or 2004 iirc. My carrier added 10 CHF credit to my prepaid plan for the trouble. It's still fairly easy to buy a Lycamobile SIM/number that was enabled with a fake or stolen ID. Consequently some banks and services ban entire number ranges, which is not only ineffective but also affects people who committed the sin of keeping their first phone number even after moving to a proper postpaid plan..."
+  },
+  "b": {
+   "id": 48466190,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Disjoint issues really. Phone scams mostly rely on the shoddy/lack of verification of caller id info as calls transit the network where it's not verified so they are unblockable (because they just use a different fake number every time). They're actually calling from one or a pool of numbers but you can't block and report them on the receiving end because the number your phone thinks it's blocking isn't theirs. This will do nothing to fix spam/scam without patching the issues with caller id."
+  }
+ },
+ {
+  "pair": 115,
+  "storyTitle": "Ultrafast machine learning on FPGAs via Kolmogorov-Arnold Networks",
+  "a": {
+   "id": 48467104,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "This guy will be hired by a high-frequency trading firm, and the next time we hear about him, he will have a net worth in 9 figures."
+  },
+  "b": {
+   "id": 48467220,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Hmm the post is still up for me?"
+  }
+ },
+ {
+  "pair": 116,
+  "storyTitle": "Claude Fable 5",
+  "a": {
+   "id": 48469527,
+   "score": 2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 1,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Or, they may Mythos seem mystically powerful in advance of the IPO, and are pumping the token use count. But it worked, there is a frenzy for this release in way that is more intense than any previous release. Anthropic is doing a better job with their model menu, most people I talk to know immediately that Opus > Sonnet > Haiku but cant tell you what the rank order of open ai models are, when to use them, etc."
+  },
+  "b": {
+   "id": 48465164,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I think the community on this site these days, much like other comment sections on the web, just read the headline and make a low effort comment. Regression to the mean I guess."
+  }
+ },
+ {
+  "pair": 117,
+  "storyTitle": "Upcoming breaking changes for NPM v12",
+  "a": {
+   "id": 48469565,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "I bet there have been a hundred different discussions about this inside of NPM since it was disclosed 10 years ago. With Shai Halud it's gotten too big to ignore."
+  },
+  "b": {
+   "id": 48469174,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "so this parameter can be passed by the attackers also thus making your point pointless"
+  }
+ },
+ {
+  "pair": 118,
+  "storyTitle": "FCC wants to kill burner phones by forcing telecoms to get all customers' IDs",
+  "a": {
+   "id": 48463827,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "The person using the network is the one who put a quarter in the payphone."
+  },
+  "b": {
+   "id": 48469589,
+   "score": 1,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 1,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Even in NYC you could get by pretty much just fine without a phone (a credit or debit card is pretty much required though). The hardest part would be losing contact since expectations of how people organize and meet up are completely mobile phone centric, and plans are almost expected to be modified in real time."
+  }
+ },
+ {
+  "pair": 119,
+  "storyTitle": "OpenCV 5 Is Here: The Biggest Leap in Years for Computer Vision",
+  "a": {
+   "id": 48468040,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "It's not just AI slop, it's a milestone AI post. gptzero.me rates it 91% AI, 9% mixed, and 0% human. (I've only pasted a portion of the text to fit in the 10000 character free limit.)"
+  },
+  "b": {
+   "id": 48463564,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "my code, my commit - ugh"
+  }
+ },
+ {
+  "pair": 120,
+  "storyTitle": "OpenCV 5 Is Here: The Biggest Leap in Years for Computer Vision",
+  "a": {
+   "id": 48462406,
+   "score": 0,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 0,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "The problem is that we don’t know if a human fact-checked it before release or if we’re the first humans reading it closely."
+  },
+  "b": {
+   "id": 48464451,
+   "score": -2,
+   "features": {
+    "duel": 0,
+    "dunk": 0,
+    "toxic": 0,
+    "didntRead": 0,
+    "lowEffort": 1,
+    "shouting": 0,
+    "wall": 0,
+    "links": 0,
+    "primary": 0,
+    "code": 0,
+    "firsthand": 0,
+    "specifics": 0,
+    "structured": 0,
+    "midLength": 0,
+    "discussion": 0,
+    "question": 0
+   },
+   "text": "Curious how do people usually use OpenCV with CCTV? (Use cases)"
+  }
+ }
+]

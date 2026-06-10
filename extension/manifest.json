@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Hot Thread Slow Rank for Hacker News",
+  "version": "0.1.0",
+  "description": "Surface the comment worth reading, hide the fight. Re-ranks HN comment threads by substance (sources, code, firsthand experience) instead of votes.",
+  "content_scripts": [
+    {
+      "matches": ["https://news.ycombinator.com/item*"],
+      "js": ["engine.js", "content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "host_permissions": ["https://hn.algolia.com/*"]
+}

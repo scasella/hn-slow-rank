@@ -1,0 +1,31 @@
+#srk-lane {
+  margin: 8px 10px 14px;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid #e4e4d8;
+  border-radius: 10px;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 9pt;
+  color: #1b1b17;
+}
+.srk-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 4px; }
+.srk-title { font-weight: bold; color: #3a7d44; }
+.srk-sub { font-weight: normal; color: #828282; font-size: 8pt; }
+.srk-hot { color: #c0392b; font-size: 8pt; font-weight: bold; }
+.srk-toggle { margin-left: auto; color: #828282; font-size: 8pt; cursor: pointer; user-select: none; }
+.srk-item { padding: 7px 4px; border-top: 1px dashed #e4e4d8; cursor: pointer; }
+.srk-item:hover { background: #f6f6ef; }
+.srk-score {
+  display: inline-block; font-weight: bold; color: #3a7d44; background: #eef5ef;
+  border: 1px solid #d6e7d8; border-radius: 7px; padding: 0 5px; margin-right: 6px; font-size: 8pt;
+}
+.srk-author { font-weight: bold; color: #444; margin-right: 6px; }
+.srk-badge {
+  font-size: 7.5pt; background: #fbf2e9; border: 1px solid #efd9c4; color: #b4612e;
+  border-radius: 8px; padding: 0 5px; margin-right: 4px; white-space: nowrap;
+}
+.srk-moved { font-size: 7.5pt; color: #9a9a8c; background: #f0f0e6; border-radius: 7px; padding: 0 5px; }
+.srk-snippet { color: #555; margin-top: 3px; line-height: 1.45; }
+tr.srk-dim { opacity: 0.35; }
+tr.srk-dim:hover { opacity: 1; }
+tr.srk-flash td { background: #fdf3d8 !important; transition: background 2s; }
