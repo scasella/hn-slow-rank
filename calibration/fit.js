@@ -90,21 +90,24 @@ lines.push(`|---|---|---|`)
 lines.push(`| train | ${(acc(handVec, train) * 100).toFixed(1)}% | ${(acc(learned, train) * 100).toFixed(1)}% |`)
 lines.push(`| held-out test | ${(acc(handVec, test) * 100).toFixed(1)}% | ${(acc(learned, test) * 100).toFixed(1)}% |`)
 lines.push('')
-lines.push('| feature | hand | fitted (scaled to hand range) | verdict |')
-lines.push('|---|---|---|---|')
+lines.push('| feature | hand | fitted (scaled to hand range) | pairs where it differs | verdict |')
+lines.push('|---|---|---|---|---|')
 F.forEach((k, i) => {
   const h = HAND[k], s = scaled[i]
+  const coverage = rows.filter((r) => r.x[i] !== 0).length
   let verdict = ''
-  if (Math.sign(h) !== Math.sign(s) && Math.abs(s) > 0.4) verdict = '**sign flip — hand weight likely wrong**'
+  if (coverage < 8) verdict = 'too rare in sample — no evidence either way'
+  else if (Math.sign(h) !== Math.sign(s) && Math.abs(s) > 0.4) verdict = '**sign flip — hand weight likely wrong**'
   else if (Math.abs(s) < 0.3 && Math.abs(h) >= 1.5) verdict = 'judge barely uses this — overweighted by hand'
   else if (Math.abs(s) > Math.abs(h) * 1.8) verdict = 'underweighted by hand'
   else verdict = 'roughly confirmed'
-  lines.push(`| ${k} | ${h} | ${s} | ${verdict} |`)
+  lines.push(`| ${k} | ${h} | ${s} | ${coverage}/${rows.length} | ${verdict} |`)
 })
 lines.push('')
 lines.push('## Caveats')
 lines.push('- The judge sees comment text only — thread-context features (duel, discussion) are judged indirectly, so their fitted weights are noisy.')
 lines.push('- Labels come from one LLM judge, not humans; treat as cheap bootstrap ground truth (spot-check before trusting).')
+lines.push('- Rare features (code, firsthand, dunk, toxic…) almost never differ within sampled pairs, so their fitted weights are ~0 by L2 default — **absence of evidence, not evidence of absence**. The hand weights stay the shipping default; next round should oversample pairs where rare features differ.')
 lines.push('- Apply with: `node rerank.js --weights calibration/weights.calibrated.json`')
 fs.writeFileSync('calibration/REPORT.md', lines.join('\n') + '\n')
 console.log(lines.join('\n'))
