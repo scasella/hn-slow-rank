@@ -1,6 +1,6 @@
-# Hot Thread Slow Rank
+# Slow Rank
 
-**Surface the comment worth reading, hide the fight.**
+**The comment worth reading, surfaced.**
 
 HN ranks comments by votes + recency, so the witty dunk wins and the person who
 *actually knows* — primary source, firsthand experience, code — is buried at
@@ -8,11 +8,14 @@ position #200. This tool re-ranks every front-page thread by **substance**,
 read-only over public APIs. No HN user does anything new; nothing is sent
 anywhere.
 
-**Live page (regenerated hourly):** https://scasella.github.io/hn-slow-rank/
+**Live page (regenerated hourly):** https://scasella.github.io/hn-slow-rank/ ·
+**RSS:** [feed.xml](https://scasella.github.io/hn-slow-rank/feed.xml)
 
+The page leads with **today's rescue** — the best comment votes buried — then
+the top rescues across every thread, then the full story-by-story digest.
 Real examples from live runs: a source+specifics comment surfaced from
-**position #246 by votes**; on a 1,319-comment hot thread, a source+code+firsthand
-comment surfaced from **#1231**.
+**position #246 by votes**; on a 1,300+-comment hot thread, a
+source+code+firsthand comment surfaced from **#1,265**.
 
 ## How it scores
 
