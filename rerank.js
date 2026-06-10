@@ -216,7 +216,18 @@ function pickRescues(stories) {
   all.sort((a, b) => rescueRank(b.c) - rescueRank(a.c))
   // hero must read well as a pull quote and be a real rescue
   const hero = all.find((r) => r.c.dfsIndex >= 8 && r.c.text.length >= 120) || all[0] || null
-  const rest = all.filter((r) => r !== hero && r.c.dfsIndex >= 5).slice(0, 9)
+  // cap rescues per source thread so the list shows range, not one hot thread
+  const perThread = new Map()
+  if (hero) perThread.set(hero.s.id, 1)
+  const rest = []
+  for (const r of all) {
+    if (r === hero || r.c.dfsIndex < 5) continue
+    const n = perThread.get(r.s.id) || 0
+    if (n >= 2) continue
+    perThread.set(r.s.id, n + 1)
+    rest.push(r)
+    if (rest.length === 9) break
+  }
   return { hero, rescues: rest }
 }
 
@@ -314,13 +325,13 @@ function renderPage(stories, stats, hero, rescues) {
 
   const css = `
   :root{--ivory:#FAF9F5;--paper:#FFFFFF;--slate:#141413;--g100:#F0EEE6;--g200:#E6E3DA;--g300:#D1CFC5;
-    --meta:#6E6D66;--body:#3D3D3A;--clay:#D97757;--clay-d:#B85C3E;
+    --meta:#6E6D66;--body:#3D3D3A;--clay:#D97757;--clay-d:#AF5536;--clay-dd:#9E4A2F;
     --serif:ui-serif,Georgia,"Times New Roman",Times,serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     --mono:ui-monospace,"SF Mono",Menlo,Monaco,Consolas,monospace}
   *{box-sizing:border-box}html{scroll-behavior:smooth}
   body{margin:0;background:var(--ivory);color:var(--slate);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
   a{color:var(--clay-d);text-decoration-color:currentColor;text-decoration-thickness:1px;text-underline-offset:3px}
-  a:hover{color:var(--clay)}
+  a:hover{color:var(--clay-dd)}
   a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--clay-d);outline-offset:2px;border-radius:4px}
   .wrap{max-width:840px;margin:0 auto;padding:0 22px}
   .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
@@ -338,14 +349,14 @@ function renderPage(stories, stats, hero, rescues) {
   .secsub{color:var(--meta);font-size:13.5px;margin:0 0 16px}
   .rescues{margin-top:48px}
   .heroitem{background:var(--paper);border:1.5px solid var(--g300);border-radius:14px;padding:30px 34px;margin-bottom:18px}
-  .bigstat{font-family:var(--serif);font-size:clamp(24px,4vw,38px);line-height:1.15;letter-spacing:-.015em;margin:0 0 18px;color:var(--meta)}
+  .bigstat{font-family:var(--serif);font-size:clamp(24px,4vw,38px);line-height:1.15;letter-spacing:-.015em;margin:0 0 18px;color:var(--slate)}
   .bigstat b{color:var(--clay-d);font-weight:500}
   .pull{font-family:var(--serif);font-weight:500;font-size:clamp(19px,2.6vw,24px);line-height:1.4;letter-spacing:-.008em;margin:0;color:var(--slate)}
   .hmeta{margin:16px 0 0;font-size:13.5px;color:var(--meta)}
   .hmeta b{color:var(--body)}
   .heroactions{margin-top:18px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
   .share{font-family:var(--sans);font-size:14px;font-weight:600;color:#fff;background:var(--clay-d);border:none;border-radius:10px;padding:11px 20px;cursor:pointer;min-height:44px}
-  .share:hover{background:var(--clay)}
+  .share:hover{background:var(--clay-dd)}
   .ghost{display:inline-flex;align-items:center;font-family:var(--mono);font-size:12.5px;color:var(--meta);background:none;border:1.5px solid var(--g300);border-radius:10px;padding:10px 16px;cursor:pointer;text-decoration:none;min-height:44px}
   .ghost:hover{border-color:var(--clay-d);color:var(--clay-d)}
   .rlist{list-style:none;counter-reset:r 1;margin:0;padding:0;border:1.5px solid var(--g300);border-radius:12px;background:var(--paper);overflow:hidden}
@@ -376,12 +387,14 @@ function renderPage(stories, stats, hero, rescues) {
   .permalink{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--meta);padding:6px 8px;margin-top:-6px;margin-bottom:-6px}
   .ctext{font-size:15px;color:var(--body);overflow-wrap:break-word}.ctext p{margin:.5em 0}
   .ctext pre{background:var(--g100);padding:8px 10px;border-radius:8px;overflow:auto;font-size:13px;font-family:var(--mono)}
-  details.ctext summary{cursor:pointer;padding:4px 0}details.ctext .full{margin-top:6px}
+  details.ctext summary{cursor:pointer;padding:10px 0;min-height:24px}details.ctext .full{margin-top:6px}
   details.more{margin-top:8px}
-  details.more summary{cursor:pointer;font-family:var(--mono);font-size:12.5px;color:var(--meta);padding:10px 0;min-height:24px}
+  details.more summary{cursor:pointer;font-family:var(--mono);font-size:12.5px;color:var(--meta);padding:14px 0;min-height:16px}
   details.more summary:hover{color:var(--clay-d)}
+  details.wide{margin:8px 0}
+  details.wide > summary{cursor:pointer;font-family:var(--mono);font-size:12.5px;color:var(--body);background:var(--g100);border-radius:8px;padding:12px 14px}
   .fold{margin-top:10px}
-  .fold summary{cursor:pointer;font-family:var(--mono);font-size:12.5px;color:var(--meta);background:var(--g100);border:1.5px solid var(--g200);border-radius:8px;padding:10px 14px;display:inline-block}
+  .fold summary{cursor:pointer;font-family:var(--mono);font-size:12.5px;color:var(--body);background:var(--g100);border:1.5px solid var(--g200);border-radius:8px;padding:12px 14px;display:inline-block}
   .foldnote{font-size:13px;color:var(--meta);padding:8px 4px 2px}
   .ordinary{font-size:12.5px;color:var(--meta);margin:8px 0 0}
   details.morestories{margin-top:4px}
@@ -420,10 +433,11 @@ function renderPage(stories, stats, hero, rescues) {
   <main class="wrap">
   <header class="mast">
     <h1 class="brand"><span class="tri" aria-hidden="true">▲</span> Slow Rank<span class="bsub">for Hacker News</span></h1>
-    <p class="deck">Hacker News ranks comments by upvotes. We re-rank them by who actually knows what they're talking about.</p>
+    <p class="deck">Hacker News ranks comments by upvotes. Every hour we re-rank every thread by who actually knows what they're talking about &mdash; here's today's handful worth your time.</p>
     <p class="mnav">
       <span>${fmt(stats.comments)} comments read this hour</span>
       <span class="fresh" id="fresh" data-t="${now.toISOString()}">updates hourly</span>
+      <a href="feed.xml">subscribe (RSS)</a>
       <a href="${REPO}#how-it-scores">how scoring works</a>
       <a href="${REPO}">source</a>
     </p>
@@ -432,6 +446,7 @@ function renderPage(stories, stats, hero, rescues) {
   <section class="rescues" aria-labelledby="rescues-h">
     <div class="eyebrow">Today's rescues · ${dateStr}</div>
     <h2 id="rescues-h" class="vh">Today's rescues</h2>
+    <p class="secsub">The most buried-but-worth-it comments on today's front page, best first &mdash; flagged when they bring sources, code, or firsthand experience.</p>
     ${renderHeroItem(hero)}
     ${rescues.length ? `<ol class="rlist">${rescues.map(renderRescueItem).join('')}</ol>` : ''}
   </section>
@@ -458,15 +473,42 @@ function renderPage(stories, stats, hero, rescues) {
       el.textContent = (m < 1 ? 'updated just now' : m < 120 ? 'updated ' + m + ' min ago' : 'updated ' + Math.round(m / 60) + ' h ago')
     }
     var live = document.getElementById('announce')
+    function flash(b, msg, announce) {
+      var t = b.textContent; b.textContent = msg
+      if (live) live.textContent = announce
+      setTimeout(function(){ b.textContent = t; if (live) live.textContent = '' }, 2000)
+    }
     document.querySelectorAll('[data-share]').forEach(function(b){
       b.addEventListener('click', function(){
-        navigator.clipboard.writeText(b.dataset.share).then(function(){
-          var t = b.textContent; b.textContent = 'Copied — paste anywhere'
-          if (live) live.textContent = 'Share text copied to clipboard'
-          setTimeout(function(){ b.textContent = t; if (live) live.textContent = '' }, 2000)
-        })
+        var text = b.dataset.share
+        if (navigator.share) {
+          navigator.share({ text: text }).catch(function(){ /* user cancelled */ })
+          return
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(function(){
+            flash(b, 'Copied — paste anywhere', 'Share text copied to clipboard')
+          }, function(){
+            flash(b, "Couldn't copy — select it in the thread", 'Copy failed')
+          })
+        } else {
+          flash(b, "Couldn't copy — select it in the thread", 'Copy not supported')
+        }
       })
     })
+    // wide code/ASCII tables become tap-to-expand on small screens (the
+    // sideways-scroll-inside-vertical-scroll trap)
+    if (window.innerWidth <= 680) {
+      document.querySelectorAll('.ctext pre').forEach(function(pre){
+        if (pre.scrollWidth > pre.clientWidth + 12) {
+          var d = document.createElement('details')
+          d.className = 'wide'
+          d.innerHTML = '<summary>show code / table (scrolls sideways)</summary>'
+          pre.parentNode.insertBefore(d, pre)
+          d.appendChild(pre)
+        }
+      })
+    }
   })()
   </script>
   </body></html>`
@@ -512,6 +554,40 @@ function renderOgSvg(hero, stats) {
   <text x="90" y="${300 + lines.length * 50 + 30}" font-family="Menlo, monospace" font-size="22" fill="#6E6D66">${escapeXml(attrib)}</text>
   <text x="90" y="575" font-family="Menlo, monospace" font-size="18" fill="#6E6D66">${escapeXml(`${fmt(stats.comments || 0)} comments read this hour · scasella.github.io/hn-slow-rank`)}</text>
   </svg>`
+}
+
+// ---------------------------------------------------------------------------
+// Atom feed — the retention hook for a static site. One entry per rescue,
+// id = the HN comment, so readers dedupe across hourly regenerations and
+// only see genuinely new rescues.
+// ---------------------------------------------------------------------------
+function renderFeed(hero, rescues, now) {
+  const items = [hero, ...rescues].filter(Boolean)
+  const entry = ({ c, s }, isHero) => {
+    const from = c.dfsIndex + 1
+    const title = (isHero && from >= 8)
+      ? `Buried at #${fmt(from)}. Should've been #1: ${excerpt(c.text, 70)}`
+      : `was #${fmt(from)} — ${excerpt(c.text, 80)}`
+    return `<entry>
+  <id>https://news.ycombinator.com/item?id=${c.id}</id>
+  <title>${escapeXml(title)}</title>
+  <link href="https://news.ycombinator.com/item?id=${c.id}"/>
+  <updated>${new Date(c.created * 1000 || now).toISOString()}</updated>
+  <author><name>${escapeXml(c.author)}</name></author>
+  <summary>${escapeXml(excerpt(c.text, 400) + ` — ${c.author}, on "${s.title}" (votes had it at #${fmt(from)})`)}</summary>
+</entry>`
+  }
+  return `<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<title>Slow Rank — today's rescues</title>
+<subtitle>The Hacker News comments worth reading, surfaced from where votes buried them. Hourly.</subtitle>
+<link href="${SITE}"/>
+<link rel="self" href="${SITE}feed.xml"/>
+<id>${SITE}</id>
+<updated>${now.toISOString()}</updated>
+${items.map((r, i) => entry(r, i === 0)).join('\n')}
+</feed>
+`
 }
 
 // ---------------------------------------------------------------------------
@@ -562,6 +638,7 @@ function renderOgSvg(hero, stats) {
   fs.mkdirSync(outDir, { recursive: true })
   fs.writeFileSync(OUT, renderPage(stories, stats, hero, rescues))
   fs.writeFileSync(path.join(outDir, 'og.svg'), renderOgSvg(hero, stats))
+  fs.writeFileSync(path.join(outDir, 'feed.xml'), renderFeed(hero, rescues, new Date()))
 
   if (JSON_DUMP) {
     const dump = []
