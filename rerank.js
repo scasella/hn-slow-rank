@@ -324,6 +324,7 @@ function renderPage(stories, stats) {
   }
 
   const fs = require('fs')
+  fs.mkdirSync(require('path').dirname(require('path').resolve(OUT)), { recursive: true })
   fs.writeFileSync(OUT, renderPage(stories, stats))
 
   if (JSON_DUMP) {

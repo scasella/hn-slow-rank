@@ -1,0 +1,276 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>HN Front Page, Reranked — 2026-06-10</title>
+  <style>
+  :root{--bg:#f6f6ef;--card:#fff;--ink:#1b1b17;--dim:#6b6b60;--line:#e4e4d8;--accent:#b4612e;--hot:#c0392b;--good:#3a7d44;--mono:ui-monospace,SFMono-Regular,Menlo,monospace}
+  *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+  a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+  header{position:sticky;top:0;z-index:5;background:rgba(246,246,239,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:18px 22px}
+  .wrap{max-width:860px;margin:0 auto;padding:0 18px}
+  h1{font-size:20px;margin:0;letter-spacing:-.01em}.tag{color:var(--dim);font-size:13px;margin-top:3px}
+  .stats{font-family:var(--mono);font-size:12px;color:var(--dim);margin-top:8px;display:flex;gap:14px;flex-wrap:wrap}
+  .stats b{color:var(--ink)}
+  .legend{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
+  .legend span{background:#efeee3;border:1px solid var(--line);border-radius:10px;padding:1px 7px}
+  main{padding:26px 0 80px}
+  .story{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 18px;box-shadow:0 1px 0 rgba(0,0,0,.02)}
+  .shead{display:flex;gap:12px;align-items:flex-start;padding-bottom:10px;border-bottom:1px solid var(--line)}
+  .srank{font-family:var(--mono);font-size:13px;color:var(--dim);min-width:22px;text-align:right;padding-top:2px}
+  .stitle a{font-size:17px;font-weight:600;letter-spacing:-.01em}
+  .domain{color:var(--dim);font-size:12px;margin-left:7px}
+  .smeta{font-family:var(--mono);font-size:11.5px;color:var(--dim);margin-top:4px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .hnlink{font-size:11.5px}
+  .hot{color:var(--hot);font-weight:600}
+  .prior{font-family:var(--mono);font-size:11px;color:#8a6d3b;background:#faf6ea;border:1px solid #eee3c3;border-radius:8px;padding:4px 8px;margin-top:7px;line-height:1.7}
+  .prior a{font-size:11px;white-space:nowrap}.psep{margin:0 6px;color:#c9bd99}
+  .lane{margin-top:12px}.lanelabel{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--good);margin-bottom:8px}
+  .comment{display:flex;gap:12px;padding:11px 0;border-top:1px dashed var(--line)}
+  .comment:first-of-type{border-top:none}
+  .crail{min-width:34px;text-align:center}
+  .score{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--good);background:#eef5ef;border:1px solid #d6e7d8;border-radius:8px;padding:2px 6px}
+  .cbody{flex:1;min-width:0}
+  .cmeta{font-size:12.5px;color:var(--dim);margin-bottom:5px;display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+  .author{font-weight:600;color:#444}
+  .badge{font-family:var(--mono);font-size:10.5px;background:#fbf2e9;border:1px solid #efd9c4;color:var(--accent);border-radius:10px;padding:1px 7px;white-space:nowrap}
+  .moved{font-family:var(--mono);font-size:10px;color:#9a9a8c;background:#f0f0e6;border-radius:8px;padding:1px 6px}
+  .permalink{margin-left:auto;color:var(--dim);font-size:13px}
+  .ctext{font-size:14.5px;color:#23231d;overflow-wrap:break-word}.ctext p{margin:.5em 0}.ctext pre{background:#f3f3ea;padding:8px 10px;border-radius:8px;overflow:auto;font-size:12.5px}
+  details.ctext summary{cursor:pointer;color:#23231d}details.ctext .full{margin-top:6px}
+  .why{font-size:12px;color:var(--good);margin-top:6px;font-style:italic}
+  .fold{margin-top:12px}.fold summary{cursor:pointer;font-family:var(--mono);font-size:12px;color:var(--dim);background:#f0f0e6;border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+  .foldnote{font-size:12.5px;color:var(--dim);padding:9px 4px 2px}
+  .ordinary{font-size:12px;color:var(--dim);margin-top:8px;padding-left:2px}
+  footer{max-width:860px;margin:0 auto;padding:30px 18px;color:var(--dim);font-size:12px;font-family:var(--mono);border-top:1px solid var(--line)}
+  </style></head><body>
+  <header><div class="wrap" style="padding:0">
+    <h1>Hacker News, reranked by substance</h1>
+    <div class="tag">Surface the comment worth reading, hide the fight. — front page of June 10, 2026 at 12:53 AM UTC</div>
+    <div class="stats">
+      <span><b>5</b> stories</span>
+      <span><b>1,697</b> comments analyzed</span>
+      <span><b>15</b> surfaced</span>
+      <span><b>348</b> hidden as low-signal</span>
+      <span><b>1</b> hot threads</span>
+      <span><b>0</b> stories seen before</span>
+    </div>
+    <div class="legend">
+      <span>🔗 source</span><span>⟨/⟩ code</span><span>✋ firsthand</span><span>📊 specifics</span><span>💬 discussion</span><span>🥊 duel → folded</span><span>📜 prior art</span>
+    </div>
+  </div></header>
+  <main class="wrap"><section class="story">
+    <div class="shead">
+      <span class="srank">1</span>
+      <div class="stitle">
+        <a target="_blank" rel="noopener" href="https://www.anthropic.com/news/claude-fable-5-mythos-5">Claude Fable 5</a>
+        <span class="domain">anthropic.com</span>
+        <div class="smeta">1719 pts · 1319 comments · 7h <span class="hot">🔥 hot thread · combat down-weighted</span>
+          <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48463808">discuss on HN ↗</a></div>
+        
+      </div>
+    </div>
+    <div class="lane"><div class="lanelabel">▲ Worth reading</div><div class="comment">
+    <div class="crail"><span class="score">16</span></div>
+    <div class="cbody">
+      <div class="cmeta"><span class="author">simonw</span> <span class="badge">🔗&nbsp;source</span><span class="badge">⟨/⟩&nbsp;code</span><span class="badge">✋&nbsp;firsthand</span><span class="badge">📊&nbsp;specifics</span><span class="badge">💬&nbsp;sparked discussion</span> <span class="moved">was&nbsp;#1231&nbsp;by&nbsp;votes&nbsp;→&nbsp;surfaced</span>
+        <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48467564">↗</a></div>
+      <details class="ctext"><summary>I've spent enough time with this now in Claude Code (and Claude.ai and Claude Code for web) to have an opinion on Fable 5: it's a beast. I'm throwing some VERY difficult problems at at - things I've been dragging my heel…</summary><div class="full">I&#x27;ve spent enough time with this now in Claude Code (and Claude.ai and Claude Code for web) to have an opinion on Fable 5: it&#x27;s a beast. I&#x27;m throwing some VERY difficult problems at at - things I&#x27;ve been dragging my heels on for months - and it&#x27;s crunching through them very happily.<p>One that I&#x27;m willing to share (albeit from just a week ago) - I built a Python library last week that bundles MicroPython compiled to WASM to create a sandboxed code execution library: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;simonw&#x2F;micropython-wasm" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;simonw&#x2F;micropython-wasm</a><p>I just told Claude.ai (not even Claude Code - this was the standard Claude chat interface) running Fable 5:<p><pre><code>  Clone simonw&#x2F;micropython-wasm from GitHub
+  and research how this could use a full
+  Python as opposed to MicroPython
+</code></pre>
+A few prompts later (and I uploaded the zip files from <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;brettcannon&#x2F;cpython-wasi-build&#x2F;releases&#x2F;tag&#x2F;v3.14.5" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;brettcannon&#x2F;cpython-wasi-build&#x2F;releases&#x2F;t...</a> because Claude chat can&#x27;t access those files itself) and I have a wheel file that bundles Python itself, compiled to WASM:<p><pre><code>  uv run --with https:&#x2F;&#x2F;static.simonwillison.net&#x2F;static&#x2F;cors-allow&#x2F;2026&#x2F;cpython_wasm-0.1.0-py3-none-any.whl \
+    cpython-wasm -c &#x27;print(45 ** 56)&#x27;
+</code></pre>
+Here&#x27;s the transcript: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;claude.ai&#x2F;share&#x2F;a73b8b8b-8ebc-4fef-9e5c-7438e5e7ae35" rel="nofollow">https:&#x2F;&#x2F;claude.ai&#x2F;share&#x2F;a73b8b8b-8ebc-4fef-9e5c-7438e5e7ae35</a><p>(It&#x27;s possible Opus or GPT-5.5 could have done this too, I&#x27;ve not tried the exact same sequence. The Fable vibes are good here, though.)</div></details>
+      <div class="why">cites a primary source (github.com, github.com) · includes code / a command · firsthand / disclosed experience</div>
+    </div>
+  </div><div class="comment">
+    <div class="crail"><span class="score">11</span></div>
+    <div class="cbody">
+      <div class="cmeta"><span class="author">simonw</span> <span class="badge">🔗&nbsp;source</span><span class="badge">📊&nbsp;specifics</span><span class="badge">💬&nbsp;sparked discussion</span> <span class="moved">was&nbsp;#449&nbsp;by&nbsp;votes&nbsp;→&nbsp;surfaced</span>
+        <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48464054">↗</a></div>
+      <div class="ctext">Pelican for Fable 5 on default settings is a clear improvement on Opus 4.8<p>Fable 5 default: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;gist.github.com&#x2F;simonw&#x2F;036bee5a703e7ec84e34efa97443828d" rel="nofollow">https:&#x2F;&#x2F;gist.github.com&#x2F;simonw&#x2F;036bee5a703e7ec84e34efa974438...</a><p>Opus 4.8 (the &quot;max&quot; one is closest to Fable): <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;simonwillison.net&#x2F;2026&#x2F;May&#x2F;28&#x2F;claude-opus-4-8&#x2F;#and-some-pelicans" rel="nofollow">https:&#x2F;&#x2F;simonwillison.net&#x2F;2026&#x2F;May&#x2F;28&#x2F;claude-opus-4-8&#x2F;#and-s...</a><p>Now here are the Fable pelicans for all five of the thinking effort levels - low, medium, high, xhigh, max: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;tools.simonwillison.net&#x2F;markdown-svg-renderer#url=https%3A%2F%2Fgist.github.com%2Fsimonw%2F94fde31c34a0400c1d29f57e6a708e6b" rel="nofollow">https:&#x2F;&#x2F;tools.simonwillison.net&#x2F;markdown-svg-renderer#url=ht...</a><p>Low used 25 input, 1,929 output - 9.67 cents: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.llm-prices.com&#x2F;#it=25&amp;ot=1929&amp;sel=claude-fable-5" rel="nofollow">https:&#x2F;&#x2F;www.llm-prices.com&#x2F;#it=25&amp;ot=1929&amp;sel=claude-fable-5</a><p>Max used 25 input, 14,430 output - 72.175 cents! <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.llm-prices.com&#x2F;#it=25&amp;ot=14430&amp;sel=claude-fable-5" rel="nofollow">https:&#x2F;&#x2F;www.llm-prices.com&#x2F;#it=25&amp;ot=14430&amp;sel=claude-fable-...</a></div>
+      <div class="why">cites a primary source (gist.github.com, simonwillison.net) · quantified / specific · structured, substantive length</div>
+    </div>
+  </div><div class="comment">
+    <div class="crail"><span class="score">9.5</span></div>
+    <div class="cbody">
+      <div class="cmeta"><span class="author">jumploops</span> <span class="badge">🔗&nbsp;source</span><span class="badge">📊&nbsp;specifics</span><span class="badge">💬&nbsp;sparked discussion</span> <span class="moved">was&nbsp;#1177&nbsp;by&nbsp;votes&nbsp;→&nbsp;surfaced</span>
+        <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48466340">↗</a></div>
+      <details class="ctext"><summary>It's interesting that we're seeing these gains when it seems Mythos/Fable is &quot;just&quot; a scaled up version of their existing architecture[0]. When GPT 4.5 launched, the gains compared to the model size didn't seem that grea…</summary><div class="full">It&#x27;s interesting that we&#x27;re seeing these gains when it seems Mythos&#x2F;Fable is &quot;just&quot; a scaled up version of their existing architecture[0].<p>When GPT 4.5 launched, the gains compared to the model size didn&#x27;t seem that great, leading some to believe that the only progress we&#x27;d see would come from RL.<p>This model certainly has quite a &quot;substantial amount of post-training and fine-tuning&quot;, but it&#x27;s also based on a new pretrain[1][3], which given the cost, indicate that it is in fact quite a bit larger than Opus 4.X.<p>[0] One of the early testers mentioned: &quot;As far as I can tell from talking to people internally at Anthropic, there&#x27;s nothing special about architecturally&quot;[2]<p>[1] Section 1.1 in <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www-cdn.anthropic.com&#x2F;d00db56fa754a1b115b6dd7cb2e3c342ee809620.pdf" rel="nofollow">https:&#x2F;&#x2F;www-cdn.anthropic.com&#x2F;d00db56fa754a1b115b6dd7cb2e3c3...</a><p>[2] <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;youtu.be&#x2F;GrdEid8H6H4?t=168" rel="nofollow">https:&#x2F;&#x2F;youtu.be&#x2F;GrdEid8H6H4?t=168</a><p>[3] There were rumors going around when Mythos was first announced that it was the first 10T parameter model, but I can&#x27;t find a verifiable source for that number.</div></details>
+      <div class="why">links out (www-cdn.anthropic.com, youtu.be) · quantified / specific · structured, substantive length</div>
+    </div>
+  </div></div>
+    <details class="fold"><summary>🥊 264 hidden as low-signal · 39 in duels</summary>
+         <div class="foldnote">Hidden: flame-war back-and-forths, dunks, name-calling, and low-content one-liners. Expand if you want the fight.</div></details><div class="ordinary">+ 1052 more on-topic comments (fine, just not top-ranked — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48463808">all on HN ↗</a>)</div>
+  </section><section class="story">
+    <div class="shead">
+      <span class="srank">2</span>
+      <div class="stitle">
+        <a target="_blank" rel="noopener" href="https://github.blog/changelog/2026-06-09-upcoming-breaking-changes-for-npm-v12/">Upcoming breaking changes for npm v12</a>
+        <span class="domain">github.blog</span>
+        <div class="smeta">173 pts · 51 comments · 3h 
+          <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48467705">discuss on HN ↗</a></div>
+        
+      </div>
+    </div>
+    <div class="lane"><div class="lanelabel">▲ Worth reading</div><div class="comment">
+    <div class="crail"><span class="score">5</span></div>
+    <div class="cbody">
+      <div class="cmeta"><span class="author">spartanatreyu</span> <span class="badge">⟨/⟩&nbsp;code</span> <span class="moved">was&nbsp;#22&nbsp;by&nbsp;votes&nbsp;→&nbsp;surfaced</span>
+        <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48469286">↗</a></div>
+      <details class="ctext"><summary>We already have alternative and superior proposals, it's called Deno. It's node + npm compatible and its permission system locks everything down by default. If you know ahead of time, you can turn on which permissions so…</summary><div class="full">We already have alternative and superior proposals, it&#x27;s called Deno.<p>It&#x27;s node + npm compatible and its permission system locks everything down by default.<p>If you know ahead of time, you can turn on which permissions something is supposed to have in the config file.<p>Or you can just not use a config file at all. Anytime it needs a permission: it asks you what it wants. You can say yes or no, and those are saved in the config file for next time. If you say no, the script throws an error where it tried to access something it didn&#x27;t have permission for.<p>---<p>Example:<p>- My linter wants access to my file system?<p><pre><code>  - You can have read access to .&#x2F;src&#x2F;ts&#x2F;
+</code></pre>
+- My bundler wants read and write access to my file system?<p><pre><code>  - You can have read access to .&#x2F;src&#x2F;ts and write access to .&#x2F;build-output
+
+  - Huh, what&#x27;s that? The bundler was trying to both read and write a file in .&#x2F;src&#x2F;ts?
+
+  - We don&#x27;t want input files getting overwritten, that&#x27;s a recipe for hard-to-diagnose race conditions. Looks like the permission system did more than just keep things secure, it&#x27;s like a type system for IO.
+
+  - Oh, look at that, there was a very subtle bundler misconfig, let me fix that now. How long would that have existed if we didn&#x27;t use deno...
+</code></pre>
+- Oh what&#x27;s this? An updated dependency I&#x27;ve been using for 6 months suddenly asking for access to my .env file, and asking to run curl in a separate process? How about &quot;no&quot;. Why would a simple DOM utility dependency be asking for those permissions? Ah, looks like it was part of a credential stealing supply chain attack. Glad I wasn&#x27;t using node.<p>---<p>Addendum: Node now has a permission system, but it&#x27;s broken by design so it&#x27;s useless.</div></details>
+      <div class="why">includes code / a command · structured, substantive length</div>
+    </div>
+  </div><div class="comment">
+    <div class="crail"><span class="score">5</span></div>
+    <div class="cbody">
+      <div class="cmeta"><span class="author">TZubiri</span> <span class="badge">🔗&nbsp;source</span> <span class="moved">was&nbsp;#25&nbsp;by&nbsp;votes&nbsp;→&nbsp;surfaced</span>
+        <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48469557">↗</a></div>
+      <div class="ctext">Build deps are even disregarded as less critical than runtime deps traditionally. So deps like sphynx for building docs are still a dev side supply chain vector.<p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;kennethreitz&#x2F;pytheory&#x2F;issues&#x2F;47" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;kennethreitz&#x2F;pytheory&#x2F;issues&#x2F;47</a><p>The reason this may be overlooked is because build deps are only ran by the devs, but not the users, so users dismiss it as safe. However, if a build dep is infected, the infection may spread to the actual package code, which will then of course be run by the user.<p>Not theoretical, Microsoft is currently under attack by a worm that spreads through vs code extensions, which then spread to actual packages that users run.</div>
+      <div class="why">cites a primary source (github.com) · structured, substantive length</div>
+    </div>
+  </div><div class="comment">
+    <div class="crail"><span class="score">4</span></div>
+    <div class="cbody">
+      <div class="cmeta"><span class="author">shagie</span> <span class="badge">🔗&nbsp;source</span> <span class="moved">was&nbsp;#4&nbsp;by&nbsp;votes&nbsp;→&nbsp;surfaced</span>
+        <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48468559">↗</a></div>
+      <div class="ctext">NPM Is Joining GitHub - <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=22594549">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=22594549</a> (March 16, 2020; 571 comments; 1829 points) - <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.blog&#x2F;news-insights&#x2F;company-news&#x2F;npm-is-joining-github&#x2F;" rel="nofollow">https:&#x2F;&#x2F;github.blog&#x2F;news-insights&#x2F;company-news&#x2F;npm-is-joinin...</a><p>Some of it aged... interesting.<p>Top comment:<p>&gt; Microsoft doesn’t do everything right but the GitHub acquisition has honestly gone better than I ever expected. Rather than forcing GitHub to adopt Microsoft centric policies, Microsoft has adopted more GitHub stuff, especially from a product POV. GitHub still runs as a separate company (different logins and health care and hiring systems) with its own policies and point of view.<p>&gt; ...</div>
+      <div class="why">links out (github.blog) · structured, substantive length</div>
+    </div>
+  </div></div>
+    <details class="fold"><summary>🥊 8 hidden as low-signal</summary>
+         <div class="foldnote">Hidden: flame-war back-and-forths, dunks, name-calling, and low-content one-liners. Expand if you want the fight.</div></details><div class="ordinary">+ 40 more on-topic comments (fine, just not top-ranked — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48467705">all on HN ↗</a>)</div>
+  </section><section class="story">
+    <div class="shead">
+      <span class="srank">3</span>
+      <div class="stitle">
+        <a target="_blank" rel="noopener" href="https://aarushgupta.io/posts/kan-fpga/">Ultrafast machine learning on FPGAs via Kolmogorov-Arnold Networks</a>
+        <span class="domain">aarushgupta.io</span>
+        <div class="smeta">148 pts · 19 comments · 5h 
+          <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48466277">discuss on HN ↗</a></div>
+        
+      </div>
+    </div>
+    <div class="lane"><div class="lanelabel">▲ Worth reading</div><div class="comment">
+    <div class="crail"><span class="score">6</span></div>
+    <div class="cbody">
+      <div class="cmeta"><span class="author">ag2718</span> <span class="badge">🔗&nbsp;source</span> 
+        <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48467206">↗</a></div>
+      <div class="ctext">Yes, this work is focused on accelerating very small models, typically for real-time systems that require extremely low power or low latency.<p>One primary application of this work is in high-energy physics (<a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;home.cern&#x2F;smarter-decisions-at-the-speed-of-collisions&#x2F;" rel="nofollow">https:&#x2F;&#x2F;home.cern&#x2F;smarter-decisions-at-the-speed-of-collisio...</a>). Ultrafast and real-time learning is also very applicable for problems in quantum computing, plasma control, etc. (<a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2602.02005" rel="nofollow">https:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;2602.02005</a>).</div>
+      <div class="why">cites a primary source (home.cern, arxiv.org)</div>
+    </div>
+  </div><div class="comment">
+    <div class="crail"><span class="score">3</span></div>
+    <div class="cbody">
+      <div class="cmeta"><span class="author">Cadwhisker</span> <span class="badge">🔗&nbsp;source</span> <span class="moved">was&nbsp;#19&nbsp;by&nbsp;votes&nbsp;→&nbsp;surfaced</span>
+        <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48469770">↗</a></div>
+      <div class="ctext">If you want to experiment with KANs yourself in a non-FPGA environment, there&#x27;s a GitHub repo here: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;KindXiaoming&#x2F;pykan" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;KindXiaoming&#x2F;pykan</a><p>HN comments page on that is here: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=40219205">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=40219205</a></div>
+      <div class="why">cites a primary source (github.com)</div>
+    </div>
+  </div><div class="comment">
+    <div class="crail"><span class="score">2</span></div>
+    <div class="cbody">
+      <div class="cmeta"><span class="author">RantyDave</span> <span class="badge">💬&nbsp;sparked discussion</span> 
+        <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48466966">↗</a></div>
+      <div class="ctext">Right. But ... this would limit you to either extremely small models or extremely large FPGA&#x27;s, yes? If there&#x27;s a <i>simple</i> machine learning task that requires a sub microsecond latency I can see the point but otherwise??</div>
+      <div class="why">3 distinct people engaged</div>
+    </div>
+  </div></div>
+    <details class="fold"><summary>🥊 8 hidden as low-signal</summary>
+         <div class="foldnote">Hidden: flame-war back-and-forths, dunks, name-calling, and low-content one-liners. Expand if you want the fight.</div></details><div class="ordinary">+ 8 more on-topic comments (fine, just not top-ranked — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48466277">all on HN ↗</a>)</div>
+  </section><section class="story">
+    <div class="shead">
+      <span class="srank">4</span>
+      <div class="stitle">
+        <a target="_blank" rel="noopener" href="https://staniks.github.io/articles/catlantean-3d-blog-1/">Making Graphics Like it's 1993</a>
+        <span class="domain">staniks.github.io</span>
+        <div class="smeta">755 pts · 128 comments · 14h 
+          <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48459294">discuss on HN ↗</a></div>
+        
+      </div>
+    </div>
+    <div class="lane"><div class="lanelabel">▲ Worth reading</div><div class="comment">
+    <div class="crail"><span class="score">9</span></div>
+    <div class="cbody">
+      <div class="cmeta"><span class="author">badsectoracula</span> <span class="badge">🔗&nbsp;source</span><span class="badge">✋&nbsp;firsthand</span> <span class="moved">was&nbsp;#50&nbsp;by&nbsp;votes&nbsp;→&nbsp;surfaced</span>
+        <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48460259">↗</a></div>
+      <details class="ctext"><summary>Nice, i've used similar approach for the lighting in Post Apocalyptic Petra[0] though i did use per-pixel LUT offset calculation[1] because it uses a generic 3D triangle rasterizer (the levels are based on grids like in …</summary><div class="full">Nice, i&#x27;ve used similar approach for the lighting in Post Apocalyptic Petra[0] though i did use per-pixel LUT offset calculation[1] because it uses a generic 3D triangle rasterizer (the levels are based on grids like in Tomb Raider  but they&#x27;re rendered as triangles). Later i added sprite support for another gamejam but i never ended up finishing it and the sprite support is very rudimentary (and unoptimized - i just noticed i&#x27;m doing the LUT lookup for every pixel when drawing shaded sprites which isn&#x27;t necessary).<p>I did write a tool for generating the sprites from 3D models though[2]. It uses plain old OpenGL 1.1 to draw the sprite and grabs the framebuffer directly. It is drawn fullbright so i can paint the lighting directly on the sprite&#x27;s texture (using a Krita plugin i wrote[3][4] - the model is something i threw together with Blender&#x27;s default generated UV since i didn&#x27;t care for the details).<p>I wonder if doing some sort of postprocessing (after rendering with with shading) like you do with your game would help with the finer details since i also found that rendering from 3D models to sprites creates very &quot;mushy&quot; results most of the time because of all the details getting lost. I notice the colors also become more saturated after postprocessing in your examples, is this after it finds the closest color in the palette or the result of the postprocess? I&#x27;d like to keep the overall hue+saturation of the model so maybe doing post-processing on a grayscale render to shade the shadows&#x2F;dark areas but keep highlights as-is and then multiplying that with the fullbright image would produce results that wont shift the saturation.<p>[0] <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;bad-sector.itch.io&#x2F;post-apocalyptic-petra" rel="nofollow">https:&#x2F;&#x2F;bad-sector.itch.io&#x2F;post-apocalyptic-petra</a><p>[1] <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;codeberg.org&#x2F;badsector&#x2F;PetraEngine&#x2F;src&#x2F;commit&#x2F;14ca1696227984d17dad676ff621e24aa3c3c9dc&#x2F;Engine&#x2F;FBRaster.pas#L322" rel="nofollow">https:&#x2F;&#x2F;codeberg.org&#x2F;badsector&#x2F;PetraEngine&#x2F;src&#x2F;commit&#x2F;14ca16...</a><p>[2] <a target="_blank" rel="noopener noreferrer nofollow" href="http:&#x2F;&#x2F;runtimeterror.com&#x2F;pages&#x2F;iv&#x2F;images&#x2F;95ddebc51e4dfa8a5afb8b1e636f051a.png" rel="nofollow">http:&#x2F;&#x2F;runtimeterror.com&#x2F;pages&#x2F;iv&#x2F;images&#x2F;95ddebc51e4dfa8a5af...</a><p>[3] <a target="_blank" rel="noopener noreferrer nofollow" href="http:&#x2F;&#x2F;runtimeterror.com&#x2F;tools&#x2F;kritaview3d&#x2F;" rel="nofollow">http:&#x2F;&#x2F;runtimeterror.com&#x2F;tools&#x2F;kritaview3d&#x2F;</a><p>[4] <a target="_blank" rel="noopener noreferrer nofollow" href="http:&#x2F;&#x2F;runtimeterror.com&#x2F;pages&#x2F;iv&#x2F;images&#x2F;535f0e09e590d8a1731c2e2ca2a18d3b.png" rel="nofollow">http:&#x2F;&#x2F;runtimeterror.com&#x2F;pages&#x2F;iv&#x2F;images&#x2F;535f0e09e590d8a1731...</a></div></details>
+      <div class="why">links out (bad-sector.itch.io, codeberg.org) · firsthand / disclosed experience · structured, substantive length</div>
+    </div>
+  </div><div class="comment">
+    <div class="crail"><span class="score">9</span></div>
+    <div class="cbody">
+      <div class="cmeta"><span class="author">corysama</span> <span class="badge">🔗&nbsp;source</span><span class="badge">💬&nbsp;sparked discussion</span> <span class="moved">was&nbsp;#76&nbsp;by&nbsp;votes&nbsp;→&nbsp;surfaced</span>
+        <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48461928">↗</a></div>
+      <div class="ctext">If you want to play with software rendering, here&#x27;s probably the shortest code that will get an ARGB8888 2D array from main memory to the screen efficiently for all platforms using SDL2 in C <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;gist.github.com&#x2F;CoryBloyd&#x2F;6725bb78323bb1157ff8d4175d42d789" rel="nofollow">https:&#x2F;&#x2F;gist.github.com&#x2F;CoryBloyd&#x2F;6725bb78323bb1157ff8d4175d...</a>  you&#x27;ll need to do the translation from a 320x200x8-bit palletized framebuffer to ARGB yourself ;)<p>If you want to get inspired by what can be done with palletized framebuffers check out <a target="_blank" rel="noopener noreferrer nofollow" href="http:&#x2F;&#x2F;www.effectgames.com&#x2F;demos&#x2F;canvascycle&#x2F;" rel="nofollow">http:&#x2F;&#x2F;www.effectgames.com&#x2F;demos&#x2F;canvascycle&#x2F;</a> (click Show Options) and the GDC presentation by the artist <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;youtu.be&#x2F;aMcJ1Jvtef0" rel="nofollow">https:&#x2F;&#x2F;youtu.be&#x2F;aMcJ1Jvtef0</a><p>With that you can fire up <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;mriale&#x2F;PyDPainter" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;mriale&#x2F;PyDPainter</a> for that classic Deluxe Paint IIe vibe. Or, <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.aseprite.org&#x2F;" rel="nofollow">https:&#x2F;&#x2F;www.aseprite.org&#x2F;</a> for something more modern.</div>
+      <div class="why">cites a primary source (gist.github.com, effectgames.com) · structured, substantive length · 4 distinct people engaged</div>
+    </div>
+  </div><div class="comment">
+    <div class="crail"><span class="score">8</span></div>
+    <div class="cbody">
+      <div class="cmeta"><span class="author">purple-leafy</span> <span class="badge">🔗&nbsp;source</span><span class="badge">✋&nbsp;firsthand</span> <span class="moved">was&nbsp;#123&nbsp;by&nbsp;votes&nbsp;→&nbsp;surfaced</span>
+        <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48466999">↗</a></div>
+      <div class="ctext">Cool project! How hard was it to get the z levels (height) ??<p>I made a very similar project [0] in C 2 years ago, a chunked ray caster that could handle multiple height levels. Was one of my first C projects, pretty crappy but was fun.<p>Anyone have any ideas how to make it more memory efficient?<p>It’s full of bugs was just a for fun project<p>[0] - <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;con-dog&#x2F;chunked-z-level-raycaster&#x2F;blob&#x2F;master&#x2F;README.md" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;con-dog&#x2F;chunked-z-level-raycaster&#x2F;blob&#x2F;ma...</a></div>
+      <div class="why">cites a primary source (github.com) · firsthand / disclosed experience · structured, substantive length</div>
+    </div>
+  </div></div>
+    <details class="fold"><summary>🥊 17 hidden as low-signal · 1 in duels</summary>
+         <div class="foldnote">Hidden: flame-war back-and-forths, dunks, name-calling, and low-content one-liners. Expand if you want the fight.</div></details><div class="ordinary">+ 108 more on-topic comments (fine, just not top-ranked — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48459294">all on HN ↗</a>)</div>
+  </section><section class="story">
+    <div class="shead">
+      <span class="srank">5</span>
+      <div class="stitle">
+        <a target="_blank" rel="noopener" href="https://jonready.com/blog/posts/claude-fable5-is-allowed-to-sabotage-your-app-if-youre-a-competitor.html">If Claude Fable stops helping you, you'll never know</a>
+        <span class="domain">jonready.com</span>
+        <div class="smeta">401 pts · 180 comments · 3h 
+          <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48467896">discuss on HN ↗</a></div>
+        
+      </div>
+    </div>
+    <div class="lane"><div class="lanelabel">▲ Worth reading</div><div class="comment">
+    <div class="crail"><span class="score">10.5</span></div>
+    <div class="cbody">
+      <div class="cmeta"><span class="author">semiquaver</span> <span class="badge">🔗&nbsp;source</span><span class="badge">⟨/⟩&nbsp;code</span><span class="badge">💬&nbsp;sparked discussion</span> <span class="moved">was&nbsp;#51&nbsp;by&nbsp;votes&nbsp;→&nbsp;surfaced</span>
+        <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48468442">↗</a></div>
+      <div class="ctext">A surprising number of companies <i>do</i> include “you may not use the service we provide you to compete with us” in their terms of service.<p>(edit)<p>After a quick search the best example is Atlassian. It would (apparently, IANAL) break terms to plan a JIRA competitor using JIRA.<p><pre><code>  &gt; Customer must not (and must not permit anyone else to): [...] (d) use the Products to develop a similar or competing product or service
+</code></pre>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.atlassian.com&#x2F;legal&#x2F;atlassian-customer-agreement" rel="nofollow">https:&#x2F;&#x2F;www.atlassian.com&#x2F;legal&#x2F;atlassian-customer-agreement</a><p>Also Salesforce. Their competitors are explicitly disallowed from using any of their services for any reason.<p><pre><code>  &gt; SFDC’s direct competitors are prohibited from accessing the Services, except with SFDC’s prior written consent.
+</code></pre>
+<a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.salesforce.com&#x2F;en-us&#x2F;wp-content&#x2F;uploads&#x2F;sites&#x2F;4&#x2F;documents&#x2F;legal&#x2F;salesforce_MSA.pdf" rel="nofollow">https:&#x2F;&#x2F;www.salesforce.com&#x2F;en-us&#x2F;wp-content&#x2F;uploads&#x2F;sites&#x2F;4&#x2F;...</a></div>
+      <div class="why">links out (atlassian.com, salesforce.com) · includes code / a command · structured, substantive length</div>
+    </div>
+  </div><div class="comment">
+    <div class="crail"><span class="score">7.5</span></div>
+    <div class="cbody">
+      <div class="cmeta"><span class="author">JoshTriplett</span> <span class="badge">✋&nbsp;firsthand</span><span class="badge">💬&nbsp;sparked discussion</span> <span class="moved">was&nbsp;#37&nbsp;by&nbsp;votes&nbsp;→&nbsp;surfaced</span>
+        <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48469585">↗</a></div>
+      <div class="ctext">&gt; Demand open source approve licenses for LLM weights.<p>How would <i>you</i> solve, for instance, the problem in which AI models are capable of helping the average person build viruses (computer or human)?<p>&quot;YOLO&quot; is not a reasonable answer here.<p>I am a massive advocate of Open Source, and have been for 25+ years. These things should not exist, open or otherwise.</div>
+      <div class="why">firsthand / disclosed experience · structured, substantive length · 5 distinct people engaged</div>
+    </div>
+  </div><div class="comment">
+    <div class="crail"><span class="score">5</span></div>
+    <div class="cbody">
+      <div class="cmeta"><span class="author">stratos123</span> <span class="badge">⟨/⟩&nbsp;code</span> <span class="moved">was&nbsp;#94&nbsp;by&nbsp;votes&nbsp;→&nbsp;surfaced</span>
+        <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48469071">↗</a></div>
+      <div class="ctext">I don&#x27;t think this scenario makes sense. It&#x27;s one of a class of scenarios I&#x27;ve seen several of, that simultaneously assume:<p><pre><code>  A) ASI is developed and massively overshadows the rest of the world economy 
+  B) the world still has rule of law, contracts, business, well-developed finance, etc
+</code></pre>
+You can get to a lot of weird conclusions if you assume both A and B, but I think the much more likely scenario is that if A happens, B stops being true in short order. If you are a company and you have ASI, you just stop caring about business and money and economics, and your outcomes instead start looking like &quot;you conquer the world&quot; or &quot;you upload the board of directors to a fleet of von Neumann probes&quot; or &quot;you messed up, everyone dies&quot;.</div>
+      <div class="why">includes code / a command · structured, substantive length</div>
+    </div>
+  </div></div>
+    <details class="fold"><summary>🥊 51 hidden as low-signal</summary>
+         <div class="foldnote">Hidden: flame-war back-and-forths, dunks, name-calling, and low-content one-liners. Expand if you want the fight.</div></details><div class="ordinary">+ 126 more on-topic comments (fine, just not top-ranked — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48467896">all on HN ↗</a>)</div>
+  </section></main>
+  <footer>Zero participation · built from HN's public Firebase + Algolia APIs · comments re-ranked by transparent substance heuristics, not votes. Generated 2026-06-10T00:53:42.657Z. <a href="https://github.com/scasella/hn-slow-rank">source</a></footer>
+  </body></html>
