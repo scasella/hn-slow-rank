@@ -1,14 +1,19 @@
 #!/usr/bin/env node
-// Hot Thread Slow Rank — front-page generator.
-// Surface the comment worth reading, hide the fight.
+// Slow Rank — front-page generator.
+// The comment worth reading, surfaced. Hide the fight.
 // Zero-participation: pure read-only over HN's public Firebase + Algolia APIs.
 //
 //   node rerank.js [topStories=24] [perStory=6] [--out=frontpage-reranked.html]
 //                  [--json=dump.json] [--weights=weights.json] [--no-prior-art]
 //
 // Scoring lives in lib/engine.js (shared with the browser extension and the
-// reddit adapter). --json dumps every scored comment + feature vector for
+// adapters). --json dumps every scored comment + feature vector for
 // calibration; --weights swaps in fitted weights.
+//
+// Page design: "Daily Rescue" editorial layout — hero rescued comment,
+// x-ray strip explaining the mechanism, today's rescues with permalinks,
+// then the per-story digest. Also emits <out dir>/og.svg (CI rasterizes it
+// to og.png for social cards).
 
 const engine = require('./lib/engine')
 
@@ -25,6 +30,8 @@ const OUT = typeof flag('out') === 'string' ? flag('out') : 'frontpage-reranked.
 const JSON_DUMP = typeof flag('json') === 'string' ? flag('json') : null
 const PRIOR_ART = !flag('no-prior-art')
 const CONCURRENCY = 6
+const SITE = 'https://scasella.github.io/hn-slow-rank/'
+const REPO = 'https://github.com/scasella/hn-slow-rank'
 
 let WEIGHTS = engine.DEFAULT_WEIGHTS
 if (typeof flag('weights') === 'string') {
@@ -40,7 +47,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 async function getJSON(url, tries = 3) {
   for (let i = 0; i < tries; i++) {
     try {
-      const res = await fetch(url, { headers: { 'user-agent': 'hot-thread-slow-rank/0.2 (read-only)' } })
+      const res = await fetch(url, { headers: { 'user-agent': 'hot-thread-slow-rank/0.3 (read-only)' } })
       if (!res.ok) throw new Error('HTTP ' + res.status)
       return await res.json()
     } catch (e) {
@@ -64,9 +71,12 @@ async function mapLimit(items, limit, fn) {
   return out
 }
 
-const { stripTags, domainOf } = engine
+const { domainOf } = engine
 function escapeHtml(s) {
   return String(s || '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]))
+}
+function escapeXml(s) {
+  return String(s || '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[c]))
 }
 // HN text is already sanitized HTML; just harden links + drop anything script-y.
 function safeCommentHtml(html) {
@@ -82,6 +92,13 @@ function ageStr(createdSec) {
   if (h < 1) return Math.floor(s / 60) + 'm'
   if (h < 24) return h + 'h'
   return Math.floor(h / 24) + 'd'
+}
+// cut plain text at a word boundary
+function excerpt(text, n) {
+  const t = String(text || '').replace(/[│┌┐└┘├┤┬┴┼─═║╔╗╚╝╠╣╦╩╬]+/g, ' ').replace(/\s+/g, ' ').trim()
+  if (t.length <= n) return t
+  const cut = t.slice(0, n)
+  return cut.slice(0, Math.max(40, cut.lastIndexOf(' '))) + '…'
 }
 
 // ---------------------------------------------------------------------------
@@ -163,12 +180,99 @@ function processStory(item, rank) {
 }
 
 // ---------------------------------------------------------------------------
+// rescue selection + plain-english reasons
+// ---------------------------------------------------------------------------
+// how impressive is this rescue? quality × how deeply votes had buried it
+const rescueRank = (c) => c.score * Math.log2(2 + c.dfsIndex)
+
+function plainReason(c) {
+  const f = c.features || {}
+  const receipts = []
+  if (f.links || f.primary) receipts.push(f.primary ? 'primary sources' : 'sources')
+  if (f.code) receipts.push('code')
+  if (f.specifics) receipts.push('real numbers')
+  const bits = []
+  if (f.firsthand) bits.push('speaks from experience')
+  if (receipts.length) bits.push('brought receipts: ' + receipts.join(' + '))
+  if (!bits.length && f.discussion) bits.push('got ' + c.distinctRepliers + ' people talking')
+  if (!bits.length && f.structured) bits.push('took the time to actually explain')
+  if (!bits.length) bits.push((c.reasons && c.reasons[0]) || 'substantive')
+  return bits.join(' — ')
+}
+
+function pickRescues(stories) {
+  const all = []
+  for (const s of stories) {
+    for (const c of s.surfaced) {
+      if (!c.text || c.text.length < 80) continue
+      if (c.score < 3) continue
+      all.push({ c, s })
+    }
+  }
+  all.sort((a, b) => rescueRank(b.c) - rescueRank(a.c))
+  // hero must read well as a pull quote and be a real rescue
+  const hero = all.find((r) => r.c.dfsIndex >= 8 && r.c.text.length >= 120) || all[0] || null
+  const rest = all.filter((r) => r !== hero && r.c.dfsIndex >= 5).slice(0, 9)
+  return { hero, rescues: rest }
+}
+
+// ---------------------------------------------------------------------------
 // render
 // ---------------------------------------------------------------------------
+function renderHero(hero, dateStr) {
+  if (!hero) return ''
+  const { c, s } = hero
+  return `<section class="hero" id="r-${c.id}">
+    <div class="eyebrow">Today's rescue · ${dateStr}</div>
+    <blockquote class="pull">&ldquo;${escapeHtml(excerpt(c.text, 320))}&rdquo;</blockquote>
+    <div class="attrib"><b>${escapeHtml(c.author)}</b> · on &ldquo;<a href="https://news.ycombinator.com/item?id=${s.id}" target="_blank" rel="noopener">${escapeHtml(s.title)}</a>&rdquo; · <span class="preason">${escapeHtml(plainReason(c))}</span></div>
+    <div class="heroactions">
+      <span class="rescuepill">▲ rescued from #${c.dfsIndex + 1} by votes</span>
+      <a class="ghost" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=${c.id}">read in thread ↗</a>
+      <button class="ghost" data-copy="r-${c.id}">copy link</button>
+    </div>
+  </section>`
+}
+
+function renderXray(hero) {
+  if (!hero) return ''
+  const { c, s } = hero
+  const from = c.dfsIndex + 1
+  // illustrative strip: gem teleports up, the fight sinks
+  const rows = (kind) => kind === 'votes'
+    ? `<i></i><i class="fight"></i><i class="fight"></i><i></i><i></i><i></i><i class="gem"></i>`
+    : `<i class="gem"></i><i></i><i></i><i></i><i class="fight dim"></i><i class="fight dim"></i><i class="dim"></i>`
+  return `<section class="xray">
+    <div class="xcols">
+      <div><div class="xh">By votes</div><div class="xrows">${rows('votes')}</div></div>
+      <div><div class="xh">By substance</div><div class="xrows">${rows('substance')}</div></div>
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path d="M 46 86 C 58 86, 42 14, 54 14" fill="none" stroke="#D97757" stroke-width="1.4" stroke-dasharray="3 2"/></svg>
+    </div>
+    <div class="xcap">That's the whole product: in &ldquo;${escapeHtml(excerpt(s.title, 60))}&rdquo;, votes had this comment at <b>#${from}</b>; substance scoring puts it first. Flame-war duels (striped) sink, dimmed but never deleted.</div>
+  </section>`
+}
+
+function renderRescueList(rescues) {
+  if (!rescues.length) return ''
+  const items = rescues.map(({ c, s }) => `<li class="ritem" id="r-${c.id}">
+      <div class="rq">&ldquo;${escapeHtml(excerpt(c.text, 170))}&rdquo;</div>
+      <div class="rmeta">
+        <b>${escapeHtml(c.author)}</b>
+        <span class="dimsep">·</span> <a href="https://news.ycombinator.com/item?id=${s.id}" target="_blank" rel="noopener">${escapeHtml(excerpt(s.title, 56))}</a>
+        <span class="waspill">was #${c.dfsIndex + 1}</span>
+        <span class="preason">${escapeHtml(plainReason(c))}</span>
+        <span class="ractions"><a class="ghost" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=${c.id}">thread ↗</a> <button class="ghost" data-copy="r-${c.id}">copy link</button></span>
+      </div>
+    </li>`).join('')
+  return `<section class="rescues">
+    <h2>Today's rescues</h2>
+    <p class="secsub">The best comments votes left for dead, across every front-page thread.</p>
+    <ol class="rlist">${items}</ol>
+  </section>`
+}
+
 function renderComment(c) {
-  const badges = c.badges.map((b) => `<span class="badge">${b.icon}&nbsp;${b.label}</span>`).join('')
-  const why = c.reasons.length ? `<div class="why">${escapeHtml(c.reasons.slice(0, 3).join(' · '))}</div>` : ''
-  const moved = c.dfsIndex >= 3 ? `<span class="moved">was&nbsp;#${c.dfsIndex + 1}&nbsp;by&nbsp;votes&nbsp;→&nbsp;surfaced</span>` : ''
+  const was = c.dfsIndex >= 3 ? `<span class="waspill">was&nbsp;#${c.dfsIndex + 1}</span>` : ''
   let body
   if (c.text.length > 900) {
     body = `<details class="ctext"><summary>${escapeHtml(c.text.slice(0, 220))}…</summary><div class="full">${safeCommentHtml(c.textHtml)}</div></details>`
@@ -176,32 +280,31 @@ function renderComment(c) {
     body = `<div class="ctext">${safeCommentHtml(c.textHtml)}</div>`
   }
   return `<div class="comment">
-    <div class="crail"><span class="score">${c.score}</span></div>
-    <div class="cbody">
-      <div class="cmeta"><span class="author">${escapeHtml(c.author)}</span> ${badges} ${moved}
-        <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=${c.id}">↗</a></div>
-      ${body}
-      ${why}
-    </div>
+    <div class="cmeta"><b class="author">${escapeHtml(c.author)}</b> ${was} <span class="preason">${escapeHtml(plainReason(c))}</span>
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=${c.id}" title="open on HN">↗</a></div>
+    ${body}
   </div>`
 }
 
 function renderPriorArt(s) {
   if (!s.priorArt.length) return ''
   const links = s.priorArt.map((p) =>
-    `<a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=${p.id}" title="${escapeHtml(p.title)}">${p.date.slice(0, 4)} · ${p.points}&nbsp;pts · ${p.comments}&nbsp;comment${p.comments === 1 ? '' : 's'}</a>`).join('<span class="psep">·</span>')
-  return `<div class="prior">📜 HN has been here before — ${s.priorArt.length} earlier thread${s.priorArt.length > 1 ? 's' : ''}: ${links}</div>`
+    `<a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=${p.id}" title="${escapeHtml(p.title)}">${p.date.slice(0, 4)} (${p.points}&nbsp;pts, ${p.comments}&nbsp;comment${p.comments === 1 ? '' : 's'})</a>`).join(' · ')
+  return `<div class="prior">seen before on HN: ${links}</div>`
 }
 
 function renderStory(s) {
-  const comments = s.surfaced.map(renderComment).join('')
-  const hotBadge = s.hot ? `<span class="hot">🔥 hot thread · combat down-weighted</span>` : ''
+  const top = s.surfaced.slice(0, 3).map(renderComment).join('')
+  const more = s.surfaced.slice(3)
+  const moreBlock = more.length
+    ? `<details class="more"><summary>+ ${more.length} more worth reading</summary>${more.map(renderComment).join('')}</details>`
+    : ''
+  const hotBadge = s.hot ? `<span class="hotpill">hot thread — combat down-weighted</span>` : ''
   const foldBits = []
-  if (s.flaggedCount) foldBits.push(`<details class="fold"><summary>🥊 ${s.flaggedCount} hidden as low-signal${s.duelCount ? ` · ${s.duelCount} in duels` : ''}</summary>
-         <div class="foldnote">Hidden: flame-war back-and-forths, dunks, name-calling, and low-content one-liners. Expand if you want the fight.</div></details>`)
+  if (s.flaggedCount) foldBits.push(`<details class="fold"><summary>${s.flaggedCount} low-signal comments folded${s.duelCount ? ` (${s.duelCount} in duels)` : ''}</summary>
+         <div class="foldnote">Folded: flame-war back-and-forths, dunks, name-calling, and low-content one-liners. They're all still on HN — expand if you want the fight.</div></details>`)
   if (s.ordinaryCount) foldBits.push(`<div class="ordinary">+ ${s.ordinaryCount} more on-topic comments (fine, just not top-ranked — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=${s.id}">all on HN ↗</a>)</div>`)
-  const fold = foldBits.join('')
-  return `<section class="story">
+  return `<section class="story" id="s-${s.id}">
     <div class="shead">
       <span class="srank">${s.rank}</span>
       <div class="stitle">
@@ -212,76 +315,211 @@ function renderStory(s) {
         ${renderPriorArt(s)}
       </div>
     </div>
-    <div class="lane"><div class="lanelabel">▲ Worth reading</div>${comments}</div>
-    ${fold}
+    <div class="lane"><div class="lanelabel">▲ Worth reading</div>${top}${moreBlock}</div>
+    ${foldBits.join('')}
   </section>`
 }
 
-function renderPage(stories, stats) {
+const FAVICON = 'data:image/svg+xml,' + encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="7" fill="#FAF9F5"/><path d="M16 7 L26 24 L6 24 Z" fill="#D97757"/></svg>')
+
+function renderPage(stories, stats, hero, rescues) {
   const now = new Date()
+  const dateStr = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', timeZone: 'UTC' })
+  const ogDesc = hero
+    ? `Today's rescue: a comment votes buried at #${hero.c.dfsIndex + 1}. ${excerpt(hero.c.text, 120)}`
+    : 'Hacker News front-page threads re-ranked by substance instead of votes, updated hourly.'
   const css = `
-  :root{--bg:#f6f6ef;--card:#fff;--ink:#1b1b17;--dim:#6b6b60;--line:#e4e4d8;--accent:#b4612e;--hot:#c0392b;--good:#3a7d44;--mono:ui-monospace,SFMono-Regular,Menlo,monospace}
-  *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
-  a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
-  header{position:sticky;top:0;z-index:5;background:rgba(246,246,239,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:18px 22px}
-  .wrap{max-width:860px;margin:0 auto;padding:0 18px}
-  h1{font-size:20px;margin:0;letter-spacing:-.01em}.tag{color:var(--dim);font-size:13px;margin-top:3px}
-  .stats{font-family:var(--mono);font-size:12px;color:var(--dim);margin-top:8px;display:flex;gap:14px;flex-wrap:wrap}
-  .stats b{color:var(--ink)}
-  .legend{font-family:var(--mono);font-size:11px;color:var(--dim);margin-top:10px;display:flex;gap:10px;flex-wrap:wrap}
-  .legend span{background:#efeee3;border:1px solid var(--line);border-radius:10px;padding:1px 7px}
-  main{padding:26px 0 80px}
-  .story{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:0 0 18px;box-shadow:0 1px 0 rgba(0,0,0,.02)}
-  .shead{display:flex;gap:12px;align-items:flex-start;padding-bottom:10px;border-bottom:1px solid var(--line)}
-  .srank{font-family:var(--mono);font-size:13px;color:var(--dim);min-width:22px;text-align:right;padding-top:2px}
-  .stitle a{font-size:17px;font-weight:600;letter-spacing:-.01em}
-  .domain{color:var(--dim);font-size:12px;margin-left:7px}
-  .smeta{font-family:var(--mono);font-size:11.5px;color:var(--dim);margin-top:4px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-  .hnlink{font-size:11.5px}
-  .hot{color:var(--hot);font-weight:600}
-  .prior{font-family:var(--mono);font-size:11px;color:#8a6d3b;background:#faf6ea;border:1px solid #eee3c3;border-radius:8px;padding:4px 8px;margin-top:7px;line-height:1.7}
-  .prior a{font-size:11px;white-space:nowrap}.psep{margin:0 6px;color:#c9bd99}
-  .lane{margin-top:12px}.lanelabel{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--good);margin-bottom:8px}
-  .comment{display:flex;gap:12px;padding:11px 0;border-top:1px dashed var(--line)}
+  :root{--ivory:#FAF9F5;--paper:#FFFFFF;--slate:#141413;--g100:#F0EEE6;--g200:#E6E3DA;--g300:#D1CFC5;--g500:#87867F;--g700:#3D3D3A;
+    --clay:#D97757;--clay-d:#B85C3E;--oat:#E3DACC;--olive:#788C5D;--rust:#B04A3F;--amber:#C78E3F;
+    --serif:ui-serif,Georgia,"Times New Roman",Times,serif;--sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Monaco,Consolas,monospace}
+  *{box-sizing:border-box}html{scroll-behavior:smooth}
+  body{margin:0;background:var(--ivory);color:var(--slate);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:var(--clay);text-decoration-color:var(--oat);text-underline-offset:3px}a:hover{text-decoration-color:var(--clay)}
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px}
+  .mast{padding:34px 0 6px}
+  .brand{font-family:var(--serif);font-weight:500;font-size:30px;letter-spacing:-.015em}
+  .brand .tri{color:var(--clay)}
+  .brand .bsub{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--g500);margin-left:10px}
+  .hline{color:var(--g700);font-size:15px;margin-top:8px;max-width:640px}
+  .hline b{color:var(--slate)}
+  .mnav{font-family:var(--mono);font-size:11.5px;color:var(--g500);margin-top:10px;display:flex;gap:16px;flex-wrap:wrap}
+  .fresh{color:var(--olive)}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--g500);display:flex;align-items:center;gap:12px;margin-bottom:14px}
+  .eyebrow::before{content:"";width:24px;height:1.5px;background:var(--clay)}
+  .hero{margin-top:44px;background:var(--paper);border:1.5px solid var(--g300);border-radius:14px;padding:30px 34px}
+  .pull{font-family:var(--serif);font-weight:500;font-size:clamp(21px,3.2vw,29px);line-height:1.3;letter-spacing:-.012em;margin:0;color:var(--slate)}
+  .attrib{margin-top:14px;font-size:13.5px;color:var(--g500)}
+  .attrib b{color:var(--g700)}
+  .preason{color:var(--olive);font-style:italic}
+  .heroactions{margin-top:14px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .rescuepill{font-family:var(--mono);font-size:11.5px;color:#fff;background:var(--clay);border-radius:999px;padding:3px 12px}
+  .ghost{font-family:var(--mono);font-size:11px;color:var(--g500);background:none;border:1.5px solid var(--g300);border-radius:999px;padding:2px 10px;cursor:pointer;text-decoration:none}
+  .ghost:hover{border-color:var(--clay);color:var(--clay)}
+  .xray{margin-top:18px;background:var(--g100);border:1.5px solid var(--g300);border-radius:12px;padding:16px 20px;display:grid;grid-template-columns:240px 1fr;gap:20px;align-items:center}
+  .xcols{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative}
+  .xh{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:var(--g500);margin-bottom:5px}
+  .xrows i{display:block;height:9px;border-radius:3px;background:var(--g200);margin-bottom:4px}
+  .xrows i.gem{background:var(--clay)}
+  .xrows i.fight{background:repeating-linear-gradient(45deg,var(--g300),var(--g300) 3px,var(--g200) 3px,var(--g200) 6px)}
+  .xrows i.dim{opacity:.45}
+  .xcols svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+  .xcap{font-size:13px;color:var(--g700)}
+  .xcap b{color:var(--clay-d)}
+  h2{font-family:var(--serif);font-weight:500;font-size:24px;line-height:1.18;letter-spacing:-.012em;margin:0 0 4px}
+  .secsub{color:var(--g500);font-size:13.5px;margin:0 0 14px}
+  .rescues{margin-top:52px}
+  .rlist{list-style:none;counter-reset:r;margin:0;padding:0;border:1.5px solid var(--g300);border-radius:12px;background:var(--paper);overflow:hidden}
+  .ritem{counter-increment:r;padding:14px 18px 14px 52px;border-bottom:1px solid var(--g100);position:relative}
+  .ritem:last-child{border-bottom:none}
+  .ritem::before{content:counter(r);position:absolute;left:18px;top:15px;font-family:var(--mono);font-size:12px;color:var(--g500)}
+  .rq{font-family:var(--serif);font-size:16px;line-height:1.4;color:var(--slate)}
+  .rmeta{margin-top:6px;font-size:12.5px;color:var(--g500);display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+  .rmeta b{color:var(--g700)}
+  .dimsep{color:var(--g300)}
+  .waspill{font-family:var(--mono);font-size:10.5px;color:var(--clay-d);background:rgba(217,119,87,.13);border-radius:999px;padding:1px 8px;white-space:nowrap}
+  .ractions{margin-left:auto;display:flex;gap:6px}
+  .digest{margin-top:56px}
+  .story{background:var(--paper);border:1.5px solid var(--g300);border-radius:12px;padding:18px 20px;margin:0 0 16px}
+  .shead{display:flex;gap:12px;align-items:flex-start;padding-bottom:10px;border-bottom:1px solid var(--g100)}
+  .srank{font-family:var(--mono);font-size:12px;color:var(--g500);min-width:20px;text-align:right;padding-top:4px}
+  .stitle a{font-family:var(--serif);font-size:18px;font-weight:500;letter-spacing:-.008em;color:var(--slate);text-decoration:none}
+  .stitle a:hover{color:var(--clay-d)}
+  .domain{color:var(--g500);font-size:12px;margin-left:7px;font-family:var(--mono)}
+  .smeta{font-family:var(--mono);font-size:11px;color:var(--g500);margin-top:4px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .hotpill{font-family:var(--mono);font-size:10px;color:var(--rust);background:rgba(176,74,63,.12);border-radius:999px;padding:1px 8px}
+  .hnlink{font-size:11px}
+  .prior{font-family:var(--mono);font-size:10.5px;color:var(--amber);background:rgba(199,142,63,.1);border-radius:8px;padding:4px 9px;margin-top:7px;line-height:1.7}
+  .prior a{font-size:10.5px;color:var(--amber)}
+  .lane{margin-top:10px}
+  .lanelabel{font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;color:var(--olive);margin-bottom:4px}
+  .comment{padding:10px 0;border-top:1px dashed var(--g200)}
   .comment:first-of-type{border-top:none}
-  .crail{min-width:34px;text-align:center}
-  .score{display:inline-block;font-family:var(--mono);font-size:12px;font-weight:600;color:var(--good);background:#eef5ef;border:1px solid #d6e7d8;border-radius:8px;padding:2px 6px}
-  .cbody{flex:1;min-width:0}
-  .cmeta{font-size:12.5px;color:var(--dim);margin-bottom:5px;display:flex;gap:7px;align-items:center;flex-wrap:wrap}
-  .author{font-weight:600;color:#444}
-  .badge{font-family:var(--mono);font-size:10.5px;background:#fbf2e9;border:1px solid #efd9c4;color:var(--accent);border-radius:10px;padding:1px 7px;white-space:nowrap}
-  .moved{font-family:var(--mono);font-size:10px;color:#9a9a8c;background:#f0f0e6;border-radius:8px;padding:1px 6px}
-  .permalink{margin-left:auto;color:var(--dim);font-size:13px}
-  .ctext{font-size:14.5px;color:#23231d;overflow-wrap:break-word}.ctext p{margin:.5em 0}.ctext pre{background:#f3f3ea;padding:8px 10px;border-radius:8px;overflow:auto;font-size:12.5px}
-  details.ctext summary{cursor:pointer;color:#23231d}details.ctext .full{margin-top:6px}
-  .why{font-size:12px;color:var(--good);margin-top:6px;font-style:italic}
-  .fold{margin-top:12px}.fold summary{cursor:pointer;font-family:var(--mono);font-size:12px;color:var(--dim);background:#f0f0e6;border:1px solid var(--line);border-radius:8px;padding:6px 10px}
-  .foldnote{font-size:12.5px;color:var(--dim);padding:9px 4px 2px}
-  .ordinary{font-size:12px;color:var(--dim);margin-top:8px;padding-left:2px}
-  footer{max-width:860px;margin:0 auto;padding:30px 18px;color:var(--dim);font-size:12px;font-family:var(--mono);border-top:1px solid var(--line)}
-  `
+  .cmeta{font-size:12.5px;color:var(--g500);margin-bottom:4px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+  .author{color:var(--g700)}
+  .permalink{margin-left:auto;color:var(--g500);font-size:13px;text-decoration:none}
+  .ctext{font-size:14px;color:var(--g700);overflow-wrap:break-word}.ctext p{margin:.5em 0}
+  .ctext pre{background:var(--g100);padding:8px 10px;border-radius:8px;overflow:auto;font-size:12.5px;font-family:var(--mono)}
+  details.ctext summary{cursor:pointer}details.ctext .full{margin-top:6px}
+  details.more{margin-top:8px}
+  details.more summary{cursor:pointer;font-family:var(--mono);font-size:11.5px;color:var(--g500)}
+  details.more summary:hover{color:var(--clay)}
+  .fold{margin-top:12px}
+  .fold summary{cursor:pointer;font-family:var(--mono);font-size:11.5px;color:var(--g500);background:var(--g100);border:1.5px solid var(--g200);border-radius:8px;padding:5px 10px;display:inline-block}
+  .foldnote{font-size:12.5px;color:var(--g500);padding:8px 4px 2px}
+  .ordinary{font-size:12px;color:var(--g500);margin-top:8px}
+  footer{margin:70px 0 0;padding:18px 0 90px;border-top:1px solid var(--g200);font-family:var(--mono);font-size:11px;color:var(--g500);line-height:2}
+  @media (max-width:680px){
+    .xray{grid-template-columns:1fr}
+    .hero{padding:22px 20px}
+    .ractions{margin-left:0}
+    .mast{padding-top:24px}
+  }`
   return `<!doctype html><html lang="en"><head><meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>HN Front Page, Reranked — ${now.toISOString().slice(0, 10)}</title>
+  <title>Slow Rank — the comment worth reading, surfaced</title>
+  <meta name="description" content="${escapeHtml(ogDesc)}">
+  <link rel="icon" href="${FAVICON}">
+  <link rel="canonical" href="${SITE}">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Slow Rank">
+  <meta property="og:title" content="Slow Rank — the comment worth reading, surfaced">
+  <meta property="og:description" content="${escapeHtml(ogDesc)}">
+  <meta property="og:url" content="${SITE}">
+  <meta property="og:image" content="${SITE}og.png">
+  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Slow Rank — the comment worth reading, surfaced">
+  <meta name="twitter:description" content="${escapeHtml(ogDesc)}">
+  <meta name="twitter:image" content="${SITE}og.png">
   <style>${css}</style></head><body>
-  <header><div class="wrap" style="padding:0">
-    <h1>Hacker News, reranked by substance</h1>
-    <div class="tag">Surface the comment worth reading, hide the fight. — front page of ${now.toLocaleString('en-US', { dateStyle: 'long', timeStyle: 'short', timeZone: 'UTC' })} UTC</div>
-    <div class="stats">
-      <span><b>${stats.stories}</b> stories</span>
-      <span><b>${stats.comments.toLocaleString()}</b> comments analyzed</span>
-      <span><b>${stats.surfaced}</b> surfaced</span>
-      <span><b>${stats.flagged.toLocaleString()}</b> hidden as low-signal</span>
-      <span><b>${stats.hot}</b> hot threads</span>
-      <span><b>${stats.priorArt}</b> stories seen before</span>
+  <div class="wrap">
+  <header class="mast">
+    <div class="brand"><span class="tri">▲</span> Slow Rank<span class="bsub">for Hacker News</span></div>
+    <div class="hline"><b>${stats.comments.toLocaleString()}</b> comments across <b>${stats.stories}</b> front-page stories, read so you don't have to. The substance floats; the fight folds.</div>
+    <div class="mnav">
+      <span class="fresh" id="fresh" data-t="${now.toISOString()}">updates hourly</span>
+      <a href="${REPO}#how-it-scores">how scoring works</a>
+      <a href="${REPO}/tree/main/extension">browser extension</a>
+      <a href="${REPO}">source</a>
     </div>
-    <div class="legend">
-      <span>🔗 source</span><span>⟨/⟩ code</span><span>✋ firsthand</span><span>📊 specifics</span><span>💬 discussion</span><span>🥊 duel → folded</span><span>📜 prior art</span>
-    </div>
-  </div></header>
-  <main class="wrap">${stories.map(renderStory).join('')}</main>
-  <footer>Zero participation · built from HN's public Firebase + Algolia APIs · comments re-ranked by transparent substance heuristics, not votes. Generated ${now.toISOString()}. <a href="https://github.com/scasella/hn-slow-rank">source</a></footer>
+  </header>
+  ${renderHero(hero, dateStr)}
+  ${renderXray(hero)}
+  ${renderRescueList(rescues)}
+  <section class="digest">
+    <h2>The full front page, story by story</h2>
+    <p class="secsub">Every thread's top comments by substance — each with where votes had it and why it floated. ${stats.flagged.toLocaleString()} low-signal comments folded across ${stats.hot} hot threads.</p>
+    ${stories.map(renderStory).join('')}
+  </section>
+  <footer>
+    zero participation · read-only over HN's public Firebase + Algolia APIs · scoring is transparent heuristics, not a black box —
+    <a href="${REPO}#how-it-scores">how it works</a> · weights cross-checked against blind pairwise judgments (81% held-out agreement,
+    <a href="${REPO}/blob/main/calibration/REPORT.md">report</a>) · generated ${now.toISOString()} · <a href="${REPO}">github</a>
+  </footer>
+  </div>
+  <script>
+  (function(){
+    var el = document.getElementById('fresh')
+    if (el && el.dataset.t) {
+      var m = Math.round((Date.now() - new Date(el.dataset.t).getTime()) / 60000)
+      el.textContent = m < 1 ? 'updated just now' : m < 120 ? 'updated ' + m + ' min ago' : 'updated ' + Math.round(m / 60) + ' h ago'
+      el.textContent += ' · refreshes hourly'
+    }
+    document.querySelectorAll('[data-copy]').forEach(function(b){
+      b.addEventListener('click', function(){
+        var url = location.origin + location.pathname + '#' + b.dataset.copy
+        navigator.clipboard.writeText(url).then(function(){
+          var t = b.textContent; b.textContent = 'copied ✓'
+          setTimeout(function(){ b.textContent = t }, 1500)
+        })
+      })
+    })
+  })()
+  </script>
   </body></html>`
+}
+
+// ---------------------------------------------------------------------------
+// OG quote card (SVG; CI rasterizes to og.png)
+// ---------------------------------------------------------------------------
+function wrapLines(text, maxChars, maxLines) {
+  const words = String(text).split(/\s+/)
+  const lines = []
+  let cur = ''
+  for (const w of words) {
+    if ((cur + ' ' + w).trim().length > maxChars) {
+      lines.push(cur.trim())
+      cur = w
+      if (lines.length === maxLines) break
+    } else cur = (cur + ' ' + w).trim()
+  }
+  if (lines.length < maxLines && cur) lines.push(cur.trim())
+  if (words.join(' ').length > lines.join(' ').length) {
+    lines[lines.length - 1] = lines[lines.length - 1].replace(/\W*$/, '') + '…'
+  }
+  return lines
+}
+
+function renderOgSvg(hero, stats) {
+  const quote = hero ? excerpt(hero.c.text, 200) : 'The comment worth reading, surfaced.'
+  const lines = wrapLines(quote, 44, 4)
+  const attrib = hero ? `${hero.c.author} · on “${excerpt(hero.s.title, 48)}”` : ''
+  const pill = hero ? `▲ rescued from #${hero.c.dfsIndex + 1} by votes` : '▲ re-ranked by substance, not votes'
+  const quoteLines = lines.map((l, i) =>
+    `<text x="90" y="${238 + i * 62}" font-family="Georgia, serif" font-size="44" fill="#141413">${escapeXml(l)}</text>`).join('\n')
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#FAF9F5"/>
+  <rect x="0" y="0" width="1200" height="8" fill="#D97757"/>
+  <text x="90" y="120" font-family="Menlo, monospace" font-size="22" letter-spacing="4" fill="#87867F">SLOW RANK · TODAY'S RESCUE</text>
+  <text x="90" y="180" font-family="Georgia, serif" font-size="60" fill="#D97757">&#8220;</text>
+  ${quoteLines}
+  <text x="90" y="${238 + lines.length * 62 + 20}" font-family="Menlo, monospace" font-size="22" fill="#87867F">${escapeXml(attrib)}</text>
+  <rect x="86" y="${238 + lines.length * 62 + 48}" rx="22" width="${pill.length * 13 + 40}" height="44" fill="#D97757"/>
+  <text x="106" y="${238 + lines.length * 62 + 77}" font-family="Menlo, monospace" font-size="22" fill="#FFFFFF">${escapeXml(pill)}</text>
+  <text x="90" y="585" font-family="Menlo, monospace" font-size="18" fill="#87867F">${escapeXml(`${(stats.comments || 0).toLocaleString()} comments read · scasella.github.io/hn-slow-rank`)}</text>
+  </svg>`
 }
 
 // ---------------------------------------------------------------------------
@@ -323,9 +561,15 @@ function renderPage(stories, stats) {
     priorArt: stories.filter((s) => s.priorArt.length).length,
   }
 
+  const { hero, rescues } = pickRescues(stories)
+  if (hero) process.stderr.write(`Hero rescue: ${hero.c.author} from #${hero.c.dfsIndex + 1} (score ${hero.c.score}) on "${hero.s.title}"\n`)
+
   const fs = require('fs')
-  fs.mkdirSync(require('path').dirname(require('path').resolve(OUT)), { recursive: true })
-  fs.writeFileSync(OUT, renderPage(stories, stats))
+  const path = require('path')
+  const outDir = path.dirname(path.resolve(OUT))
+  fs.mkdirSync(outDir, { recursive: true })
+  fs.writeFileSync(OUT, renderPage(stories, stats, hero, rescues))
+  fs.writeFileSync(path.join(outDir, 'og.svg'), renderOgSvg(hero, stats))
 
   if (JSON_DUMP) {
     const dump = []
@@ -339,12 +583,12 @@ function renderPage(stories, stats) {
         })
       }
     }
-    fs.mkdirSync(require('path').dirname(JSON_DUMP), { recursive: true })
+    fs.mkdirSync(path.dirname(path.resolve(JSON_DUMP)), { recursive: true })
     fs.writeFileSync(JSON_DUMP, JSON.stringify(dump))
     process.stderr.write(`Dumped ${dump.length} scored comments to ${JSON_DUMP}\n`)
   }
 
   process.stderr.write(`\nDone. ${stats.stories} stories · ${stats.comments} comments analyzed · ${stats.surfaced} surfaced · ${stats.flagged} hidden as low-signal · ${stats.hot} hot threads · ${stats.priorArt} with prior art\n`)
-  process.stderr.write('Wrote ' + OUT + '\n')
+  process.stderr.write('Wrote ' + OUT + ' (+ og.svg)\n')
   console.log(JSON.stringify({ ...stats, generatedAt: new Date().toISOString() }))
 })().catch((e) => { console.error('FATAL', e); process.exit(1) })

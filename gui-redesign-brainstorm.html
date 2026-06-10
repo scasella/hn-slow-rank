@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hn-slow-rank — GUI critique &amp; redesign brainstorm</title>
+<style>
+:root {
+  --ivory:  #FAF9F5;
+  --paper:  #FFFFFF;
+  --slate:  #141413;
+  --g100:   #F0EEE6;
+  --g200:   #E6E3DA;
+  --g300:   #D1CFC5;
+  --g500:   #87867F;
+  --g700:   #3D3D3A;
+  --clay:    #D97757;
+  --clay-d:  #B85C3E;
+  --oat:     #E3DACC;
+  --olive:   #788C5D;
+  --rust:    #B04A3F;
+  --amber:   #C78E3F;
+  --steel:   #5C7CA3;
+  --serif: ui-serif, Georgia, "Times New Roman", Times, serif;
+  --sans:  system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono:  ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--ivory); color: var(--slate);
+  font-family: var(--sans); font-size: 15px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1060px; margin: 0 auto; padding: 56px 32px 130px; }
+a { color: var(--clay); text-decoration-color: var(--oat); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--clay); }
+
+h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(36px, 5vw, 56px); line-height: 1.06; letter-spacing: -0.018em; margin: 0 0 10px; }
+h1 em { font-style: italic; color: var(--clay); }
+h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(22px, 2.4vw, 28px); line-height: 1.18; letter-spacing: -0.012em; margin: 0 0 10px; }
+h3 { font-family: var(--serif); font-weight: 500; font-size: 18px; letter-spacing: -0.005em; margin: 0 0 6px; }
+
+.eyebrow {
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--g500); margin-bottom: 18px; display: flex; align-items: center; gap: 12px;
+}
+.eyebrow::before { content: ""; width: 24px; height: 1.5px; background: var(--clay); }
+.lead { font-size: 17px; color: var(--g700); max-width: 720px; margin: 0 0 8px; }
+
+.prompt-box {
+  background: var(--g100); border: 1.5px solid var(--g300); border-radius: 12px;
+  padding: 14px 18px; font-family: var(--mono); font-size: 13px; color: var(--g700);
+  margin: 26px 0 0; max-width: 760px;
+}
+.prompt-box .who { color: var(--g500); text-transform: uppercase; letter-spacing: .08em; font-size: 10.5px; margin-bottom: 5px; }
+
+section { margin-top: 64px; }
+.callout {
+  background: var(--paper); border: 1.5px solid var(--g300); border-left: 4px solid var(--clay);
+  border-radius: 10px; padding: 16px 20px; margin: 18px 0; max-width: 860px;
+}
+.callout.olive { border-left-color: var(--olive); }
+.callout p { margin: 6px 0; color: var(--g700); }
+.callout b { color: var(--slate); }
+
+/* ── current-state autopsy ─────────────────────────────── */
+.autopsy { display: grid; grid-template-columns: 1.1fr .9fr; gap: 28px; align-items: start; margin-top: 22px; }
+.mock-frame { border: 1.5px solid var(--g300); border-radius: 12px; overflow: hidden; background: var(--paper); position: relative; }
+.mock-frame .chrome {
+  display: flex; gap: 6px; padding: 8px 12px; border-bottom: 1.5px solid var(--g300); background: var(--g100);
+}
+.chrome i { width: 9px; height: 9px; border-radius: 999px; background: var(--g300); }
+.mock-label { font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--g500); margin: 10px 0 6px; }
+
+/* faithful miniature of the shipped page */
+.cur { background: #f6f6ef; padding: 14px 16px 18px; font-size: 11px; position: relative; }
+.cur .hdr { border-bottom: 1px solid #e4e4d8; padding-bottom: 8px; }
+.cur .hdr .t { font-weight: 600; font-size: 13px; }
+.cur .hdr .tg { color: #6b6b60; font-size: 9.5px; margin-top: 2px; }
+.cur .statrow { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 6px; font-family: var(--mono); font-size: 8px; color: #6b6b60; }
+.cur .statrow b { color: #1b1b17; }
+.cur .legend { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 5px; }
+.cur .legend span { background: #efeee3; border: 1px solid #e4e4d8; border-radius: 8px; padding: 0 5px; font-size: 7.5px; font-family: var(--mono); color: #6b6b60; }
+.cur .card { background: #fff; border: 1px solid #e4e4d8; border-radius: 8px; padding: 9px 11px; margin-top: 10px; }
+.cur .st { font-weight: 600; font-size: 11.5px; }
+.cur .dm { color: #6b6b60; font-size: 8.5px; }
+.cur .meta { font-family: var(--mono); font-size: 7.5px; color: #6b6b60; margin-top: 2px; }
+.cur .lanelabel { font-family: var(--mono); font-size: 7.5px; letter-spacing: .06em; color: #3a7d44; text-transform: uppercase; margin: 7px 0 4px; }
+.cur .cm { display: flex; gap: 6px; border-top: 1px dashed #e4e4d8; padding: 6px 0 2px; }
+.cur .sc { font-family: var(--mono); font-size: 8px; font-weight: 600; color: #3a7d44; background: #eef5ef; border: 1px solid #d6e7d8; border-radius: 5px; padding: 0 4px; height: fit-content; }
+.cur .au { font-weight: 600; color: #444; font-size: 8.5px; }
+.cur .bdg { font-family: var(--mono); font-size: 7px; background: #fbf2e9; border: 1px solid #efd9c4; color: #b4612e; border-radius: 7px; padding: 0 4px; }
+.cur .mv { font-family: var(--mono); font-size: 6.5px; color: #9a9a8c; background: #f0f0e6; border-radius: 5px; padding: 0 4px; }
+.cur .tx { color: #23231d; font-size: 9px; margin-top: 2px; line-height: 1.45; }
+.cur .why { color: #3a7d44; font-style: italic; font-size: 7.5px; margin-top: 2px; }
+.cur .fold { font-family: var(--mono); font-size: 7.5px; color: #6b6b60; background: #f0f0e6; border: 1px solid #e4e4d8; border-radius: 5px; padding: 3px 6px; margin-top: 7px; display: inline-block; }
+
+.pin {
+  position: absolute; width: 20px; height: 20px; border-radius: 999px; background: var(--clay);
+  color: #fff; font-family: var(--mono); font-size: 11px; font-weight: 600;
+  display: flex; align-items: center; justify-content: center; border: 1.5px solid #fff;
+  box-shadow: 0 1px 4px rgba(20,20,19,.25);
+}
+.findings { display: flex; flex-direction: column; gap: 10px; }
+.finding { background: var(--paper); border: 1.5px solid var(--g300); border-radius: 10px; padding: 12px 14px; display: flex; gap: 12px; }
+.finding .n {
+  flex: none; width: 22px; height: 22px; border-radius: 999px; background: var(--clay); color: #fff;
+  font-family: var(--mono); font-size: 12px; font-weight: 600; display: flex; align-items: center; justify-content: center;
+}
+.finding p { margin: 0; font-size: 13.5px; color: var(--g700); }
+.finding b { color: var(--slate); }
+
+/* ── compare grid ──────────────────────────────────────── */
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin: 26px 0 0; }
+.option { background: var(--paper); border: 1.5px solid var(--g300); border-radius: 12px; padding: 20px 22px; display: flex; flex-direction: column; }
+.option .tradeoff { font-family: var(--mono); font-size: 11px; color: var(--clay); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+.option h3 { margin: 0 0 8px; font-size: 20px; }
+.option p { margin: 0 0 8px; font-size: 13.5px; color: var(--g700); }
+.option .verdict { font-size: 12.5px; color: var(--g500); border-top: 1px solid var(--g100); padding-top: 10px; margin-top: auto; }
+.option .verdict b { color: var(--g700); }
+.mini { border: 1.5px solid var(--g300); border-radius: 8px; overflow: hidden; margin: 10px 0 14px; }
+
+/* mock A — the daily rescue (editorial) */
+.mockA { background: #FAF9F5; padding: 16px 18px; }
+.mockA .kick { font-family: var(--mono); font-size: 7.5px; letter-spacing: .1em; text-transform: uppercase; color: #87867F; }
+.mockA .quote { font-family: var(--serif); font-size: 14.5px; line-height: 1.3; margin: 6px 0; color: #141413; }
+.mockA .quote em { color: #D97757; font-style: italic; }
+.mockA .attrib { font-size: 8.5px; color: #87867F; }
+.mockA .attrib b { color: #3D3D3A; }
+.mockA .rescue { display: inline-block; font-family: var(--mono); font-size: 7.5px; color: #fff; background: #D97757; border-radius: 999px; padding: 1px 7px; margin-top: 6px; }
+.mockA .list { border-top: 1px solid #E6E3DA; margin-top: 10px; padding-top: 8px; }
+.mockA .li { display: flex; justify-content: space-between; font-size: 8.5px; color: #3D3D3A; padding: 3px 0; }
+.mockA .li span:last-child { font-family: var(--mono); color: #87867F; font-size: 7.5px; }
+
+/* mock B — before/after x-ray */
+.mockB { background: #FAF9F5; padding: 14px; }
+.mockB .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; position: relative; }
+.mockB .colh { font-family: var(--mono); font-size: 7px; text-transform: uppercase; letter-spacing: .08em; color: #87867F; margin-bottom: 4px; }
+.mockB .row { height: 11px; border-radius: 3px; background: #F0EEE6; margin-bottom: 4px; }
+.mockB .row.gem { background: rgba(217,119,87,.7); }
+.mockB .row.fight { background: repeating-linear-gradient(45deg, #E6E3DA, #E6E3DA 3px, #F0EEE6 3px, #F0EEE6 6px); }
+.mockB svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.mockB .cap { font-size: 8.5px; color: #3D3D3A; margin-top: 8px; text-align: center; }
+.mockB .cap b { color: #B85C3E; }
+
+/* mock C — calm reader */
+.mockC { background: #FAF9F5; padding: 16px 22px; }
+.mockC .crumb { font-family: var(--mono); font-size: 7px; color: #87867F; margin-bottom: 8px; }
+.mockC .bigtext { font-family: var(--serif); font-size: 12.5px; line-height: 1.5; color: #141413; }
+.mockC .src { display: flex; align-items: center; gap: 5px; margin-top: 8px; font-size: 8px; color: #87867F; }
+.mockC .dot { width: 14px; height: 14px; border-radius: 999px; background: #E3DACC; }
+.mockC .nav { display: flex; justify-content: space-between; margin-top: 12px; font-family: var(--mono); font-size: 7.5px; color: #87867F; border-top: 1px solid #E6E3DA; padding-top: 7px; }
+
+/* mock D — HN-native polish */
+.mockD { background: #f6f6ef; padding: 14px 16px; font-size: 9px; }
+.mockD .bar { background: #b4612e; color: #fff; font-weight: 600; font-size: 9px; padding: 4px 8px; border-radius: 4px 4px 0 0; margin: -14px -16px 10px; }
+.mockD .st { font-weight: 600; font-size: 10.5px; color: #1b1b17; }
+.mockD .cm { border-left: 2px solid #3a7d44; padding: 4px 0 4px 8px; margin-top: 7px; background: #fff; border-radius: 0 5px 5px 0; }
+.mockD .au { font-weight: 600; font-size: 8px; color: #444; }
+.mockD .tx { font-size: 8.5px; color: #23231d; }
+.mockD .one-badge { font-family: var(--mono); font-size: 7px; color: #b4612e; }
+
+/* ── decision matrix ──────────────────────────────────── */
+.matrix { border: 1.5px solid var(--g300); border-radius: 12px; background: var(--paper); overflow: hidden; margin-top: 22px; }
+.mrow { display: grid; grid-template-columns: 2.2fr repeat(4, 1fr); border-bottom: 1px solid var(--g100); }
+.mrow:last-child { border-bottom: none; }
+.mrow > div { padding: 10px 14px; font-size: 13px; }
+.mrow.head > div { font-family: var(--mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: .07em; color: var(--g500); background: var(--g100); }
+.mrow .crit { color: var(--g700); }
+.cell { font-family: var(--mono); font-size: 12px; }
+.cell.hi { color: var(--olive); font-weight: 600; }
+.cell.md { color: var(--amber); }
+.cell.lo { color: var(--g500); }
+
+/* ── quick wins ───────────────────────────────────────── */
+.row-list { border: 1.5px solid var(--g300); border-radius: 12px; background: var(--paper); overflow: hidden; margin-top: 18px; }
+.rl { display: flex; gap: 14px; align-items: baseline; padding: 12px 18px; border-bottom: 1px solid var(--g100); }
+.rl:last-child { border-bottom: none; }
+.rl .tag { flex: none; font-family: var(--mono); font-size: 10px; text-transform: uppercase; letter-spacing: .07em; border-radius: 999px; padding: 2px 9px; }
+.tag.now { background: rgba(176,74,63,.16); color: var(--rust); }
+.tag.cheap { background: rgba(120,140,93,.16); color: var(--olive); }
+.rl p { margin: 0; font-size: 13.5px; color: var(--g700); }
+.rl b { color: var(--slate); }
+
+footer { margin-top: 80px; font-family: var(--mono); font-size: 11.5px; color: var(--g500); border-top: 1px solid var(--g200); padding-top: 14px; }
+
+@media (max-width: 880px) {
+  .wrap { padding: 36px 20px 80px; }
+  .autopsy, .compare { grid-template-columns: 1fr; }
+  .mrow { grid-template-columns: 1.6fr repeat(4, 1fr); }
+  .mrow > div { padding: 8px 8px; font-size: 11.5px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">Design critique · hn-slow-rank · 2026-06-09</div>
+  <h1>The magic moment is set in <em>10px gray type</em></h1>
+  <p class="lead">The shipped page is an honest, competent tool — and it reads like a script's output, because it is one. Mass appeal needs the product's one astonishing fact (“the best comment was buried at #246”) to <i>be</i> the interface, not a footnote pill on it.</p>
+  <div class="prompt-box">
+    <div class="who">The ask</div>
+    Analyze the GUI. Brainstorm the best redesign that maximizes the chance of mass appeal of our website.
+  </div>
+</header>
+
+<section>
+  <h2>Diagnosis in three sentences</h2>
+  <div class="callout">
+    <p><b>1.</b> The page borrows HN's beige skin, so to outsiders it looks like the thing it's fixing — and to insiders it looks like a userscript, not a product. It has no visual identity of its own.</p>
+    <p><b>2.</b> The hierarchy is inverted: the rescue story (“was #246 by votes → surfaced”) is the entire thesis and the most shareable fact on the page, yet it's the <i>smallest</i> element, while undifferentiated story titles get the largest type.</p>
+    <p><b>3.</b> There is no share loop at all — zero Open Graph / Twitter meta tags, no per-story anchors, no quotable unit. A pasted link renders as a bare URL. For mass distribution this is the single cheapest, highest-leverage fix in the whole brainstorm.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Autopsy of the current page</h2>
+  <p style="max-width:760px;color:var(--g700)">A faithful miniature of what ships today, with the five problems pinned where they live. (To its credit: no AI-slop tells — no gradients, no glassmorphism. Its sins are <i>tool</i> sins: density, timidity, and emoji-pill soup.)</p>
+
+  <div class="autopsy">
+    <div>
+      <div class="mock-label">Current GUI (miniature)</div>
+      <div class="mock-frame">
+        <div class="chrome"><i></i><i></i><i></i></div>
+        <div class="cur">
+          <span class="pin" style="top:46px; right:10px;">1</span>
+          <span class="pin" style="top:96px; right:10px;">2</span>
+          <span class="pin" style="top:208px; left:8px;">3</span>
+          <span class="pin" style="top:256px; right:10px;">4</span>
+          <span class="pin" style="bottom:14px; left:8px;">5</span>
+          <div class="hdr">
+            <div class="t">Hacker News, reranked by substance</div>
+            <div class="tg">Surface the comment worth reading, hide the fight. — front page of June 9, 2026</div>
+            <div class="statrow"><span><b>28</b> stories</span><span><b>3,628</b> comments analyzed</span><span><b>125</b> surfaced</span><span><b>633</b> hidden</span><span><b>5</b> hot threads</span></div>
+            <div class="legend"><span>🔗 source</span><span>⟨/⟩ code</span><span>✋ firsthand</span><span>📊 specifics</span><span>💬 discussion</span><span>🥊 duel</span><span>📜 prior art</span></div>
+          </div>
+          <div class="card">
+            <div class="st">Claude Fable 5 <span class="dm">anthropic.com</span></div>
+            <div class="meta">1719 pts · 1359 comments · 8h 🔥 hot thread</div>
+            <div class="lanelabel">▲ Worth reading</div>
+            <div class="cm">
+              <span class="sc">16</span>
+              <div>
+                <span class="au">simonw</span>
+                <span class="bdg">🔗 source</span><span class="bdg">⟨/⟩ code</span><span class="bdg">✋ firsthand</span><span class="bdg">📊 specifics</span>
+                <span class="mv">was #1231 by votes → surfaced</span>
+                <div class="tx">I ran the new model against my full benchmark suite last night — here's the harness, the raw transcripts, and where it breaks…</div>
+                <div class="why">cites a primary source (github.com) · includes code / a command · firsthand</div>
+              </div>
+            </div>
+            <div class="cm">
+              <span class="sc">9.5</span>
+              <div>
+                <span class="au">jbellis</span>
+                <span class="bdg">🔗 source</span><span class="bdg">📊 specifics</span>
+                <div class="tx">The context-window numbers in the announcement don't match the API docs: 1M vs 800K. I measured actual…</div>
+              </div>
+            </div>
+            <div class="fold">🥊 264 hidden as low-signal · 119 in duels</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="findings">
+      <div class="finding"><span class="n">1</span><p><b>No identity, no hero.</b> A 20px system-font title over a borrowed beige. Nothing communicates “someone made this and it's alive” — no logo mark, no freshness signal above the fold, no reason to remember it.</p></div>
+      <div class="finding"><span class="n">2</span><p><b>Legend-and-stats soup before any content.</b> Seven emoji chips and five mono stats demand decoding before the reader sees a single comment. Mass-audience readers don't study legends; the meaning must ride on the content itself.</p></div>
+      <div class="finding"><span class="n">3</span><p><b>The thesis is the smallest thing on screen.</b> “was #1231 by votes → surfaced” is a 6.5px gray pill. That line is the product. It should be the headline device, not metadata.</p></div>
+      <div class="finding"><span class="n">4</span><p><b>~150 reading decisions, zero editing.</b> 28 stories × up to 6 comments, every card identical weight, no featured moment, no “if you read one thing today.” Mass appeal requires an editor's cut, not a mirror of the firehose.</p></div>
+      <div class="finding"><span class="n">5</span><p><b>Dead-end page.</b> No share affordance, no OG cards, no “how scoring works” link, no way to subscribe to tomorrow. Every visit is a cul-de-sac; growth has no mechanism.</p></div>
+    </div>
+  </div>
+
+  <div class="callout olive" style="margin-top:26px">
+    <p><b>What's genuinely working — keep all of it:</b> the microcopy voice (“hide the fight”, “Expand if you want the fight”), the legible why-floated reasons under each comment, and the honest accounting that separates “hidden as low-signal” from “ordinary, just not top-ranked.” The redesign should amplify this voice, not replace it.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Four directions</h2>
+  <p style="max-width:760px;color:var(--g700)">Distinctly different bets, each with the tradeoff it's making named first. Mini-mockups are directional, not pixel-final.</p>
+
+  <div class="compare">
+
+    <div class="option">
+      <div class="tradeoff">Optimizes for shareability + daily ritual</div>
+      <h3>A · The Daily Rescue</h3>
+      <p>Stop mirroring the front page; become an editorial product. The hero is <b>one rescued comment</b>, set like a magazine pull quote, with its rescue story told big: “buried at #1231 by votes.” Below it, “today's rescues” — the 10 best across all threads — then the full per-story digest for completists. Warm-cream editorial design, serif display, one accent. Every rescue gets a permalink and a screenshot-ready quote card.</p>
+      <div class="mini"><div class="mockA">
+        <div class="kick">Today's rescue · June 9</div>
+        <div class="quote">“I ran the new model against my full benchmark suite last night — here's the harness, the raw transcripts, and <em>where it breaks</em>.”</div>
+        <div class="attrib"><b>simonw</b> · on “Claude Fable 5” · source + code + firsthand</div>
+        <div class="rescue">▲ rescued from #1231 by votes</div>
+        <div class="list">
+          <div class="li"><span>The context-window numbers don't match the docs…</span><span>#88 → 2</span></div>
+          <div class="li"><span>I maintain the library this article is about, and…</span><span>#246 → 3</span></div>
+          <div class="li"><span>We deployed this at work; the migration cost was…</span><span>#149 → 4</span></div>
+        </div>
+      </div></div>
+      <div class="verdict"><b>Risk:</b> picking one hero comment is an editorial claim — a bad pick is very visible. Mitigation: the score is transparent; show the why right on the hero.</div>
+    </div>
+
+    <div class="option">
+      <div class="tradeoff">Optimizes for instant comprehension of the mechanism</div>
+      <h3>B · The X-ray (before / after)</h3>
+      <p>Make the <b>re-ranking itself</b> the interface: two columns per thread — “by votes” vs “by substance” — with the rescued comment visibly teleporting up and the duels (striped) sinking. Nobody needs the legend explained; the picture <i>is</i> the explanation. Strongest possible launch/demo page and the natural Show HN screenshot.</p>
+      <div class="mini"><div class="mockB">
+        <div class="cols">
+          <div>
+            <div class="colh">By votes</div>
+            <div class="row"></div><div class="row fight"></div><div class="row fight"></div><div class="row"></div><div class="row"></div><div class="row"></div><div class="row gem"></div>
+          </div>
+          <div>
+            <div class="colh">By substance</div>
+            <div class="row gem"></div><div class="row"></div><div class="row"></div><div class="row"></div><div class="row fight" style="opacity:.45"></div><div class="row fight" style="opacity:.45"></div><div class="row" style="opacity:.6"></div>
+          </div>
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M 47 88 C 56 88, 44 16, 53 16" fill="none" stroke="#D97757" stroke-width="1.6" stroke-dasharray="3 2"/></svg>
+        </div>
+        <div class="cap">the gem at <b>#7</b> becomes <b>#1</b>; the fight sinks, dimmed</div>
+      </div></div>
+      <div class="verdict"><b>Risk:</b> spectacular once, tiring daily — it's a demo pattern, not a reading pattern. Best as the landing/about moment, not the whole product.</div>
+    </div>
+
+    <div class="option">
+      <div class="tradeoff">Optimizes for retention + calm reading</div>
+      <h3>C · The Calm Reader</h3>
+      <p>Compete with read-it-later apps, not with HN. One thread at a time, big serif body type, generous margins, the surfaced comments presented as a <b>readable digest essay</b> with author chips — swipe / arrow-key between stories, dark mode, installable PWA. The anti-doomscroll positioning (“read 10 good comments, then stop”) is itself a mass-market hook.</p>
+      <div class="mini"><div class="mockC">
+        <div class="crumb">2 / 28 · Claude Fable 5 · 3 voices worth hearing</div>
+        <div class="bigtext">I ran the new model against my full benchmark suite last night — here's the harness, the raw transcripts, and where it breaks. The short version: it's real, but the latency story is…</div>
+        <div class="src"><span class="dot"></span> simonw · rescued from #1231 · source + code</div>
+        <div class="nav"><span>← prev story</span><span>j / k</span><span>next story →</span></div>
+      </div></div>
+      <div class="verdict"><b>Risk:</b> biggest build (state, navigation, PWA), and it hides the ranking mechanism that makes the product novel. Strong v2, expensive v1.</div>
+    </div>
+
+    <div class="option">
+      <div class="tradeoff">Optimizes for HN-insider credibility, minimal effort</div>
+      <h3>D · HN-native polish</h3>
+      <p>Keep the beige deliberately — but commit to it as a <b>costume, worn better</b>: an HN-orange masthead bar (instantly legible as “an HN thing”), max one badge + one plain-English reason per comment, top-3 not top-6, collapse stats into a single sentence. The page reads as “HN, but the good comments” instead of “a script's report.”</p>
+      <div class="mini"><div class="mockD">
+        <div class="bar">▲ slow rank — the good comments</div>
+        <div class="st">Claude Fable 5 <span style="color:#6b6b60;font-size:8px">· 1359 comments, 3 worth your time</span></div>
+        <div class="cm"><span class="au">simonw</span> <span class="one-badge">rescued from #1231 — brought receipts: code + benchmarks</span><div class="tx">I ran the new model against my full benchmark suite last night — here's the harness…</div></div>
+        <div class="cm"><span class="au">jbellis</span> <span class="one-badge">rescued from #88 — checked the actual numbers</span><div class="tx">The context-window numbers in the announcement don't match the API docs…</div></div>
+      </div></div>
+      <div class="verdict"><b>Risk:</b> ceiling. It can win the HN crowd and the Show HN thread, but “mass appeal” was the brief — beige doesn't travel beyond the orange site's gravity well.</div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Decision matrix</h2>
+  <div class="matrix">
+    <div class="mrow head"><div>Criterion</div><div>A · Rescue</div><div>B · X-ray</div><div>C · Reader</div><div>D · Polish</div></div>
+    <div class="mrow"><div class="crit">Value understood in 3 seconds</div><div class="cell hi">high</div><div class="cell hi">high</div><div class="cell md">med</div><div class="cell md">med</div></div>
+    <div class="mrow"><div class="crit">Share loop (quotable unit, OG cards)</div><div class="cell hi">high</div><div class="cell md">med</div><div class="cell lo">low</div><div class="cell lo">low</div></div>
+    <div class="mrow"><div class="crit">Daily-ritual shape (habit potential)</div><div class="cell hi">high</div><div class="cell lo">low</div><div class="cell hi">high</div><div class="cell md">med</div></div>
+    <div class="mrow"><div class="crit">Reach beyond the HN crowd</div><div class="cell hi">high</div><div class="cell md">med</div><div class="cell hi">high</div><div class="cell lo">low</div></div>
+    <div class="mrow"><div class="crit">Build cost on current codebase</div><div class="cell hi">~2 days</div><div class="cell md">~2 days</div><div class="cell lo">1–2 wks</div><div class="cell hi">~1 day</div></div>
+    <div class="mrow"><div class="crit">Keeps transparent-scoring trust</div><div class="cell hi">yes</div><div class="cell hi">strongest</div><div class="cell md">partial</div><div class="cell hi">yes</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Recommendation</h2>
+  <div class="callout">
+    <p><b>Build A with B as its hero device.</b> The Daily Rescue is the only direction that scores high on all three mass-appeal mechanics at once — instant comprehension, a quotable unit, and a daily ritual — and it's cheap because the generator already computes everything it needs (scores, reasons, dfsIndex). Embed one compact X-ray strip (B) at the top of the page as the permanent 3-second explainer of <i>how</i> the rescue happened; keep the full per-story digest below for power readers, in the current honest voice. Direction C is the v2 if retention data says people come back; D's “one badge + plain-English reason” compression should be adopted inside A regardless.</p>
+    <p>Concretely: hero rescue with serif pull quote + “rescued from #N” as the brand device → X-ray strip → “Today's 10 rescues” list with permalinks → per-story digest. New name surface: keep <b>Slow Rank</b>, drop “Hot Thread” from user-facing copy.</p>
+  </div>
+
+  <h3 style="margin-top:34px">Ship regardless of direction (this week)</h3>
+  <div class="row-list">
+    <div class="rl"><span class="tag now">unblock</span><p><b>OG / Twitter meta tags + favicon.</b> The page currently has none — every shared link renders bare. Generate a per-day OG image (the hero rescue as a quote card) in the same CI run. Highest leverage-to-effort ratio on this entire page.</p></div>
+    <div class="rl"><span class="tag now">unblock</span><p><b>Per-story anchors + a share link on every rescue.</b> The unit of virality is the rescued comment, not the homepage. <span style="font-family:var(--mono);font-size:12px">#story-48463808</span> anchors exist for free; add a “copy link” affordance.</p></div>
+    <div class="rl"><span class="tag cheap">cheap</span><p><b>Collapse the header.</b> One sentence (“3,628 comments read so you don't have to — updated 14 min ago”) replaces the stats row + legend. The freshness chip doubles as a liveness signal.</p></div>
+    <div class="rl"><span class="tag cheap">cheap</span><p><b>One badge max + plain-English reason.</b> “🔗⟨/⟩✋📊” becomes “brought receipts: code + benchmarks.” The reasons array already contains this; it's a rendering change.</p></div>
+    <div class="rl"><span class="tag cheap">cheap</span><p><b>Trust link in the footer of every story card:</b> “how scoring works” → README anchor, plus the calibration line (“weights validated against blind pairwise judgments, 81% held-out agreement”). Mass audiences don't read methods; they notice that methods exist.</p></div>
+  </div>
+</section>
+
+<footer>hn-slow-rank · GUI critique &amp; redesign brainstorm · generated 2026-06-09 · sources: rerank.js renderPage/renderStory/renderComment + live page structure</footer>
+
+</div>
+</body>
+</html>

@@ -33,6 +33,12 @@ jobs:
       - name: generate reranked front page
         run: node rerank.js 30 6 --out=site/index.html
 
+      - name: rasterize OG card (site/og.svg -> site/og.png)
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q --no-install-recommends librsvg2-bin
+          rsvg-convert site/og.svg -w 1200 -h 630 -o site/og.png
+
       - name: record + commit rank snapshot (feeds the shadow-rank detector)
         if: github.event_name != 'push'
         run: |
