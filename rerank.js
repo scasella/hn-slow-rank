@@ -234,6 +234,19 @@ function pickRescues(stories) {
 // ---------------------------------------------------------------------------
 // render
 // ---------------------------------------------------------------------------
+// truncated quote that expands in place — full rich text revealed without
+// leaving the page; "show less" collapses it back
+function expandableQuote(c, limit, quoteClass) {
+  const norm = c.text.replace(/[│┌┐└┘├┤┬┴┼─═║╔╗╚╝╠╣╦╩╬]+/g, ' ').replace(/\s+/g, ' ').trim()
+  const short = excerpt(c.text, limit)
+  if (norm.length <= limit) return `<p class="${quoteClass}">&ldquo;${escapeHtml(short)}&rdquo;</p>`
+  const qid = `q-${c.id}`, xid = `x-${c.id}`
+  return `<p class="${quoteClass}" id="${qid}">&ldquo;${escapeHtml(short)}&rdquo;
+      <button class="pmore" data-expand="${xid}" data-quote="${qid}" aria-expanded="false" aria-controls="${xid}">expand ↓</button></p>
+    <div class="rfull" id="${xid}" hidden>${safeCommentHtml(c.textHtml)}
+      <button class="pmore" data-collapse="${xid}" data-quote="${qid}">show less ↑</button></div>`
+}
+
 function renderHeroItem(hero) {
   if (!hero) return ''
   const { c, s } = hero
@@ -244,7 +257,7 @@ function renderHeroItem(hero) {
   const shareText = `HN buried this comment at #${fmt(from)}. It should've been #1: ${excerpt(c.text, 120)} — ${SITE}#r-${c.id}`
   return `<article class="heroitem" id="r-${c.id}" aria-labelledby="herostat">
     <p class="bigstat" id="herostat">${stat}</p>
-    <blockquote class="pull">&ldquo;${escapeHtml(excerpt(c.text, 300))}&rdquo;</blockquote>
+    ${expandableQuote(c, 300, 'pull')}
     <p class="hmeta"><b>${escapeHtml(c.author)}</b> · on &ldquo;<a href="https://news.ycombinator.com/item?id=${s.id}" target="_blank" rel="noopener">${escapeHtml(s.title)}</a>&rdquo; · ${escapeHtml(shortReason(c))}</p>
     <div class="heroactions">
       <button class="share" data-share="${escapeHtml(shareText)}" aria-label="Copy a shareable summary of this rescue">Share this rescue</button>
@@ -255,8 +268,8 @@ function renderHeroItem(hero) {
 
 function renderRescueItem({ c, s }) {
   return `<li class="ritem" id="r-${c.id}">
-    <a class="rq" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=${c.id}">&ldquo;${escapeHtml(excerpt(c.text, 170))}&rdquo;</a>
-    <p class="rmeta"><b>${escapeHtml(c.author)}</b> · ${escapeHtml(excerpt(s.title, 54))} · <span class="was">was #${fmt(c.dfsIndex + 1)}</span> · ${escapeHtml(shortReason(c))}</p>
+    ${expandableQuote(c, 170, 'rq')}
+    <p class="rmeta"><b>${escapeHtml(c.author)}</b> · ${escapeHtml(excerpt(s.title, 54))} · <span class="was">was #${fmt(c.dfsIndex + 1)}</span> · ${escapeHtml(shortReason(c))} · <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=${c.id}">thread ↗</a></p>
   </li>`
 }
 
@@ -363,8 +376,13 @@ function renderPage(stories, stats, hero, rescues) {
   .ritem{counter-increment:r;padding:16px 18px 16px 54px;border-bottom:1px solid var(--g100);position:relative}
   .ritem:last-child{border-bottom:none}
   .ritem::before{content:counter(r);position:absolute;left:18px;top:17px;font-family:var(--mono);font-size:13px;color:var(--meta)}
-  .rq{display:block;font-family:var(--serif);font-size:16.5px;line-height:1.45;color:var(--slate);text-decoration:none}
-  .rq:hover{color:var(--clay-d)}
+  .rq{display:block;font-family:var(--serif);font-size:16.5px;line-height:1.45;color:var(--slate);margin:0}
+  .pmore{font-family:var(--mono);font-size:11.5px;color:var(--clay-d);background:none;border:none;cursor:pointer;padding:6px 8px;margin-left:2px;white-space:nowrap}
+  .pmore:hover{color:var(--clay-dd);text-decoration:underline}
+  .rfull{margin-top:8px;font-size:15px;color:var(--body);overflow-wrap:break-word}
+  .rfull p{margin:.5em 0}
+  .rfull pre{background:var(--g100);padding:8px 10px;border-radius:8px;overflow:auto;font-size:13px;font-family:var(--mono)}
+  .rfull .pmore{display:block;margin:10px 0 0;padding-left:0}
   .rmeta{margin:7px 0 0;font-size:12.5px;color:var(--meta)}
   .rmeta b{color:var(--body)}
   .was{font-family:var(--mono);font-size:12px;color:var(--clay-d)}
@@ -496,10 +514,25 @@ function renderPage(stories, stats, hero, rescues) {
         }
       })
     })
+    // truncated quotes expand in place — no leaving the page to finish reading
+    function swapQuote(quoteId, fullId, showFull) {
+      var q = document.getElementById(quoteId), f = document.getElementById(fullId)
+      if (!q || !f) return
+      q.hidden = showFull
+      f.hidden = !showFull
+      var btn = q.querySelector('[data-expand]')
+      if (btn) btn.setAttribute('aria-expanded', String(showFull))
+    }
+    document.querySelectorAll('[data-expand]').forEach(function(b){
+      b.addEventListener('click', function(){ swapQuote(b.dataset.quote, b.dataset.expand, true) })
+    })
+    document.querySelectorAll('[data-collapse]').forEach(function(b){
+      b.addEventListener('click', function(){ swapQuote(b.dataset.quote, b.dataset.collapse, false) })
+    })
     // wide code/ASCII tables become tap-to-expand on small screens (the
     // sideways-scroll-inside-vertical-scroll trap)
     if (window.innerWidth <= 680) {
-      document.querySelectorAll('.ctext pre').forEach(function(pre){
+      document.querySelectorAll('.ctext pre, .rfull pre').forEach(function(pre){
         if (pre.scrollWidth > pre.clientWidth + 12) {
           var d = document.createElement('details')
           d.className = 'wide'
