@@ -17,25 +17,24 @@
   <meta name="twitter:image" content="https://scasella.github.io/hn-slow-rank/og.png">
   <style>
   :root{--ink:#1b1b17;--body:#3d3d3a;--meta:#6b6b60;
-    --hairline:rgba(255,255,255,.80);--hairline-soft:rgba(255,255,255,.55);
-    --glass:linear-gradient(135deg,rgba(255,255,255,.55),rgba(255,255,255,.30));
-    --glass-strong:linear-gradient(135deg,rgba(255,255,255,.68),rgba(255,255,255,.42));
-    --hn:#ff6600;--hn-big:#f25c00;--hn-deep:#b85000;--hn-dark:#993f00;
+    --hairline:rgba(255,255,255,.45);--hairline-soft:rgba(255,255,255,.30);
+    --glass:linear-gradient(135deg,rgba(255,255,255,.72),rgba(255,255,255,.58));
+    --glass-strong:linear-gradient(135deg,rgba(255,255,255,.82),rgba(255,255,255,.70));
+    --hn:#ff6600;--hn-deep:#b85000;--hn-dark:#993f00;
     --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     --mono:ui-monospace,"SF Mono",Menlo,Monaco,Consolas,monospace}
   *{box-sizing:border-box}html{scroll-behavior:smooth}
   body{margin:0;background:#f6f6ef;color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  .bg{position:fixed;inset:-25%;z-index:-2;pointer-events:none;filter:blur(80px) saturate(135%);
+  .bg{position:fixed;inset:-25%;z-index:-2;pointer-events:none;filter:blur(80px) saturate(125%);
     background:
-     radial-gradient(42% 52% at 12% 18%,rgba(255,102,0,.50),transparent 62%),
-     radial-gradient(36% 46% at 88% 12%,rgba(255,176,0,.45),transparent 62%),
-     radial-gradient(46% 56% at 78% 82%,rgba(255,123,46,.42),transparent 62%),
-     radial-gradient(40% 52% at 22% 86%,rgba(255,204,112,.50),transparent 62%),
-     radial-gradient(70% 80% at 50% 50%,rgba(255,232,200,.70),transparent 75%);
+     radial-gradient(45% 55% at 15% 20%,rgba(255,102,0,.30),transparent 62%),
+     radial-gradient(40% 50% at 85% 15%,rgba(255,176,0,.25),transparent 62%),
+     radial-gradient(50% 60% at 70% 85%,rgba(255,140,64,.25),transparent 62%);
     animation:drift 26s ease-in-out infinite alternate}
   @keyframes drift{from{transform:translate3d(-2.5%,-1.5%,0) rotate(-2deg) scale(1)}to{transform:translate3d(2.5%,2%,0) rotate(4deg) scale(1.12)}}
   .grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='0.55'/></svg>")}
   @media (prefers-reduced-motion:reduce){.bg{animation:none}}
+  @media (pointer:coarse){.bg{animation:none}}
   a{color:var(--hn-deep);text-decoration-color:rgba(184,80,0,.45);text-decoration-thickness:1px;text-underline-offset:3px}
   a:hover{color:var(--hn-dark);text-decoration-color:currentColor}
   a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--hn-deep);outline-offset:2px;border-radius:6px}
@@ -49,17 +48,19 @@
   .mnav{font-family:var(--mono);font-size:12px;color:var(--meta);margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
   .mnav a,.mnav span{color:var(--meta);background:var(--glass);border:1px solid var(--hairline-soft);border-radius:999px;padding:7px 13px;text-decoration:none;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
   .mnav a:hover{color:var(--hn-dark);border-color:var(--hairline)}
+  .mnav .fresh,.mnav a[href="feed.xml"]{color:var(--body);border-color:rgba(166,80,0,.35);font-weight:600}
   .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--meta);display:flex;align-items:center;gap:12px;margin:0 0 14px}
   .eyebrow::before{content:"";width:26px;height:1.5px;background:var(--hn)}
   h2{font-size:22px;font-weight:700;letter-spacing:-.015em;margin:0 0 4px;color:var(--ink)}
   .secsub{color:var(--meta);font-size:13.5px;margin:0 0 16px}
   .rescues{margin-top:52px}
-  .heroitem{background:var(--glass-strong);backdrop-filter:blur(26px) saturate(150%);-webkit-backdrop-filter:blur(26px) saturate(150%);border:1px solid var(--hairline);border-radius:28px;padding:32px 36px;margin-bottom:20px;box-shadow:0 16px 50px rgba(166,80,0,.18),inset 0 1px 0 rgba(255,255,255,.90)}
+  .heroitem{background:var(--glass-strong);backdrop-filter:blur(26px) saturate(150%);-webkit-backdrop-filter:blur(26px) saturate(150%);border:1px solid var(--hairline);border-radius:28px;padding:32px 36px;margin-bottom:20px;contain:paint;box-shadow:0 16px 50px rgba(166,80,0,.18),inset 0 1px 0 rgba(255,255,255,.90),inset 0 -1px 0 rgba(166,80,0,.06)}
   .bigstat{font-size:clamp(26px,4vw,40px);font-weight:800;line-height:1.12;letter-spacing:-.02em;margin:0 0 18px;color:var(--ink)}
-  .bigstat b{color:var(--hn-big);font-weight:800}
+  .bigstat b{color:var(--hn-dark);font-weight:800}
   .pull{font-size:clamp(17px,2.4vw,21px);font-weight:500;line-height:1.5;margin:0;color:var(--body)}
   .pmore{font-family:var(--mono);font-size:11.5px;color:var(--hn-deep);background:none;border:none;cursor:pointer;padding:6px 8px;margin-left:2px;white-space:nowrap}
   .pmore:hover{color:var(--hn-dark);text-decoration:underline}
+  .pmore:active{transform:scale(.96)}
   .rfull{margin-top:10px;font-size:15px;color:var(--body);overflow-wrap:break-word}
   .rfull p{margin:.5em 0}
   .rfull pre{background:rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.08);color:#23231d;padding:9px 11px;border-radius:12px;overflow:auto;font-size:13px;font-family:var(--mono)}
@@ -67,11 +68,13 @@
   .hmeta{margin:16px 0 0;font-size:13.5px;color:var(--meta)}
   .hmeta b{color:var(--ink)}
   .heroactions{margin-top:20px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-  .share{font-family:var(--sans);font-size:15px;font-weight:700;color:#fff;background:var(--hn);border:none;border-radius:999px;padding:13px 24px;cursor:pointer;min-height:44px;box-shadow:0 10px 28px rgba(255,102,0,.35);transition:transform .15s ease,background .15s ease}
-  .share:hover{transform:translateY(-1px);background:#e65c00}
-  .ghost{display:inline-flex;align-items:center;font-family:var(--mono);font-size:12.5px;color:var(--ink);background:var(--glass);border:1px solid var(--hairline);border-radius:999px;padding:11px 18px;cursor:pointer;text-decoration:none;min-height:44px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+  .share{font-family:var(--sans);font-size:15px;font-weight:700;color:#fff;background:linear-gradient(135deg,rgba(153,63,0,.95),rgba(184,80,0,.88));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:13px 24px;cursor:pointer;min-height:44px;box-shadow:0 10px 28px rgba(255,102,0,.45),inset 0 1px 0 rgba(255,255,255,.35);transition:transform .15s ease,filter .15s ease}
+  .share:hover{transform:translateY(-1px);filter:brightness(1.1)}
+  .share:active{transform:translateY(0) scale(.98)}
+  .ghost{display:inline-flex;align-items:center;font-family:var(--mono);font-size:12.5px;color:var(--ink);background:var(--glass);border:1px solid var(--hairline);border-radius:999px;padding:11px 18px;cursor:pointer;text-decoration:none;min-height:44px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.50)}
   .ghost:hover{border-color:var(--hn);color:var(--hn-dark)}
-  .rlist{list-style:none;counter-reset:r 1;margin:0;padding:0;background:var(--glass);backdrop-filter:blur(22px) saturate(145%);-webkit-backdrop-filter:blur(22px) saturate(145%);border:1px solid var(--hairline);border-radius:24px;overflow:hidden;box-shadow:0 12px 40px rgba(166,80,0,.14),inset 0 1px 0 rgba(255,255,255,.80)}
+  .ghost:active{transform:scale(.97)}
+  .rlist{list-style:none;counter-reset:r 1;margin:0;padding:0;background:var(--glass);backdrop-filter:blur(22px) saturate(145%);-webkit-backdrop-filter:blur(22px) saturate(145%);border:1px solid var(--hairline);border-radius:24px;overflow:hidden;contain:paint;box-shadow:0 12px 40px rgba(166,80,0,.14),inset 0 1px 0 rgba(255,255,255,.80),inset 0 -1px 0 rgba(166,80,0,.06)}
   .ritem{counter-increment:r;padding:16px 20px 16px 56px;border-bottom:1px solid rgba(0,0,0,.08);position:relative}
   .ritem:last-child{border-bottom:none}
   .ritem::before{content:counter(r);position:absolute;left:20px;top:17px;font-family:var(--mono);font-size:13px;color:var(--hn-deep)}
@@ -80,7 +83,7 @@
   .rmeta b{color:var(--body)}
   .was{font-family:var(--mono);font-size:12px;color:var(--hn-deep)}
   .digest{margin-top:60px}
-  .story{background:var(--glass);backdrop-filter:blur(22px) saturate(145%);-webkit-backdrop-filter:blur(22px) saturate(145%);border:1px solid var(--hairline-soft);border-radius:24px;padding:20px 22px;margin:0 0 16px;box-shadow:0 8px 30px rgba(166,80,0,.10),inset 0 1px 0 rgba(255,255,255,.70)}
+  .story{background:rgba(255,253,248,.90);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--hairline);border-radius:20px;padding:20px 22px;margin:0 0 16px;contain:paint;box-shadow:inset 0 1px 0 rgba(255,255,255,.70)}
   .shead{display:flex;gap:12px;align-items:flex-start;padding-bottom:9px;border-bottom:1px solid rgba(0,0,0,.08)}
   .srank{font-family:var(--mono);font-size:12.5px;color:var(--meta);min-width:20px;text-align:right;padding-top:5px}
   .stitle h3{font-size:17px;font-weight:700;letter-spacing:-.01em;margin:0;line-height:1.35}
@@ -105,18 +108,29 @@
   details.wide{margin:8px 0}
   details.wide > summary{cursor:pointer;font-family:var(--mono);font-size:12.5px;color:var(--body);background:var(--glass);border:1px solid var(--hairline-soft);border-radius:12px;padding:12px 14px}
   .fold{margin-top:10px}
-  .fold summary{cursor:pointer;font-family:var(--mono);font-size:12.5px;color:var(--body);background:var(--glass);border:1px solid var(--hairline-soft);border-radius:999px;padding:12px 16px;display:inline-block;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-  .fold summary:hover{border-color:var(--hairline)}
+  .fold summary{cursor:pointer;font-family:var(--mono);font-size:12.5px;color:var(--body);background:var(--glass);border:1px solid var(--hairline);border-radius:999px;padding:12px 16px;display:inline-block;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 rgba(255,255,255,.50)}
+  .fold summary:hover{border-color:var(--hn)}
+  .fold summary:active{transform:scale(.98)}
   .foldnote{font-size:13px;color:var(--meta);padding:8px 4px 2px}
   .ordinary{font-size:12.5px;color:var(--meta);margin:8px 0 0}
   details.morestories{margin-top:4px}
   details.morestories > summary{cursor:pointer;font-family:var(--sans);font-weight:600;font-size:14px;color:var(--ink);background:var(--glass-strong);border:1px solid var(--hairline);border-radius:999px;padding:15px 22px;list-style-position:inside;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:inset 0 1px 0 rgba(255,255,255,.85)}
   details.morestories > summary:hover{border-color:var(--hn)}
+  details.morestories > summary:active{transform:scale(.99)}
   details.morestories[open] > summary{margin-bottom:16px}
   footer{margin:70px 0 0;padding:20px 0 100px;border-top:1px solid rgba(0,0,0,.12);font-family:var(--mono);font-size:12px;color:var(--meta);line-height:2}
   footer a{color:var(--meta)}footer a:hover{color:var(--hn-dark)}
   @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
     .heroitem,.rlist,.story,.fold summary,details.wide > summary,.mnav a,.mnav span,.ghost,details.morestories > summary{background:rgba(255,253,248,.95)}
+    .share{background:#993f00}
+  }
+  @media (prefers-reduced-transparency:reduce){
+    .heroitem,.rlist,.story,.fold summary,details.wide > summary,.mnav a,.mnav span,.ghost,details.morestories > summary{background:rgba(255,253,248,.97);backdrop-filter:none;-webkit-backdrop-filter:none}
+    .share{background:#993f00;backdrop-filter:none;-webkit-backdrop-filter:none}
+    .bg,.grain{display:none}
+  }
+  @media (prefers-contrast:more){
+    :root{--meta:#595950;--body:#2a2a25}
   }
   @media (max-width:680px){
     .mast{padding-top:28px}
@@ -125,7 +139,8 @@
     .ritem::before{left:16px}
     .permalink{margin-left:0}
     .ctext pre,.rfull pre{font-size:12px}
-    .bg{filter:blur(60px) saturate(135%)}
+    .bg{filter:blur(50px) saturate(125%);animation:none}
+    .grain{display:none}
   }</style></head><body>
   <div class="bg" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
@@ -134,8 +149,8 @@
     <h1 class="brand"><span class="tri" aria-hidden="true">▲</span> Slow Rank<span class="bsub">for Hacker News</span></h1>
     <p class="deck">Hacker News ranks comments by upvotes. Every hour we re-rank every thread by who actually knows what they're talking about &mdash; here's today's handful worth your time.</p>
     <p class="mnav">
-      <span>4,300 comments read this hour</span>
-      <span class="fresh" id="fresh" data-t="2026-06-10T11:58:50.426Z">updates hourly</span>
+      <span>4,423 comments read this hour</span>
+      <span class="fresh" id="fresh" data-t="2026-06-10T12:15:14.215Z">updates hourly</span>
       <a href="feed.xml">subscribe (RSS)</a>
       <a href="https://github.com/scasella/hn-slow-rank#how-it-scores">how scoring works</a>
       <a href="https://github.com/scasella/hn-slow-rank">source</a>
@@ -171,12 +186,22 @@ Here&#x27;s the transcript: <a target="_blank" rel="noopener noreferrer nofollow
     <div class="rfull" id="x-48466340" hidden>It&#x27;s interesting that we&#x27;re seeing these gains when it seems Mythos&#x2F;Fable is &quot;just&quot; a scaled up version of their existing architecture[0].<p>When GPT 4.5 launched, the gains compared to the model size didn&#x27;t seem that great, leading some to believe that the only progress we&#x27;d see would come from RL.<p>This model certainly has quite a &quot;substantial amount of post-training and fine-tuning&quot;, but it&#x27;s also based on a new pretrain[1][3], which given the cost, indicate that it is in fact quite a bit larger than Opus 4.X.<p>[0] One of the early testers mentioned: &quot;As far as I can tell from talking to people internally at Anthropic, there&#x27;s nothing special about architecturally&quot;[2]<p>[1] Section 1.1 in <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www-cdn.anthropic.com&#x2F;d00db56fa754a1b115b6dd7cb2e3c342ee809620.pdf" rel="nofollow">https:&#x2F;&#x2F;www-cdn.anthropic.com&#x2F;d00db56fa754a1b115b6dd7cb2e3c3...</a><p>[2] <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;youtu.be&#x2F;GrdEid8H6H4?t=168" rel="nofollow">https:&#x2F;&#x2F;youtu.be&#x2F;GrdEid8H6H4?t=168</a><p>[3] There were rumors going around when Mythos was first announced that it was the first 10T parameter model, but I can&#x27;t find a verifiable source for that number.
       <button class="pmore" data-collapse="x-48466340" data-quote="q-48466340">show less ↑</button></div>
     <p class="rmeta"><b>jumploops</b> · Claude Fable 5 · <span class="was">was #1,315</span> · receipts: sources + numbers · <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48466340">thread ↗</a></p>
+  </li><li class="ritem" id="r-48473029">
+    <p class="rq" id="q-48473029">&ldquo;Huh, this is fascinating. My wife and I did IVF with WGS in order to find a much less catastrophic shared genetic condition[0]. We have the FASTQs for my parents, and…&rdquo;
+      <button class="pmore" data-expand="x-48473029" data-quote="q-48473029" aria-expanded="false" aria-controls="x-48473029">expand ↓</button></p>
+    <div class="rfull" id="x-48473029" hidden>Huh, this is fascinating. My wife and I did IVF with WGS in order to find a much less catastrophic shared genetic condition[0]. We have the FASTQs for my parents, and brother, and my wife and me, and our daughter (and our other embryos) and I&#x27;ve run it through the standard Opus[1] (since 4.5) and none have contradicted our genetic counselors or IVF doctors. This is an interesting, and devastating, condition far more severe than anything we risked. More power to the author for having coped in a productive way. I hope that more such science will lead to healthier babies, parents more comfortable with children since they know what they can avoid or mitigate, and happier families.<p>As an aside, I have not found SF to be anti-natal but that&#x27;s because of the community we&#x27;ve formed. Of our friends in SF, almost all are trying for children or have them. Our shared Slack group is full of happy news. Inevitably, many of us must move elsewhere in order to allow them some freedom[2] and good education[3]. So there&#x27;s a bit of a dead-sea effect, true, but even within that sea there are pockets of community one can find.<p>0: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;wiki.roshangeorge.dev&#x2F;w&#x2F;IVF" rel="nofollow">https:&#x2F;&#x2F;wiki.roshangeorge.dev&#x2F;w&#x2F;IVF</a> but also see <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;viz.roshangeorge.dev&#x2F;roshan-genvue&#x2F;" rel="nofollow">https:&#x2F;&#x2F;viz.roshangeorge.dev&#x2F;roshan-genvue&#x2F;</a> to see an old set of results and download my VCF here <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;my.pgp-hms.org&#x2F;profile&#x2F;hu81A8CC" rel="nofollow">https:&#x2F;&#x2F;my.pgp-hms.org&#x2F;profile&#x2F;hu81A8CC</a> and put it through a modern (but not too modern LLM) to get some fun results if you want a starter data set to peek through. Opus can get you far.<p>1: Fable as expected yields:<p><pre><code>     Fable 5&#x27;s safety measures flagged this message for cybersecurity or biology topics. They may flag safe, normal
+    content as well. These measures let us bring you Mythos-level capability in other areas sooner, and we&#x27;re working
+    to refine them. Switched to Opus 4.8. Send feedback with &#x2F;feedback or learn more
+</code></pre>
+2: Within the last year 2 children have been killed in our neighbourhood by drivers, and parents in the US already compensate by cutting child freedom significantly<p>3: Since school system design is determined by both parents and non-parents, it is a vehicle of expression of non-education-related action by the latter, and in a city where they dominate the former, the effects are typical
+      <button class="pmore" data-collapse="x-48473029" data-quote="q-48473029">show less ↑</button></div>
+    <p class="rmeta"><b>arjie</b> · Vibe coding my way to a healthy family: Introducing… · <span class="was">was #73</span> · firsthand, with sources + code + numbers · <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473029">thread ↗</a></p>
   </li><li class="ritem" id="r-48470497">
     <p class="rq" id="q-48470497">&ldquo;TLDR :-) This comment is not entirely on point with your comment, it circles around and above it looking for lift though. If you're not doing work that requires your…&rdquo;
       <button class="pmore" data-expand="x-48470497" data-quote="q-48470497" aria-expanded="false" aria-controls="x-48470497">expand ↓</button></p>
     <div class="rfull" id="x-48470497" hidden>TLDR :-)<p>This comment is not entirely on point with your comment, it circles around and above it looking for lift though.<p>If you&#x27;re not doing work that requires your code to stay in home nation data centres, Claude for Deepseek, Deepclaude (<a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;aattaran&#x2F;deepclaude" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;aattaran&#x2F;deepclaude</a>) is a great way to get better at using Claude like tools for software development. It even does a pretty good job of putting together cover letters for job applications...<p>Using Deepclaude is very much cheaper than using claude... For hobby projects, I&#x27;ve found it useful. A recipe (for cooking) management app I&#x27;ve made took a couple of hours to put together and cost $US 0.5. Claude is far more expensive.<p>The downsides of Deepclaude for many are:-<p>- DeepSeek is a Chinese corporation so the Chinese Communist Party may ask for data if it wants it.<p>- DeepClaude isn&#x27;t as fast as normal Claude, though it&#x27;s still pretty fast and I think fast enough (YMMV).<p>- DeepClaude might not be as optimised for various code issues that Claude may be able to solve more quickly or effectively.<p>- The same safeguards are probably on DeepSeek, but you won&#x27;t be &quot;wasting&quot; as much money as you might on using Claude.<p>Inference focused hardware (<a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=nvPqHoVSenE" rel="nofollow">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=nvPqHoVSenE</a>, AI generated speech) may in the medium future cause a large enough cost&#x2F;energy reduction for LLM tools like Claude to make local LLMs more attractive.<p>Inference focused hardware would make running Open Source models like DeepSeek on local machines far cheaper and control over safeguards would return to the end user.<p>Hopefully this leads to a localised LLM provision market where local businesses provide varieties of these &quot;local&quot; LLM services. Here, local could mean on premise through to state or nationally based LLM services. Eventually, government orgs outside of the US may demand this kind of LLM use, in the same way governments legally require data to be stored within national borders for many critical government functions.<p>A bloke can dream I guess...<p>...Could affordable inference focused hardware also cause the bottom to fall out of these stock market bending valuations for AI corps and their datacentre obsessions?... Not to mention the societal costs caused by the AI super corps building these data centres. At the moment, they&#x27;re nearly making a profit... They seem almost like speculative companies... Is that a term?
       <button class="pmore" data-collapse="x-48470497" data-quote="q-48470497">show less ↑</button></div>
-    <p class="rmeta"><b>kreelman</b> · CEOs who think AI replaces their employees are just… · <span class="was">was #162</span> · firsthand, with sources · <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48470497">thread ↗</a></p>
+    <p class="rmeta"><b>kreelman</b> · CEOs who think AI replaces their employees are just… · <span class="was">was #164</span> · firsthand, with sources · <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48470497">thread ↗</a></p>
   </li><li class="ritem" id="r-48468442">
     <p class="rq" id="q-48468442">&ldquo;A surprising number of companies do include “you may not use the service we provide you to compete with us” in their terms of service. (edit) After a quick search the…&rdquo;
       <button class="pmore" data-expand="x-48468442" data-quote="q-48468442" aria-expanded="false" aria-controls="x-48468442">expand ↓</button></p>
@@ -193,34 +218,28 @@ Here&#x27;s the transcript: <a target="_blank" rel="noopener noreferrer nofollow
     <div class="rfull" id="x-48473419" hidden>It should be noted that defamation law has a very low threshold in Germany, to the point that businesses routinely sue Google Maps users for less-than-5-stars reviews. Google had to change their display of reviews because of this.<p>Three stars review is taken down for &quot;libel&quot;: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;support.google.com&#x2F;maps&#x2F;thread&#x2F;367778263&#x2F;google-maps-ratings-and-reviews-becoming-increasingly-useless?hl=de" rel="nofollow">https:&#x2F;&#x2F;support.google.com&#x2F;maps&#x2F;thread&#x2F;367778263&#x2F;google-maps...</a><p>HNer gets a legal threat after saying that he didn&#x27;t like a doctor: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=44734895">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=44734895</a><p>Google maps german policy:
 <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;support.google.com&#x2F;contributionpolicy&#x2F;answer&#x2F;16997273?hl=en" rel="nofollow">https:&#x2F;&#x2F;support.google.com&#x2F;contributionpolicy&#x2F;answer&#x2F;1699727...</a><p>Meanwhile, service in Germany is still rather poor (especially if you have children), but at least no one can complain!
       <button class="pmore" data-collapse="x-48473419" data-quote="q-48473419">show less ↑</button></div>
-    <p class="rmeta"><b>Saline9515</b> · German ruling declares Google liable for false… · <span class="was">was #304</span> · receipts: sources · <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473419">thread ↗</a></p>
+    <p class="rmeta"><b>Saline9515</b> · German ruling declares Google liable for false… · <span class="was">was #307</span> · receipts: sources · <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473419">thread ↗</a></p>
   </li><li class="ritem" id="r-48470326">
     <p class="rq" id="q-48470326">&ldquo;Many, many, many public policy positions; for a clear-cut example, they eventually supported SB 1047 [1] which would have banned open-sourcing any model trained with…&rdquo;
       <button class="pmore" data-expand="x-48470326" data-quote="q-48470326" aria-expanded="false" aria-controls="x-48470326">expand ↓</button></p>
     <div class="rfull" id="x-48470326" hidden>Many, many, many public policy positions; for a clear-cut example, they eventually supported SB 1047 [1] which would have banned open-sourcing any model trained with over 10^26 FLOPS (i.e. what Anthropic reportedly used to train Mythos). Their &quot;Responsible Scaling Policy&quot; [2] — a set of policy proposals that includes recommendations for government regulation — specifically calls out requiring &quot;third-party controls&quot; on model weights to prevent access; for developers to prevent &quot;modification of models&quot; such as fine-tuning (obviously impossible for open-source or open-weight models); prevent usage of model weights in &quot;Automated R&amp;D in key domains&quot; which they specifically call out AI development as a key domain (again, obviously impossible for open-source); etc etc.<p>They want to ban open-source AI and are not shy about it.<p>1: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;campustechnology.com&#x2F;articles&#x2F;2024&#x2F;08&#x2F;26&#x2F;anthropic-announces-cautious-support-for-new-california-ai-regulation-legislation.aspx" rel="nofollow">https:&#x2F;&#x2F;campustechnology.com&#x2F;articles&#x2F;2024&#x2F;08&#x2F;26&#x2F;anthropic-a...</a><p>2: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.anthropic.com&#x2F;responsible-scaling-policy" rel="nofollow">https:&#x2F;&#x2F;www.anthropic.com&#x2F;responsible-scaling-policy</a>
       <button class="pmore" data-collapse="x-48470326" data-quote="q-48470326">show less ↑</button></div>
-    <p class="rmeta"><b>reissbaker</b> · If Claude Fable stops helping you, you'll never know · <span class="was">was #317</span> · receipts: sources · <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48470326">thread ↗</a></p>
+    <p class="rmeta"><b>reissbaker</b> · If Claude Fable stops helping you, you'll never know · <span class="was">was #319</span> · receipts: sources · <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48470326">thread ↗</a></p>
   </li><li class="ritem" id="r-48467309">
     <p class="rq" id="q-48467309">&ldquo;The primary product of AI is labor displacement and consequently wage supression. This is what OpenAI and Anthropic are really selling. It didn't start with AI but AI is…&rdquo;
       <button class="pmore" data-expand="x-48467309" data-quote="q-48467309" aria-expanded="false" aria-controls="x-48467309">expand ↓</button></p>
     <div class="rfull" id="x-48467309" hidden>The primary product of AI is labor displacement and consequently wage supression. This is what OpenAI and Anthropic are really selling. It didn&#x27;t start with AI but AI is accelerating it.<p>This is what layoffs have been about since the pandemic. People in fear of losing their jobs do extra unpaid work and aren&#x27;t asking for raises. The theoretical potential of AI gives companies the excuse to fire more people. The investment itself is directly used as a reason of why they need to cut back on labor.<p>Any sufficiently sized business can only feed the insatiable hunger for ever-increasing profits ultimately by cutting costs and raising prices. And what do we have now? High inflation and a decline in real wages. CEOs are just following this playbook.<p>And the result is that society is bouldering towards collapse. We&#x27;re seeing the first hints of this with the youth unemployment crisis [1][2][3].<p>Also, who is going to buy anything when nobody has any money?<p>[1]: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.americanprogress.org&#x2F;article&#x2F;americas-10-million-unemployed-youth-spell-danger-for-future-economic-growth&#x2F;" rel="nofollow">https:&#x2F;&#x2F;www.americanprogress.org&#x2F;article&#x2F;americas-10-million...</a><p>[2]: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.brookings.edu&#x2F;articles&#x2F;twelve-ways-to-fix-the-youth-unemployment-crisis&#x2F;" rel="nofollow">https:&#x2F;&#x2F;www.brookings.edu&#x2F;articles&#x2F;twelve-ways-to-fix-the-yo...</a><p>[3]: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.bbc.com&#x2F;news&#x2F;articles&#x2F;cy026x9jpd0o" rel="nofollow">https:&#x2F;&#x2F;www.bbc.com&#x2F;news&#x2F;articles&#x2F;cy026x9jpd0o</a>
       <button class="pmore" data-collapse="x-48467309" data-quote="q-48467309">show less ↑</button></div>
-    <p class="rmeta"><b>jmyeet</b> · CEOs who think AI replaces their employees are just… · <span class="was">was #119</span> · receipts: sources · <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48467309">thread ↗</a></p>
+    <p class="rmeta"><b>jmyeet</b> · CEOs who think AI replaces their employees are just… · <span class="was">was #120</span> · receipts: sources · <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48467309">thread ↗</a></p>
   </li><li class="ritem" id="r-48472700">
     <p class="rq">&ldquo;&gt;How could anything else make any sense? Well, they disclaimed and the user acknowledged Source: https://www.youtube.com/watch?v=P-QaEB5eXSU Minute 3:00&rdquo;</p>
-    <p class="rmeta"><b>TZubiri</b> · German ruling declares Google liable for false… · <span class="was">was #249</span> · firsthand, with sources · <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48472700">thread ↗</a></p>
+    <p class="rmeta"><b>TZubiri</b> · German ruling declares Google liable for false… · <span class="was">was #251</span> · firsthand, with sources · <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48472700">thread ↗</a></p>
   </li><li class="ritem" id="r-48472787">
     <p class="rq" id="q-48472787">&ldquo;macOS sandboxing is deliberately limited just enough to prevent anyone from truly implement Darwin-on-Darwin containers. People have been discussing about this for a…&rdquo;
       <button class="pmore" data-expand="x-48472787" data-quote="q-48472787" aria-expanded="false" aria-controls="x-48472787">expand ↓</button></p>
     <div class="rfull" id="x-48472787" hidden>macOS sandboxing is deliberately limited just enough to prevent anyone from truly implement Darwin-on-Darwin containers. People have been discussing about this for a while, see <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;apple&#x2F;container&#x2F;discussions&#x2F;611" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;apple&#x2F;container&#x2F;discussions&#x2F;611</a><p>In general I understand the rationale behind Apple&#x27;s decision. They sell hardware, and there&#x27;s real demand for macOS on servers to run build jobs and other Mac-only tools. Giving you the ability to run multiple containers on a single Mac would end up turning a 10 Mac Mini order into a 2 Mac Minis order  for most people. Rest assured, even if it would be technically possible they&#x27;d find a way to cap it somehow via the EULA or whatever
       <button class="pmore" data-collapse="x-48472787" data-quote="q-48472787">show less ↑</button></div>
-    <p class="rmeta"><b>qalmakka</b> · macOS Container Machines · <span class="was">was #240</span> · receipts: sources · <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48472787">thread ↗</a></p>
-  </li><li class="ritem" id="r-48473250">
-    <p class="rq" id="q-48473250">&ldquo;Apple does have an OCI variant of this: https://github.com/apple/container Doesn’t seem to have Compose support though, but it’s probably not impossible to build upon.…&rdquo;
-      <button class="pmore" data-expand="x-48473250" data-quote="q-48473250" aria-expanded="false" aria-controls="x-48473250">expand ↓</button></p>
-    <div class="rfull" id="x-48473250" hidden>Apple does have an OCI variant of this: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;apple&#x2F;container" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;apple&#x2F;container</a><p>Doesn’t seem to have Compose support though, but it’s probably not impossible to build upon.<p>And of course, it also uses VMs, though unlike Docker, it’s one (micro-?) VM per container: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;apple&#x2F;container&#x2F;blob&#x2F;main&#x2F;docs&#x2F;technical-overview.md#how-does-container-run-my-container" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;apple&#x2F;container&#x2F;blob&#x2F;main&#x2F;docs&#x2F;technical-...</a>
-      <button class="pmore" data-collapse="x-48473250" data-quote="q-48473250">show less ↑</button></div>
-    <p class="rmeta"><b>notpushkin</b> · macOS Container Machines · <span class="was">was #271</span> · receipts: sources · <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473250">thread ↗</a></p>
+    <p class="rmeta"><b>qalmakka</b> · macOS Container Machines · <span class="was">was #242</span> · receipts: sources · <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48472787">thread ↗</a></p>
   </li></ol>
   </section>
 
@@ -232,51 +251,51 @@ Here&#x27;s the transcript: <a target="_blank" rel="noopener noreferrer nofollow
       <span class="srank" aria-hidden="true">1</span>
       <div class="stitle">
         <h3 id="st-48472877"><a target="_blank" rel="noopener" href="https://media.mercedes-benz.com/en/article/bebac2af-acdc-465a-9538-adb0bf3d8ccf">Mercedes‑Benz starts large‑scale production of electric axial flux motor</a></h3>
-        <p class="smeta">media.mercedes-benz.com · 170 pts · 73 comments · 4h
+        <p class="smeta">media.mercedes-benz.com · 184 pts · 75 comments · 4h
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48472877">discuss on HN ↗</a></p>
         
       </div>
     </div>
     <div class="lane"><div class="comment">
-    <p class="cmeta"><b class="author">manarth</b> · <span class="was">was #51</span> · receipts: code
+    <p class="cmeta"><b class="author">mytailorisrich</b> · <span class="was">was #10</span> · receipts: sources
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48475089" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">I think continental Europe has nothing on the UK when it comes to banks and financial markets. The UK has the deepest pockets in Europe because it is a hub for global capital. Brexit does not seem to have made a difference:<p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.uktech.news&#x2F;funding&#x2F;late-stage-funding-surges-as-uk-tech-ranked-second-globally-20251003" rel="nofollow">https:&#x2F;&#x2F;www.uktech.news&#x2F;funding&#x2F;late-stage-funding-surges-as...</a><p>Regarding AI (since that&#x27;s the hot thing of the day), but IMO indicator of where the money is:<p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;digital-strategy.ec.europa.eu&#x2F;en&#x2F;library&#x2F;funding-ai-economy-strengthening-europes-investment-capacity" rel="nofollow">https:&#x2F;&#x2F;digital-strategy.ec.europa.eu&#x2F;en&#x2F;library&#x2F;funding-ai-...</a><p>[In the EU] &quot;<i>Most late-stage capital comes from the US and UK.</i>&quot;</div>
+  </div><div class="comment">
+    <p class="cmeta"><b class="author">manarth</b> · <span class="was">was #52</span> · receipts: code
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474261" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext"><p><pre><code>    &gt; &quot;instead of applying engine breaking when the driver takes their foot off the pedal, they went to great lengths to _move the break pedal_ in proportion to the amount of engine breaking that is currently being applied as per the VCUs command&quot;
 </code></pre>
 Regenerative braking slows the car more aggressively than an ICE where you take your foot of the gas, so the pedal change <i>isn&#x27;t</i> putting on the brakes, it&#x27;s communicating to a driver used to ICE that the car is slowing more than might be expected.<p>There may also be a sports-related reason for people who habitually left-foot brake.</div>
   </div><div class="comment">
-    <p class="cmeta"><b class="author">jorams</b> · <span class="was">was #21</span> · got 4 people talking
+    <p class="cmeta"><b class="author">jorams</b> · <span class="was">was #22</span> · got 4 people talking
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473720" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">It&#x27;s a bit buried, but it does:<p>&gt; In contrast to conventional radial flux motors, the electromagnetic flux in an axial flux motor runs parallel to the axis of rotation. The key components are arranged in a disc‑shaped layout: two rotors sandwich the stator from the left and right. This design enables an especially compact motor architecture, high power and torque density, and new freedoms in drivetrain packaging. In the new Mercedes‑AMG GT 4‑Door Coupe, the motor at the front axle is just under nine centimetres wide; the two motors at the rear axle each measure around eight centimetres in width. The three axial flux motors are integrated per axle into so‑called High Performance Electric Drive Units (HP.EDU), where they are combined with a compact input planetary gearbox in a single housing.</div>
-  </div><div class="comment">
-    <p class="cmeta"><b class="author">lsowen</b> · <span class="was">was #39</span> · receipts: sources
+  </div><details class="more"><summary>+ 3 more worth reading</summary><div class="comment">
+    <p class="cmeta"><b class="author">lsowen</b> · <span class="was">was #40</span> · receipts: sources
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474282" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">A very good YouTube video from Munroe Live (an engineering firm specializing in &quot;design for manufacturing&quot;) explaining it: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;youtu.be&#x2F;dCO633KE7RA" rel="nofollow">https:&#x2F;&#x2F;youtu.be&#x2F;dCO633KE7RA</a> &quot;Axial Flux Motors Explained&quot;<p>Edit: a video from them on this particular YASA tech being discussed : <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;youtu.be&#x2F;m507ryWhc6c" rel="nofollow">https:&#x2F;&#x2F;youtu.be&#x2F;m507ryWhc6c</a></div>
-  </div><details class="more"><summary>+ 3 more worth reading</summary><div class="comment">
+  </div><div class="comment">
     <p class="cmeta"><b class="author">globular-toast</b> · got 8 people talking
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473675" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">Did they <i>have</i> to? My impression is British companies sell out as soon as they can these days. Is this something that could be changed with policy? Does Germany incentivise running companies more? Or is this cultural, e.g. British people are more risk averse?</div>
   </div><div class="comment">
-    <p class="cmeta"><b class="author">LoganDark</b> · <span class="was">was #13</span> · receipts: sources
+    <p class="cmeta"><b class="author">LoganDark</b> · <span class="was">was #14</span> · receipts: sources
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473626" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">Here&#x27;s a good video on it from my watch history: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=dCO633KE7RA" rel="nofollow">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=dCO633KE7RA</a></div>
-  </div><div class="comment">
-    <p class="cmeta"><b class="author">eptcyka</b> · <span class="was">was #50</span> · got 3 people talking
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473944" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <details class="ctext"><summary>Not all of those inventions are bad. But not all of them are coming from a place of necessity. All of them do increase complexity. My gripe with Mercedes is not that they are constantly pushing boundaries on what can be …</summary><div class="full">Not all of those inventions are bad. But not all of them are coming from a place of necessity. All of them do increase complexity. My gripe with Mercedes is not that they are constantly pushing boundaries on what can be done with more tech. My main gripe is that the EVs they are building are essentially as complex as the ICE cars and follow largely the same design principles as the ICE cars. For instance, in the EQS, instead of applying engine breaking when the driver takes their foot off the pedal, they went to great lengths to _move the break pedal_ in proportion to the amount of engine breaking that is currently being applied as per the VCUs command. And yet the door cards on  the EQS are not up to the standard of an S class.<p>My main gripe with MB is that they have this new technology that could simplify things and let them build a better product. Instead of building around it, they shove it in to their existing designs. I was expecting an electric S class to be more akin to a Lucid Air sans the teething problems of a new company. Instead, we get weak attempts at solving non issues.<p>And whilst they are certainly not in the market of producing affordable vehicles, I would hope that using EV tech they could create a better version of their existing fleet. I do not think anyone buying an A class cares about the 4 popper under the hood - losing it and simplifying radically, in my mind at least, would give them more budget and leeway to create a more compelling product.</div></details>
   </div></details></div>
-    <details class="fold"><summary>9 comments tucked away (the fights and one-liners)</summary>
-         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 58 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48472877">all on HN ↗</a>)</p>
+    <details class="fold"><summary>8 comments tucked away (the fights and one-liners)</summary>
+         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 61 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48472877">all on HN ↗</a>)</p>
   </section><section class="story" id="s-48469658" aria-labelledby="st-48469658">
     <div class="shead">
       <span class="srank" aria-hidden="true">2</span>
       <div class="stitle">
         <h3 id="st-48469658"><a target="_blank" rel="noopener" href="https://github.com/apple/container/blob/main/docs/container-machine.md">macOS Container Machines</a></h3>
-        <p class="smeta">github.com · 850 pts · 289 comments · 11h
+        <p class="smeta">github.com · 859 pts · 293 comments · 11h
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48469658">discuss on HN ↗</a></p>
         
       </div>
     </div>
-    <div class="lane"><p class="featurednote">▲ 2 comments from this thread featured in Today's rescues above</p><div class="comment">
+    <div class="lane"><p class="featurednote">▲ 1 comment from this thread featured in Today's rescues above</p><div class="comment">
     <p class="cmeta"><b class="author">m463</b> · <span class="was">was #7</span> · receipts: code + numbers
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48470913" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">you do not understand...  Not run on, run IN  :)<p>I&#x27;m saying the older version of macos could build&#x2F;run INSIDE the container<p>just like on a ubuntu 24.04 system you can do:<p><pre><code>  FROM ubuntu:16.04
@@ -285,26 +304,30 @@ or<p><pre><code>  docker run ubuntu:16.04
 </code></pre>
 and though I haven&#x27;t tried it, I believe docker can do arm in x86 using an emulator (like rosetta)</div>
   </div><div class="comment">
-    <p class="cmeta"><b class="author">alwillis</b> · <span class="was">was #167</span> · receipts: sources
+    <p class="cmeta"><b class="author">alwillis</b> · <span class="was">was #168</span> · receipts: sources
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48472111" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">&gt;  Nowadays, you can&#x27;t even have multiple routing tables on the latter, the firewall code was probably last updated in Snow Leopard<p>Apple uses OpenBSD&#x27;s Packet Filter [1]; I doubt multiple routing tables are a problem. Back in the Snow Leopard days, it was FreeBSD&#x27;s IPFW, which is also no slouch.<p>Whatever a firewall can do, PF can do it.<p>You can also get a nice GUI for PF [2].<p>[1]: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.openbsd.org&#x2F;faq&#x2F;pf&#x2F;index.html" rel="nofollow">https:&#x2F;&#x2F;www.openbsd.org&#x2F;faq&#x2F;pf&#x2F;index.html</a><p>[2]: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.murusfirewall.com&#x2F;murus&#x2F;" rel="nofollow">https:&#x2F;&#x2F;www.murusfirewall.com&#x2F;murus&#x2F;</a></div>
   </div><div class="comment">
-    <p class="cmeta"><b class="author">mkagenius</b> · <span class="was">was #188</span> · firsthand, with sources
+    <p class="cmeta"><b class="author">mkagenius</b> · <span class="was">was #189</span> · firsthand, with sources
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48470935" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">Apple containers are great for providing a sandbox to your AI coding agents<p>I have made it a MCP so that it&#x27;s easily discoverable by all the coding agents<p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;instavm&#x2F;coderunner" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;instavm&#x2F;coderunner</a></div>
-  </div><details class="more"><summary>+ 1 more worth reading</summary><div class="comment">
-    <p class="cmeta"><b class="author">llimllib</b> · <span class="was">was #125</span> · receipts: sources
+  </div><details class="more"><summary>+ 2 more worth reading</summary><div class="comment">
+    <p class="cmeta"><b class="author">notpushkin</b> · <span class="was">was #274</span> · receipts: sources
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473250" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">Apple does have an OCI variant of this: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;apple&#x2F;container" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;apple&#x2F;container</a><p>Doesn’t seem to have Compose support though, but it’s probably not impossible to build upon.<p>And of course, it also uses VMs, though unlike Docker, it’s one (micro-?) VM per container: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;apple&#x2F;container&#x2F;blob&#x2F;main&#x2F;docs&#x2F;technical-overview.md#how-does-container-run-my-container" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;apple&#x2F;container&#x2F;blob&#x2F;main&#x2F;docs&#x2F;technical-...</a></div>
+  </div><div class="comment">
+    <p class="cmeta"><b class="author">llimllib</b> · <span class="was">was #126</span> · receipts: sources
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48470205" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">Is this new? I thought we had this already<p>In my testing (iirc) filesystem performance was not good enough to be usable with node&#x2F;rust dev where lots of small files get stat-ed<p>update: what&#x27;s new is the `container machine` subcommand. I went to test it out, but container failed to run at all for me: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;apple&#x2F;container&#x2F;issues&#x2F;1681" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;apple&#x2F;container&#x2F;issues&#x2F;1681</a></div>
   </div></details></div>
-    <details class="fold"><summary>70 comments tucked away (the fights and one-liners)</summary>
-         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 213 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48469658">all on HN ↗</a>)</p>
+    <details class="fold"><summary>71 comments tucked away (the fights and one-liners)</summary>
+         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 216 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48469658">all on HN ↗</a>)</p>
   </section><section class="story" id="s-48463808" aria-labelledby="st-48463808">
     <div class="shead">
       <span class="srank" aria-hidden="true">3</span>
       <div class="stitle">
         <h3 id="st-48463808"><a target="_blank" rel="noopener" href="https://www.anthropic.com/news/claude-fable-5-mythos-5">Claude Fable 5</a></h3>
-        <p class="smeta">anthropic.com · 2313 pts · 1756 comments · 19h
+        <p class="smeta">anthropic.com · 2324 pts · 1762 comments · 19h
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48463808">discuss on HN ↗</a></p>
         
       </div>
@@ -318,7 +341,7 @@ and though I haven&#x27;t tried it, I believe docker can do arm in x86 using an 
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48464763" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">True, but look at nuclear tests. There used to be around 50 tests every year, for decades. Now the only nuclear tests in the last 27 years were the six done by North Korea[1]. And there&#x27;s still only nine countries with any nuclear weapons, and none in the past twenty years[2].<p>That&#x27;s a bit better than just &quot;it hasn&#x27;t killed us yet&quot;. I think it shows we can at least stop the further development of this kind of technology.<p>[1] <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.armscontrol.org&#x2F;factsheets&#x2F;nuclear-testing-tally" rel="nofollow">https:&#x2F;&#x2F;www.armscontrol.org&#x2F;factsheets&#x2F;nuclear-testing-tally</a><p>[2] <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;List_of_states_with_nuclear_weapons" rel="nofollow">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;List_of_states_with_nuclear_we...</a></div>
   </div><div class="comment">
-    <p class="cmeta"><b class="author">azalemeth</b> · <span class="was">was #1,736</span> · firsthand, with sources + code
+    <p class="cmeta"><b class="author">azalemeth</b> · <span class="was">was #1,739</span> · firsthand, with sources + code
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474666" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <details class="ctext"><summary>Honestly for a &quot;side project&quot; Opus has been fantastic for me writing a hybrid simulation framework that prior to large scale code generation would have been a matter of years (and writing a grant, assembling a team, etc …</summary><div class="full">Honestly for a &quot;side project&quot; Opus has been fantastic for me writing a hybrid simulation framework that prior to large scale code generation would have been a matter of years (and writing a grant, assembling a team, etc – in order to do it &quot;properly&quot;). I&#x27;ve had a bit of help with a grad student and I hacking together on a project that is basically &quot;please merge the following GPL codebases and different areas of physics into one coherent environment&quot;. I&#x27;ve given Opus validated codes in disparate languages (julia, python, C) and asked for aspects of various algorithms as an extension module to a large chunk of C and C++ code that is a monte carlo simulator that has been around since 2004.<p>A bit more context if you care: it&#x27;s a meso-scale, physiological simulation environment of &quot;particles&quot; that carry nuclear spin, can move in 3D space, and (should they interact with each other or their environment) undergo chemical kinetics. The idea is to simulate molecules within e.g. organs or blood vessels within a person in an MRI scanner, with the motion of the particles dominated by the Navier Stokes equations, but here solved in a Lagrangian (rather than Eulerian) framework by smoothed particle hydrodynamics.<p>The fact that particles carry nuclear spin means that we can solve the (semiclassical) Bloch equations and by using a python plugin module import exactly the physical MRI scanner would do (in pulseq format) and be able to predict what signal the machine would record – e.g. there&#x27;s a whole world of cardiac or neurological flow imaging work done in the context of nasty diseases like stroke or myocardial infarction – which has a bunch of physical artefacts behind it. I&#x27;m trying to make a simulation framework that can take in realistic patient geometries and act as a &#x27;data generating process&#x27; because if we do it right the various physical artefacts that the machine records are reproduced, surprisingly accurately. Of course you also know the ground truth of where the particles are. I&#x27;m specifically interested in a weird technique (which I did my PhD in and you can read an article all about here: [0]) called dynamic nuclear polarisation, where specific spin states of molecules such as [1-13C]pyruvate are injected essentially out of thermodynamic equilibrium and act as short-lived tracers of metabolism – again highly altered in disease. The signal we record is a strong function of the physics of what you told the machine to do, the spatial constraints and environment of the patient&#x27;s body, and the chemical kinetics of the patients&#x27; biochemistry (the latter two are usually what we&#x27;re interested in).<p>Getting them to do chemistry as well as act as a &quot;simple&quot; tracer is more involved, because in the Lagrangian framework the number of particles is ≈ the spatial resolution of your simulation. That&#x27;s fine if you&#x27;re simulating water, but if you&#x27;re simulating something that reacts concentration is not scale invariant (if you want to keep the interpretability of the rate constants). I&#x27;ve worked out an analytic set of scaling rules around this and fortunately for my application environments and length scales &quot;it just works&quot;, completely by luck.<p>I&#x27;ve used Claude to port various SPH algorithms and boundary condition handling ideas (which are absolutely critical and highly not obvious – we have leaky walls in some places, and e.g. LCR &#x2F; circuit theory models of the microcirculation to plug in) and it&#x27;s been a godsend. But I&#x27;m running into its limitations constantly. It both confidently makes shit up, claims it is mathematically justified and when the resulting simulation explodes says &quot;I apologise; I lied above&quot; (!) or &quot;I apologise; I am wrong&quot; and I periodically have to yell at it to try to do something more productive.<p>The real hope is that this simulation environment would be both generally useful for basically anyone doing flow MRI, and help our basic scientific understanding of what we&#x27;re measuring (the technique is in many hospitals!) but also be able to produce meaningful synthetic training data for image reconstruction algorithms later on. It&#x27;ll end up permissively licensed (all of the &quot;starting&quot; codebases have compatible OSS licenses, and we&#x27;re releasing our contributions similarly).<p>I really hoped that Fable would be better at this sort of work. Occasionally, relating to my work DNP [1], I have need to talk about proper nuclear physics and I have seen Opus&#x27;s chat interface write a wall of text (e.g. talking about photonuclear reactions and cross section differences in millibarn) and then just delete it all. Support have told me that yes, I&#x27;ve hit the nuclear filter and, well, tough shit, basically.<p>I wrote a version of the above to them yesterday, and just got the most boilerplate response that I&#x27;ve yet to test:<p><pre><code>    Thanks for reaching out to Anthropic Support.
    
@@ -351,51 +374,81 @@ which doesn&#x27;t fill me with hope...<p>[0] <a target="_blank" rel="noopener n
 </code></pre>
 Prompt caching: −90% on input tokens (all models)<p>US-only inference (Fable 5): +10% on input and output<p>Output is always 5× the input rate across all models<p>(I have not idea how to format this properly but the ASCII is fine)</div>
   </div></details></div>
-    <details class="fold"><summary>356 comments tucked away (the fights and one-liners)</summary>
-         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 1394 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48463808">all on HN ↗</a>)</p>
-  </section><section class="story" id="s-48473166" aria-labelledby="st-48473166">
+    <details class="fold"><summary>358 comments tucked away (the fights and one-liners)</summary>
+         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 1398 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48463808">all on HN ↗</a>)</p>
+  </section><section class="story" id="s-48473662" aria-labelledby="st-48473662">
     <div class="shead">
       <span class="srank" aria-hidden="true">4</span>
       <div class="stitle">
+        <h3 id="st-48473662"><a target="_blank" rel="noopener" href="https://github.com/react/react/pull/36173">Port React Compiler to Rust</a></h3>
+        <p class="smeta">github.com · 79 pts · 45 comments · 2h
+          <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473662">discuss on HN ↗</a></p>
+        
+      </div>
+    </div>
+    <div class="lane"><div class="comment">
+    <p class="cmeta"><b class="author">mohsen1</b> · <span class="was">was #40</span> · firsthand, with sources
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474833" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">Shameless plug. I&#x27;m writing a TypeScript checker in Rust. It&#x27;s not a port. I made this with a different architecture that hopefully once is done will be proven to be a better set of trade-off<p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;tsz-org&#x2F;tsz" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;tsz-org&#x2F;tsz</a></div>
+  </div><div class="comment">
+    <p class="cmeta"><b class="author">giancarlostoro</b> · <span class="was">was #33</span> · got 5 people talking
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474430" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <details class="ctext"><summary>Speaks volumes to the strengths of the language, also speaks volumes that LLMs lift the barrier of entry for Rust programming, the borrow checker woes can be offloaded to the model, you focus on all the other programming…</summary><div class="full">Speaks volumes to the strengths of the language, also speaks volumes that LLMs lift the barrier of entry for Rust programming, the borrow checker woes can be offloaded to the model, you focus on all the other programming logic.<p>Whats funny is I had been using Rust more with Claude because of this, and before Anthropic did their rewrite of Bun I tried a Rust rewrite of a C# project I had laying around (.NET 3.5 from back in 2008) it wasnt perfect but its nearly there now, mostly for fun, and I did it because for a little while I realized LLMs can be useful for more serious refactors, and figured it might be good for a language rewrite. Sure enough.<p>I think rewriting tooling that takes text and transforms it in a language like Rust is fine for JS projects, so is Go, which is why TypeScript is migrating to Go. The “free” optimized speed increases are worth it, at the temporary cost of dealing with the migration for a year or two, which with LLMs trims down the initial work into a week effort it seems? Wild.</div></details>
+  </div><div class="comment">
+    <p class="cmeta"><b class="author">willsmith72</b> · <span class="was">was #7</span> · got 6 people talking
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473939" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">Are people actually using the react compiler?<p>Haven&#x27;t heard about since ages ago when it was extremely slow</div>
+  </div><details class="more"><summary>+ 1 more worth reading</summary><div class="comment">
+    <p class="cmeta"><b class="author">LoganDark</b> · <span class="was">was #24</span> · actually explains it
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474050" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">Why are they porting the Babel-isms? They should be using Oxc tooling directly, not hanging onto JavaScript parsers, IMHO -- isn&#x27;t the benefit of porting to Rust that you can use fast native code?<p>It seems backwards that they are freezing the Babel AST into the interoperability contract and only using the more efficient native representations in an isolated fashion -- shouldn&#x27;t it be the other way around?</div>
+  </div></details></div>
+    <details class="fold"><summary>10 comments tucked away (the fights and one-liners)</summary>
+         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 31 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473662">all on HN ↗</a>)</p>
+  </section><section class="story" id="s-48473166" aria-labelledby="st-48473166">
+    <div class="shead">
+      <span class="srank" aria-hidden="true">5</span>
+      <div class="stitle">
         <h3 id="st-48473166"><a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473166">AWS Bedrock to require sharing data with Anthropic for Mythos and future models</a></h3>
-        <p class="smeta">news.ycombinator.com · 133 pts · 65 comments · 3h
+        <p class="smeta">news.ycombinator.com · 140 pts · 73 comments · 3h
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473166">discuss on HN ↗</a></p>
         
       </div>
     </div>
     <div class="lane"><div class="comment">
-    <p class="cmeta"><b class="author">afavour</b> · <span class="was">was #25</span> · receipts: sources + numbers
+    <p class="cmeta"><b class="author">afavour</b> · <span class="was">was #29</span> · receipts: sources + numbers
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474940" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">&gt; For OpenAI GPT-5.4 and GPT-5.5, classifier-flagged traffic will be retained for up to 30 days for automated offline abuse detection.<p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;bedrock&#x2F;latest&#x2F;userguide&#x2F;abuse-detection.html" rel="nofollow">https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;bedrock&#x2F;latest&#x2F;userguide&#x2F;abuse-d...</a></div>
   </div><div class="comment">
-    <p class="cmeta"><b class="author">voxic11</b> · <span class="was">was #43</span> · receipts: sources + numbers
+    <p class="cmeta"><b class="author">voxic11</b> · <span class="was">was #47</span> · receipts: sources + numbers
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474764" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">Bedrock doesn&#x27;t offer zero data retention for openAI&#x27;s latest models either<p>&gt; For OpenAI GPT-5.4 and GPT-5.5, classifier-flagged traffic will be retained for up to 30 days for automated offline abuse detection<p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;bedrock&#x2F;latest&#x2F;userguide&#x2F;abuse-detection.html" rel="nofollow">https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;bedrock&#x2F;latest&#x2F;userguide&#x2F;abuse-d...</a></div>
   </div><div class="comment">
-    <p class="cmeta"><b class="author">xnx</b> · <span class="was">was #57</span> · receipts: sources
+    <p class="cmeta"><b class="author">xnx</b> · <span class="was">was #64</span> · receipts: sources
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474482" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">Is this also the case for Google Cloud? <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;docs.cloud.google.com&#x2F;gemini-enterprise-agent-platform&#x2F;models&#x2F;partner-models&#x2F;claude" rel="nofollow">https:&#x2F;&#x2F;docs.cloud.google.com&#x2F;gemini-enterprise-agent-platfo...</a></div>
   </div><details class="more"><summary>+ 3 more worth reading</summary><div class="comment">
-    <p class="cmeta"><b class="author">wewewedxfgdf</b> · <span class="was">was #28</span> · receipts: numbers
+    <p class="cmeta"><b class="author">wewewedxfgdf</b> · <span class="was">was #32</span> · receipts: numbers
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474239" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">Note that if you use AWS Bedrock then you&#x27;re choosing to pay 10X to 20X because you trust AWS more than Anthropic.<p>It is literally 10X to 20-X cheaper to directly buy Anthropic subscriptions for your devs.</div>
   </div><div class="comment">
-    <p class="cmeta"><b class="author">1313ed01</b> · <span class="was">was #19</span> · receipts: sources
+    <p class="cmeta"><b class="author">lima</b> · <span class="was">was #65</span> · receipts: sources
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474622" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">Fable on GCP requires accepting a 60-day retention policy: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;cloud.google.com&#x2F;terms&#x2F;advanced-ai-safety-addendum" rel="nofollow">https:&#x2F;&#x2F;cloud.google.com&#x2F;terms&#x2F;advanced-ai-safety-addendum</a><p>I don&#x27;t think it mentions sharing the data with third parties such as Anthropic?</div>
+  </div><div class="comment">
+    <p class="cmeta"><b class="author">1313ed01</b> · <span class="was">was #22</span> · receipts: sources
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473966" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">Same as for GitHub Copilot?<p>&quot;For more on how Anthropic handles this data, see Anthropic’s commercial terms and data retention policy. Enabling the Claude Fable 5 policy constitutes acknowledgement of this requirement. Leaving it off keeps Claude Fable 5 unavailable to your organization.&quot;<p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.blog&#x2F;changelog&#x2F;2026-06-09-claude-fable-5-is-generally-available-for-github-copilot&#x2F;" rel="nofollow">https:&#x2F;&#x2F;github.blog&#x2F;changelog&#x2F;2026-06-09-claude-fable-5-is-g...</a></div>
-  </div><div class="comment">
-    <p class="cmeta"><b class="author">OtherShrezzing</b> · <span class="was">was #41</span> · got 12 people talking
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474258" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">This is odd behaviour, and provides some evidence that Anthropic isn&#x27;t being managed by serious people. With this policy across AWS&#x2F;GH&#x2F;Zed&#x2F;etc, they&#x27;re taking their massive lead in enterprise&#x2F;govt sales and handing it to any competitor who can serve a model anywhere near these capabilities with a modestly nice UI.</div>
   </div></details></div>
-    <details class="fold"><summary>16 comments tucked away (the fights and one-liners)</summary>
-         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 43 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473166">all on HN ↗</a>)</p>
-  </section><section class="story" id="s-48443644" aria-labelledby="st-48443644">
+    <details class="fold"><summary>19 comments tucked away (the fights and one-liners)</summary>
+         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 48 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473166">all on HN ↗</a>)</p>
+  </section>
+    <details class="morestories"><summary>Show the other 18 threads</summary><section class="story" id="s-48443644" aria-labelledby="st-48443644">
     <div class="shead">
-      <span class="srank" aria-hidden="true">5</span>
+      <span class="srank" aria-hidden="true">6</span>
       <div class="stitle">
         <h3 id="st-48443644"><a target="_blank" rel="noopener" href="https://paperswithcode.co/">Reviving Papers with Code</a></h3>
-        <p class="smeta">paperswithcode.co · 57 pts · 13 comments · 2d
+        <p class="smeta">paperswithcode.co · 67 pts · 15 comments · 2d
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48443644">discuss on HN ↗</a></p>
         
       </div>
@@ -405,23 +458,22 @@ Prompt caching: −90% on input tokens (all models)<p>US-only inference (Fable 5
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48443645" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <details class="ctext"><summary>Hi, Niels here from the open-source team at Hugging Face. Like many others, I was a huge fan of paperswithcode, a website which allowed to easily find the state-of-the-art (SOTA) across any domain of AI, from computer vi…</summary><div class="full">Hi,<p>Niels here from the open-source team at Hugging Face. Like many others, I was a huge fan of paperswithcode, a website which allowed to easily find the state-of-the-art (SOTA) across any domain of AI, from computer vision to language models to time-series forecasting. Sadly, that website is no longer maintained after its acquisition by Meta.<p>Hence, I&#x27;ve been working on reviving it. I obviously use AI agents to parse papers at scale and automatically generate leaderboards (for now I&#x27;m the one verifying results). So far, I&#x27;ve only parsed high-impact papers for which I know they&#x27;re SOTA, like Qwen 3.5 and 3.6, RF-DETR for object detection, DINOv3, SOTA embedding models from the MTEB leaderboard, the Open ASR Leaderboard for automatic speech recognition models, etc.<p>For now, it includes the following:<p>&gt; trending papers by default based on Github star velocity<p>&gt; categorization by domain, e.g., [OCR](<a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;paperswithcode.co&#x2F;tasks&#x2F;ocr" rel="nofollow">https:&#x2F;&#x2F;paperswithcode.co&#x2F;tasks&#x2F;ocr</a>)<p>&gt; methods, popular techniques used across AI papers, which PwC used to have as well, like [RLVR](<a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;paperswithcode.co&#x2F;methods&#x2F;rlvr" rel="nofollow">https:&#x2F;&#x2F;paperswithcode.co&#x2F;methods&#x2F;rlvr</a>) and<p>&gt; eval results for high-impact papers, see e.g., Qwen 3.5 at the bottom<p>&gt; leaderboards for each domain, e.g., MMTEB or COCO val 2017<p>&gt; conferences, like [CVPR 2026](<a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;paperswithcode.co&#x2F;conferences&#x2F;cvpr-2026" rel="nofollow">https:&#x2F;&#x2F;paperswithcode.co&#x2F;conferences&#x2F;cvpr-2026</a>)<p>&gt; support for citation counts (you can also see the most cited papers by domain!)<p>&gt; automated linked Github, project page URLs, and artifacts (+ multiple repos are supported on a paper page)<p>&gt; support for external papers beyond Arxiv, see e.g., [DeepSeek v4](<a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;paperswithcode.co&#x2F;paper&#x2F;82956" rel="nofollow">https:&#x2F;&#x2F;paperswithcode.co&#x2F;paper&#x2F;82956</a>)<p>&gt; Harness reports for coding agent benchmarks, e.g., Terminal Bench<p>&gt; &quot;Sign in with HF&quot; and Storage Buckets are used to store humbnails, paper PDFs, and overall data backups.<p>I&#x27;m curious about your feedback + feature requests!<p>Try it at <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;paperswithcode.co" rel="nofollow">https:&#x2F;&#x2F;paperswithcode.co</a></div></details>
   </div><div class="comment">
-    <p class="cmeta"><b class="author">quibono</b> · <span class="was">was #13</span> · substance
+    <p class="cmeta"><b class="author">henrythewasp</b> · <span class="was">was #15</span> · receipts: sources
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48475045" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">Was it &quot;The morning paper&quot; by Adrian Colyer? - <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;blog.acolyer.org&#x2F;" rel="nofollow">https:&#x2F;&#x2F;blog.acolyer.org&#x2F;</a></div>
+  </div><div class="comment">
+    <p class="cmeta"><b class="author">quibono</b> · <span class="was">was #14</span> · substance
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474970" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">This is a bit off-topic (though tangentially related) - does anyone remember a similar blog where the author would do something like a &quot;5 minute paper&quot; review, i.e. they&#x27;d discuss findings and try to communicate the main point? It was usually a paper per week, mostly CompSci &#x2F; maths papers IIRC</div>
-  </div><div class="comment">
-    <p class="cmeta"><b class="author">steinvakt2</b> · <span class="was">was #12</span> · substance
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474615" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">Yes please! I have been frustrated with the state of object detection models especially. Everyone claims SOTA. So you end up having to test manually to find out which one actually is. And unlike LLM&#x27;s, it should be pretty easily quantifiable.</div>
   </div></div>
     <details class="fold"><summary>5 comments tucked away (the fights and one-liners)</summary>
-         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 5 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48443644">all on HN ↗</a>)</p>
-  </section>
-    <details class="morestories"><summary>Show the other 18 threads</summary><section class="story" id="s-48467705" aria-labelledby="st-48467705">
+         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 7 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48443644">all on HN ↗</a>)</p>
+  </section><section class="story" id="s-48467705" aria-labelledby="st-48467705">
     <div class="shead">
-      <span class="srank" aria-hidden="true">6</span>
+      <span class="srank" aria-hidden="true">7</span>
       <div class="stitle">
         <h3 id="st-48467705"><a target="_blank" rel="noopener" href="https://github.blog/changelog/2026-06-09-upcoming-breaking-changes-for-npm-v12/">Upcoming breaking changes for npm v12</a></h3>
-        <p class="smeta">github.blog · 399 pts · 160 comments · 14h
+        <p class="smeta">github.blog · 402 pts · 161 comments · 15h
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48467705">discuss on HN ↗</a></p>
         
       </div>
@@ -463,136 +515,82 @@ Prompt caching: −90% on input tokens (all models)<p>US-only inference (Fable 5
     <div class="ctext">I worked on a project that used yarn from the early days all the way up to v3, it&#x27;s slow as hell, but it works. They also have the supply chain protections.<p>Eventually we snapped and migrated to pnpm. Installs (both in CI and on local dev machines) are significantly faster. Turned out to be about a day&#x27;s work to migrate with an LLM&#x27;s help.</div>
   </div></details></div>
     <details class="fold"><summary>28 comments tucked away (the fights and one-liners)</summary>
-         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 126 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48467705">all on HN ↗</a>)</p>
+         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 127 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48467705">all on HN ↗</a>)</p>
   </section><section class="story" id="s-48470581" aria-labelledby="st-48470581">
     <div class="shead">
-      <span class="srank" aria-hidden="true">7</span>
+      <span class="srank" aria-hidden="true">8</span>
       <div class="stitle">
         <h3 id="st-48470581"><a target="_blank" rel="noopener" href="https://twitter.com/RichardSSutton/status/2061216087744946656">Rich Sutton on AI creativity and discovery</a></h3>
-        <p class="smeta">twitter.com · 139 pts · 74 comments · 9h
+        <p class="smeta">twitter.com · 145 pts · 75 comments · 9h
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48470581">discuss on HN ↗</a></p>
         
       </div>
     </div>
     <div class="lane"><div class="comment">
-    <p class="cmeta"><b class="author">musebox35</b> · <span class="was">was #59</span> · receipts: sources
+    <p class="cmeta"><b class="author">musebox35</b> · <span class="was">was #60</span> · receipts: sources
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48472388" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <details class="ctext"><summary>The most successful applications like coding are not the result of pure LLM/generative modeling. They come from closing the loop with an agentic harness. The generate-test-selectively refine loop is the core modality of …</summary><div class="full">The most successful applications like coding are not the result of pure LLM&#x2F;generative modeling. They come from closing the loop with an agentic harness. The generate-test-selectively refine loop is the core modality of scientific work. An LLM + RL with Verifiable Rewards + feedback from compiler&#x2F;terminal runs mimics this process to a great extend.<p>This is Fisher&#x2F;Box feedback loop (<a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www-sop.inria.fr&#x2F;members&#x2F;Ian.Jermyn&#x2F;philosophy&#x2F;writings&#x2F;Boxonmaths.pdf" rel="nofollow">https:&#x2F;&#x2F;www-sop.inria.fr&#x2F;members&#x2F;Ian.Jermyn&#x2F;philosophy&#x2F;writi...</a>) implemented on a modern computational system. LLM is just a component. I wish Sutton had commented on this fuller picture of what we have now instead of commenting just on the LLM&#x2F;Backprop side of things. I am honestly curious of whether such a loop can at least partially automate discovery.<p>There are more elements to discovery though. It is still not clear where the initial working model&#x2F;hypothesis comes from or how the updates are selected (unless it is just parameter induction). I recently read about Hanson&#x27;s Patterns of Discovery which aims in that direction. I have still not read it, but I am curious if it has any mechanistic clues.</div></details>
   </div><div class="comment">
-    <p class="cmeta"><b class="author">artistonn</b> · <span class="was">was #43</span> · receipts: sources
+    <p class="cmeta"><b class="author">artistonn</b> · <span class="was">was #44</span> · receipts: sources
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474055" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">&gt; art is ultimately about conveying human feelings and emotions<p>you made a small error, art is mostly about generating an emotion in the viewer&#x2F;listener&#x2F;.... not about transmitting an emotion of the creator<p>the Wikipedia page on art starts with:<p>&gt; Art is a diverse range of cultural activity centered around works utilizing creative or imaginative talents, which <i>are expected to evoke a worthwhile experience</i><p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Art" rel="nofollow">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Art</a><p>so AIs can do art, because they are only required to generate an emotional response in the receiver</div>
   </div><div class="comment">
-    <p class="cmeta"><b class="author">TheOtherHobbes</b> · <span class="was">was #45</span> · receipts: sources
+    <p class="cmeta"><b class="author">TheOtherHobbes</b> · <span class="was">was #46</span> · receipts: sources
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474298" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <details class="ctext"><summary>Current models are trained on image pastiche and style remixing. But there's no reason you couldn't add an Artistic Director layer which has been trained on emotional and cultural signifiers and to direct the pastiche an…</summary><div class="full">Current models are trained on image pastiche and style remixing. But there&#x27;s no reason you couldn&#x27;t add an Artistic Director layer which has been trained on emotional and cultural signifiers and to direct the pastiche and remixing.<p>The practical problem is that models have very limited prompt adherence. The level of detail you can specify in scene design is very crude. So you can get the slop effect where there&#x27;s a lot of in-fill pastiche detail, but you could never create something like this, where all of the incidental objects are specifically included to enforce the message.<p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;The_Awakening_Conscience" rel="nofollow">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;The_Awakening_Conscience</a><p>It&#x27;s basically the professional version of the &quot;Draw me a pelican on a bicycle&quot; problem.<p>There are situations where you want that level of creative control, and current image generators don&#x27;t get close to it.<p>And without it you can&#x27;t get to the meta-creativity level where you&#x27;re creating a new aesthetic that&#x27;s a cultural landmark - which is what the famous artists did, and still do.</div></details>
   </div><details class="more"><summary>+ 3 more worth reading</summary><div class="comment">
-    <p class="cmeta"><b class="author">skybrian</b> · <span class="was">was #35</span> · receipts: sources
+    <p class="cmeta"><b class="author">rembicilious</b> · <span class="was">was #18</span> · got 3 people talking
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48471112" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">&quot;So that is my call to arms. If we want the full power of AI scientists, then we should share the goals with them so they can create, evaluate, discover, and in these ways fully participate in achieving the goals. Let’s be bold! Let’s fully automate Creativity and Discovery!&quot;<p>Should we automate exercise and play as well? How about learning?<p>The machine didn&#x27;t have a soul, so we donated ours.<p>Eureka! My AI found it!</div>
+  </div><div class="comment">
+    <p class="cmeta"><b class="author">skybrian</b> · <span class="was">was #36</span> · receipts: sources
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48471946" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">He&#x27;s saying that pre-training an LLM alone can&#x27;t do it, but if you run an LLM in a loop with tools (like any coding agent) then it can. Also, the technique his group came up with should be used more:<p>&gt; This is the weakness of deep learning that is alleviated with a new algorithm that my group presented in Nature a couple of years ago. Our “continual backpropagation” made one small change: every so often a less-used neuron would be re-initialized to small random weights. This allows the variation to continue and plasticity to be retained.<p>Here&#x27;s the paper: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s41586-024-07711-7" rel="nofollow">https:&#x2F;&#x2F;www.nature.com&#x2F;articles&#x2F;s41586-024-07711-7</a><p>It has a fair number of citations, but I haven&#x27;t looked into how much it&#x27;s used.</div>
   </div><div class="comment">
-    <p class="cmeta"><b class="author">Shitty-kitty</b> · <span class="was">was #40</span> · got 7 people talking
+    <p class="cmeta"><b class="author">Shitty-kitty</b> · <span class="was">was #41</span> · got 7 people talking
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48471801" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">One has to be very specific when throwing around words like &quot;creative&quot; when talking about A.I<p>Can A.I create art. Well it can create something that&#x27;s pleasing to our senses but art is ultimately about conveying human feelings and emotions. Even as humans, understanding art is not universal. &quot;feelings and emotions&quot; and therefore art, can be deeply tied to a particular groups shared beliefs and experiences.<p>Can it be creative in non-subjective fields such as math or sciences. Einstein derived GR from his creative thought experiments. If an A.I poped out GR&#x27;s field equations simply by testing different mathematical frameworks that resolve the issues discovered by experiments, is that creative? Perhaps but certainly not in the same way.</div>
-  </div><div class="comment">
-    <p class="cmeta"><b class="author">liamlaverty</b> · <span class="was">was #46</span> · receipts: sources
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474532" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">&gt;But there&#x27;s no reason you couldn&#x27;t add an Artistic Director layer which has been trained on emotional and cultural signifiers and to direct the pastiche and remixing.<p>I gave this approach a shot over the first few months of this year[1] (although my director didn&#x27;t have any custom training). The results were interesting, but I&#x27;d not call them &quot;art&quot;, since they&#x27;re low-quality derivative pieces. With reasoning traces enabled, you can see that there&#x27;s not much intent going on. Though they do attempt to include &quot;incidental objects&quot; to reinforce meaning, like in this jungle scene[2].<p>[1] <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=48105385">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=48105385</a><p>[2]<a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.liamlaverty.com&#x2F;paint-by-language-model&#x2F;inspect&#x2F;patchwork-elephant-line-arc-polyline-circle-claude-opus-4-6" rel="nofollow">https:&#x2F;&#x2F;www.liamlaverty.com&#x2F;paint-by-language-model&#x2F;inspect&#x2F;...</a></div>
   </div></details></div>
     <details class="fold"><summary>7 comments tucked away (the fights and one-liners)</summary>
-         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 61 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48470581">all on HN ↗</a>)</p>
-  </section><section class="story" id="s-48473662" aria-labelledby="st-48473662">
-    <div class="shead">
-      <span class="srank" aria-hidden="true">8</span>
-      <div class="stitle">
-        <h3 id="st-48473662"><a target="_blank" rel="noopener" href="https://github.com/react/react/pull/36173">Port React Compiler to Rust</a></h3>
-        <p class="smeta">github.com · 69 pts · 43 comments · 2h
-          <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473662">discuss on HN ↗</a></p>
-        
-      </div>
-    </div>
-    <div class="lane"><div class="comment">
-    <p class="cmeta"><b class="author">mohsen1</b> · <span class="was">was #39</span> · firsthand, with sources
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474833" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">Shameless plug. I&#x27;m writing a TypeScript checker in Rust. It&#x27;s not a port. I made this with a different architecture that hopefully once is done will be proven to be a better set of trade-off<p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;tsz-org&#x2F;tsz" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;tsz-org&#x2F;tsz</a></div>
-  </div><div class="comment">
-    <p class="cmeta"><b class="author">giancarlostoro</b> · <span class="was">was #33</span> · got 4 people talking
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474430" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <details class="ctext"><summary>Speaks volumes to the strengths of the language, also speaks volumes that LLMs lift the barrier of entry for Rust programming, the borrow checker woes can be offloaded to the model, you focus on all the other programming…</summary><div class="full">Speaks volumes to the strengths of the language, also speaks volumes that LLMs lift the barrier of entry for Rust programming, the borrow checker woes can be offloaded to the model, you focus on all the other programming logic.<p>Whats funny is I had been using Rust more with Claude because of this, and before Anthropic did their rewrite of Bun I tried a Rust rewrite of a C# project I had laying around (.NET 3.5 from back in 2008) it wasnt perfect but its nearly there now, mostly for fun, and I did it because for a little while I realized LLMs can be useful for more serious refactors, and figured it might be good for a language rewrite. Sure enough.<p>I think rewriting tooling that takes text and transforms it in a language like Rust is fine for JS projects, so is Go, which is why TypeScript is migrating to Go. The “free” optimized speed increases are worth it, at the temporary cost of dealing with the migration for a year or two, which with LLMs trims down the initial work into a week effort it seems? Wild.</div></details>
-  </div><div class="comment">
-    <p class="cmeta"><b class="author">willsmith72</b> · <span class="was">was #7</span> · got 5 people talking
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473939" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">Are people actually using the react compiler?<p>Haven&#x27;t heard about since ages ago when it was extremely slow</div>
-  </div><details class="more"><summary>+ 1 more worth reading</summary><div class="comment">
-    <p class="cmeta"><b class="author">LoganDark</b> · <span class="was">was #23</span> · actually explains it
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474050" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">Why are they porting the Babel-isms? They should be using Oxc tooling directly, not hanging onto JavaScript parsers, IMHO -- isn&#x27;t the benefit of porting to Rust that you can use fast native code?<p>It seems backwards that they are freezing the Babel AST into the interoperability contract and only using the more efficient native representations in an isolated fashion -- shouldn&#x27;t it be the other way around?</div>
-  </div></details></div>
-    <details class="fold"><summary>11 comments tucked away (the fights and one-liners)</summary>
-         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 28 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473662">all on HN ↗</a>)</p>
+         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 62 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48470581">all on HN ↗</a>)</p>
   </section><section class="story" id="s-48470248" aria-labelledby="st-48470248">
     <div class="shead">
       <span class="srank" aria-hidden="true">9</span>
       <div class="stitle">
         <h3 id="st-48470248"><a target="_blank" rel="noopener" href="https://the-decoder.com/landmark-german-ruling-declares-googles-ai-overviews-are-googles-own-words-and-makes-it-liable-for-false-answers/">German ruling declares Google liable for false answers in AI Overviews</a></h3>
-        <p class="smeta">the-decoder.com · 649 pts · 365 comments · 10h
+        <p class="smeta">the-decoder.com · 666 pts · 372 comments · 10h
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48470248">discuss on HN ↗</a></p>
         
       </div>
     </div>
     <div class="lane"><p class="featurednote">▲ 2 comments from this thread featured in Today's rescues above</p><div class="comment">
-    <p class="cmeta"><b class="author">Frieren</b> · <span class="was">was #243</span> · receipts: sources
+    <p class="cmeta"><b class="author">Frieren</b> · <span class="was">was #244</span> · receipts: sources
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48471309" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">How could anything else make any sense? Platforms are getting used to provide dangerous broken products and get away with it. There should be some limit to it.<p>Next do Amazon that is selling AI generated foraging books:
 - <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.theguardian.com&#x2F;technology&#x2F;2023&#x2F;sep&#x2F;01&#x2F;mushroom-pickers-urged-to-avoid-foraging-books-on-amazon-that-appear-to-be-written-by-ai" rel="nofollow">https:&#x2F;&#x2F;www.theguardian.com&#x2F;technology&#x2F;2023&#x2F;sep&#x2F;01&#x2F;mushroom-...</a><p>When I was a kid it was possible to buy any foraging books from a store and they had a minimum quality. Is that so difficult to achieve? Is profiteering not punished anymore?</div>
   </div><div class="comment">
-    <p class="cmeta"><b class="author">l23k4</b> · <span class="was">was #285</span> · receipts: sources
+    <p class="cmeta"><b class="author">l23k4</b> · <span class="was">was #288</span> · receipts: sources
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48471885" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <details class="ctext"><summary>Wow, you guys really think this is good? Because of the same rules, German restaurants also get to pick and choose which reviews stay up. They can literally take down any specific reviews they like. A restaurant that mos…</summary><div class="full">Wow, you guys really think this is good?<p>Because of the same rules, German restaurants also get to pick and choose which reviews stay up. They can literally take down any specific reviews they like.<p>A restaurant that mostly gets 1 star reviews will still show up with 5 stars on Google maps, as they will simply delete the reviews with less than 5 stars as defamatory.<p>Here&#x27;s a couple of examples:<p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;germany&#x2F;comments&#x2F;1peujau&#x2F;google_reviews_defamation&#x2F;" rel="nofollow">https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;germany&#x2F;comments&#x2F;1peujau&#x2F;google_rev...</a><p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;germany&#x2F;comments&#x2F;18z4shs&#x2F;legal_threat_over_restaurant_review&#x2F;" rel="nofollow">https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;germany&#x2F;comments&#x2F;18z4shs&#x2F;legal_thre...</a><p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;frankfurt&#x2F;comments&#x2F;1lox7ha&#x2F;bad_review_removed_for_defamation_is_this_normal&#x2F;" rel="nofollow">https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;frankfurt&#x2F;comments&#x2F;1lox7ha&#x2F;bad_revi...</a><p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;germany&#x2F;comments&#x2F;1iiaco8&#x2F;restaurants_keep_reporting_my_reviews_for&#x2F;" rel="nofollow">https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;germany&#x2F;comments&#x2F;1iiaco8&#x2F;restaurant...</a><p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;AskGermany&#x2F;comments&#x2F;1ha7sxf&#x2F;why_do_businesses_in_germany_have_such_fragile&#x2F;" rel="nofollow">https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;AskGermany&#x2F;comments&#x2F;1ha7sxf&#x2F;why_do_...</a><p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;SipsTea&#x2F;comments&#x2F;1t613w7&#x2F;it_was_fine_restaurant_review_in_germany_deemed&#x2F;" rel="nofollow">https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;SipsTea&#x2F;comments&#x2F;1t613w7&#x2F;it_was_fin...</a><p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;germany&#x2F;comments&#x2F;1l98608&#x2F;threatening_food_reviewer_with_legal_action&#x2F;" rel="nofollow">https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;germany&#x2F;comments&#x2F;1l98608&#x2F;threatenin...</a><p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;germany&#x2F;comments&#x2F;1sw34jc&#x2F;can_you_get_sued_over_a_bad_review&#x2F;" rel="nofollow">https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;germany&#x2F;comments&#x2F;1sw34jc&#x2F;can_you_ge...</a><p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;germany&#x2F;comments&#x2F;1sw34jc&#x2F;can_you_get_sued_over_a_bad_review&#x2F;" rel="nofollow">https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;germany&#x2F;comments&#x2F;1sw34jc&#x2F;can_you_ge...</a><p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;germany&#x2F;comments&#x2F;10kmn66&#x2F;writing_an_honest_bad_review_is_it_illegal_in&#x2F;" rel="nofollow">https:&#x2F;&#x2F;www.reddit.com&#x2F;r&#x2F;germany&#x2F;comments&#x2F;10kmn66&#x2F;writing_an...</a><p>tl;dr Germans are particularly bad at coming up with reasonable rules to handle these situations</div></details>
   </div><div class="comment">
-    <p class="cmeta"><b class="author">dbdr</b> · <span class="was">was #191</span> · speaks from experience
+    <p class="cmeta"><b class="author">dbdr</b> · <span class="was">was #192</span> · speaks from experience
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473453" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">Agreed. The problem is that people are used to do search, which returns hits from clearly identified sources. Suddenly, Gemini is interpreting your query and generating its own response. It&#x27;s an entirely different product. If I expect to find a source, this was just wasted inference. It&#x27;s especially problematic that the LLM result is the top result, since we all know how much that matters.<p>It&#x27;s fine to have Gemini as an option, it&#x27;s also fine to have a combined result page, that should just be something people are able to chose if they want that (even persistently if they want). It should just not be the default.</div>
   </div><details class="more"><summary>+ 1 more worth reading</summary><div class="comment">
-    <p class="cmeta"><b class="author">hanwenn</b> · <span class="was">was #280</span> · receipts: code
+    <p class="cmeta"><b class="author">hanwenn</b> · <span class="was">was #283</span> · receipts: code
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48471729" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">Curiously, if you look for &quot;geramond verlag betrugsmasche&quot;, or &quot;verlagshaus24 betrugsmasche&quot;, it will now tell you that<p><pre><code>     there are no indications it is a scam, but &quot;significant organizational problems and extremely bad customer support lead to (list of bad experiences)&quot;. 
 </code></pre>
 Also, each purported fact now has a direct link to the source of the fact, that is more clearly visible than the previous chain icon.</div>
   </div></details></div>
     <details class="fold"><summary>58 comments tucked away (the fights and one-liners)</summary>
-         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 301 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48470248">all on HN ↗</a>)</p>
-  </section><section class="story" id="s-48473845" aria-labelledby="st-48473845">
+         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 308 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48470248">all on HN ↗</a>)</p>
+  </section><section class="story" id="s-48468766" aria-labelledby="st-48468766">
     <div class="shead">
       <span class="srank" aria-hidden="true">10</span>
       <div class="stitle">
-        <h3 id="st-48473845"><a target="_blank" rel="noopener" href="https://github.com/grzegorz-raczek-unit8/claude-quota">Show HN: macOS menu bar gauges for your Claude Code quota</a></h3>
-        <p class="smeta">github.com · 9 pts · 7 comments · 2h
-          <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473845">discuss on HN ↗</a></p>
-        
-      </div>
-    </div>
-    <div class="lane"><div class="comment">
-    <p class="cmeta"><b class="author">grzracz</b> · firsthand, with numbers
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474565" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">Doesn&#x27;t it autocompact only if it is about to run out of context? On these newer models the context is 1M tokens so it&#x27;s quite difficult to reach. I run compacts manually when I stop in a good place and tokens are over 300k</div>
-  </div><div class="comment">
-    <p class="cmeta"><b class="author">giancarlostoro</b> · receipts: numbers
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474745" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">1m is too high, they used to autocompact a little too soon, maybe I tweaked defaults, it was kind of annoying, 200k tokens is too soon for me, I feel like the sweet spot is around 400k tokens.<p>Funnily enough Groks API charges less when you are below 400k tokens.<p>Half a million can get you reasonably far with enough of your codebase within the models context window.<p>I lowkey blame the 1m context window as the start of Anthropics worse woes earlier this year.</div>
-  </div><div class="comment">
-    <p class="cmeta"><b class="author">giancarlostoro</b> · got 4 people talking
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474495" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">Honestly drives me crazy that CC doesnt show this on the bottom status bar a simple percentage “Weekly Quota Left: 99%” would be useful. Also noticed and idk if it was me or some mishap, a lot of my Claude sessions were not autocompacting, maybe its &#x2F;loops fault not sure, but it made sense why I finally reached my weekly limit so insanely quickly recently.</div>
-  </div></div>
-    <details class="fold"><summary>1 comments tucked away (the fights and one-liners)</summary>
-         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 3 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473845">all on HN ↗</a>)</p>
-  </section><section class="story" id="s-48468766" aria-labelledby="st-48468766">
-    <div class="shead">
-      <span class="srank" aria-hidden="true">11</span>
-      <div class="stitle">
         <h3 id="st-48468766"><a target="_blank" rel="noopener" href="https://blog.oscars.dev/posts/rip-software-hackathons-long-live-the-hardware-hackathon/">RIP software hackathons. Long live the hardware hackathon</a></h3>
-        <p class="smeta">blog.oscars.dev · 201 pts · 94 comments · 13h
+        <p class="smeta">blog.oscars.dev · 201 pts · 97 comments · 13h
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48468766">discuss on HN ↗</a></p>
         
       </div>
@@ -610,6 +608,10 @@ Also, each purported fact now has a direct link to the source of the fact, that 
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473830" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">&gt; Because ai cannot do hardware<p>It can.<p>&gt; it cannot solder wire<p>Plenty of placement and soldering machines exist that are far faster than humans.  They just aren&#x27;t yet integrated with the bot.<p>For the stuff that is unusual or particularly difficult, just add a human.  Same as with code.<p>&gt; it cannot replace red led with blue one and find current limiting resistor for optimal brightness<p>Sure it can.  Just add a camera.<p>&gt; It cannot see what part of enclosure needs to be cut.<p><i>Challenge accepted.</i><p>&gt; It cannot see the startup transient on the ldo.<p>It can see that using the same tools we use to observe such things.  <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;aimoda&#x2F;rigol-dho824-mcp" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;aimoda&#x2F;rigol-dho824-mcp</a></div>
   </div><details class="more"><summary>+ 3 more worth reading</summary><div class="comment">
+    <p class="cmeta"><b class="author">jasoneckert</b> · <span class="was">was #97</span> · speaks from experience
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48475096" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">The height of hackathons was back in the early to mid 2010s in my opinion. That was the height of the indie game scene and mobile app goldrush - and there were plenty of sponsors willing to contribute real $$, prizes, and swag - all of which were necessary to build the excitement around the event.<p>I ran a plethora of these events at my college for developer and game developer students (Great Canadian Appathon, Global Game Jam, and numerous Microsoft-centric hackathons for WinPhone7 and Win10). The sponsorship, prizes, catering, and swag was insane. All the college really contributed was the space and staff to run the 48-hour weekend events, caffeinated soap for the washrooms, and the occasional medical attention (we had a few NOS nosebleeds).</div>
+  </div><div class="comment">
     <p class="cmeta"><b class="author">al_borland</b> · <span class="was">was #8</span> · got 6 people talking
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48469714" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">Someone was bragging to me about their new AI startup a few months ago. I went to look at their website. It was some AI slop. I checked out the code for their form to register interest for the launch… it wasn’t setup at all. It was just a form that went nowhere. They had an idea, told AI to make a site about it, didn’t bother replacing the boilerplate to make it work, hosted it, and then started bragging to their friends about how they were going to be rich.<p>What a joke.</div>
@@ -617,44 +619,73 @@ Also, each purported fact now has a direct link to the source of the fact, that 
     <p class="cmeta"><b class="author">smaudet</b> · <span class="was">was #49</span> · got 4 people talking
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48471059" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">I don&#x27;t think you understand the goal of a hackathon. They aren&#x27;t (or weren&#x27;t) VC pitch sessions.<p>You don&#x27;t run marathons to be usane bolt, you don&#x27;t go to hackathons to land VC deals.<p>24 hours of non stop AI usage doesn&#x27;t sound fun. It sounds hateful and demotivating, you want to discover <i>yourself</i>, and maybe some other people, not what a robot can do.</div>
-  </div><div class="comment">
-    <p class="cmeta"><b class="author">komali2</b> · <span class="was">was #68</span> · receipts: sources
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48472490" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">&gt; &quot;let&#x27;s all get together and build some free software collaboratively&quot;.<p>G0v hackathons in Taiwan are still this, at the end everyone presents what they worked on and there&#x27;s no judging or anything. Some of the projects have been going for years.<p>There was a hackathon two weeks ago, you can see all the videos from all the demos here <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;m.youtube.com&#x2F;@g0vTW" rel="nofollow">https:&#x2F;&#x2F;m.youtube.com&#x2F;@g0vTW</a><p>They happen every two months. Some people have started g0v chapters abroad, maybe you could consider it for your region!</div>
   </div></details></div>
-    <details class="fold"><summary>19 comments tucked away (the fights and one-liners)</summary>
-         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 69 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48468766">all on HN ↗</a>)</p>
+    <details class="fold"><summary>20 comments tucked away (the fights and one-liners)</summary>
+         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 71 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48468766">all on HN ↗</a>)</p>
+  </section><section class="story" id="s-48473845" aria-labelledby="st-48473845">
+    <div class="shead">
+      <span class="srank" aria-hidden="true">11</span>
+      <div class="stitle">
+        <h3 id="st-48473845"><a target="_blank" rel="noopener" href="https://github.com/grzegorz-raczek-unit8/claude-quota">Show HN: macOS menu bar gauges for your Claude Code quota</a></h3>
+        <p class="smeta">github.com · 10 pts · 9 comments · 2h
+          <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473845">discuss on HN ↗</a></p>
+        
+      </div>
+    </div>
+    <div class="lane"><div class="comment">
+    <p class="cmeta"><b class="author">grzracz</b> · firsthand, with numbers
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474565" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">Doesn&#x27;t it autocompact only if it is about to run out of context? On these newer models the context is 1M tokens so it&#x27;s quite difficult to reach. I run compacts manually when I stop in a good place and tokens are over 300k</div>
+  </div><div class="comment">
+    <p class="cmeta"><b class="author">giancarlostoro</b> · receipts: numbers
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474745" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">1m is too high, they used to autocompact a little too soon, maybe I tweaked defaults, it was kind of annoying, 200k tokens is too soon for me, I feel like the sweet spot is around 400k tokens.<p>Funnily enough Groks API charges less when you are below 400k tokens.<p>Half a million can get you reasonably far with enough of your codebase within the models context window.<p>I lowkey blame the 1m context window as the start of Anthropics worse woes earlier this year.</div>
+  </div><div class="comment">
+    <p class="cmeta"><b class="author">giancarlostoro</b> · got 6 people talking
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474495" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">Honestly drives me crazy that CC doesnt show this on the bottom status bar a simple percentage “Weekly Quota Left: 99%” would be useful. Also noticed and idk if it was me or some mishap, a lot of my Claude sessions were not autocompacting, maybe its &#x2F;loops fault not sure, but it made sense why I finally reached my weekly limit so insanely quickly recently.</div>
+  </div><details class="more"><summary>+ 2 more worth reading</summary><div class="comment">
+    <p class="cmeta"><b class="author">kaliara</b> · <span class="was">was #9</span> · receipts: sources
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48475065" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">I wanted the same thing and recently saw this blog post on how to customize the bottom status bar: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.aimhuge.com&#x2F;blog&#x2F;claude-code-status-line" rel="nofollow">https:&#x2F;&#x2F;www.aimhuge.com&#x2F;blog&#x2F;claude-code-status-line</a>.<p>I now show my current context window, five-hour quota, weekly quota, current branch and current PR.<p>It&#x27;s quite handy!</div>
+  </div><div class="comment">
+    <p class="cmeta"><b class="author">devsda</b> · <span class="was">was #4</span> · got 3 people talking
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474670" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">From their perspective, they don&#x27;t want<p>1. Standard tier users increasing their usage just to minimize &quot;wasted&quot; token credits.<p>2. Higher tier users with extra usage enabled to use and pay for those extra tokens instead of planning to stay within limits.</div>
+  </div></details></div>
+    <details class="fold"><summary>1 comments tucked away (the fights and one-liners)</summary>
+         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 3 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473845">all on HN ↗</a>)</p>
   </section><section class="story" id="s-48433525" aria-labelledby="st-48433525">
     <div class="shead">
       <span class="srank" aria-hidden="true">12</span>
       <div class="stitle">
         <h3 id="st-48433525"><a target="_blank" rel="noopener" href="https://newatlas.com/engineering/magnetoelectric-antennas-submarine-robots-communications/">Magnetoelectric antennas could transform how underwater robots talk</a></h3>
-        <p class="smeta">newatlas.com · 16 pts · 8 comments · 3d
+        <p class="smeta">newatlas.com · 18 pts · 11 comments · 3d
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48433525">discuss on HN ↗</a></p>
         
       </div>
     </div>
     <div class="lane"><div class="comment">
-    <p class="cmeta"><b class="author">peter_d_sherman</b> · <span class="was">was #5</span> · receipts: numbers
+    <p class="cmeta"><b class="author">zipy124</b> · <span class="was">was #5</span> · receipts: sources
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48475139" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">Yup, on the order of below 100 Hz usually <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Extremely_low_frequency" rel="nofollow">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Extremely_low_frequency</a> .</div>
+  </div><div class="comment">
+    <p class="cmeta"><b class="author">peter_d_sherman</b> · <span class="was">was #6</span> · receipts: numbers
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474336" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext"><i>&quot;At 36 kHz, the wavelength shrinks from roughly 8,327 m (27,320 ft) in air to just 170 m (558 ft) in freshwater...&quot;</i><p>Yes, waves apparently compress or expand depending on the medium they are in...<p>I&#x27;m curious as to what the extremes of potential medium might be... on one end, we might have the densest of heavy metals and on the other, we might have the vacuum of outer space...<p>Also, what role does&#x2F;would temperature play?<p><i>If a heavy metal was frozen and its temperature brought as close to absolute zero as possible, then would that shrink or expand any propagated waves through it, if even by the smallest amount?</i><p>Also, if so, <i>might there be a definable relationship between that phenomena, if it exists, and superconductivity?</i><p>Anyway, great article, and it&#x27;s interesting to learn about Magnetoelectric Antennas!<p>(I had never heard about them before!)</div>
   </div><div class="comment">
-    <p class="cmeta"><b class="author">adrian_b</b> · <span class="was">was #4</span> · actually explains it
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474952" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">Very low frequency radio waves is the traditional means of communication with military submarines, while submerged.<p>However, this required huge antennas and very high power transmitters, so this was used mainly to transmit short messages from a terrestrial station to submarines, for instance instructing them to send an antenna to the surface, for  bidirectional communication at high speed.<p>The innovation here is the use of a new kind of antenna, which can work well under water despite small dimensions, and with which a low-power transmitter is sufficient for communication with other submarines or with a surface boat, up to a few hundred meters.</div>
-  </div><div class="comment">
-    <p class="cmeta"><b class="author">gus_massa</b> · substance
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48440574" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">I was wondering how this could make sense until:<p><i>The result is an antenna that operates at very low frequencies, around 35–36 kHz, while remaining far more compact than the conventional electrical antennas that work at those same frequencies.</i><p>They are using a super low frequency.</div>
+    <p class="cmeta"><b class="author">adrian_b</b> · <span class="was">was #7</span> · receipts: numbers
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48475084" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">When a wave passes through different media, its frequency remains the same, but its velocity changes.<p>The wavelength is the ratio between velocity and frequency, so it changes proportionally.<p>If you multiply 36 kHz by 8326 m, you get a value only slightly less than the speed of light in vacuum, which is true for the propagation of electromagnetic waves in most gases.<p>On the other hand, with 170 m, you will get a speed of VLF radio waves in sea water that is much lower than in vacuum.<p>The speed of electromagnetic waves in most media depends strongly on frequency.<p>At frequencies corresponding with visible light, only in few materials the speed is lower than half of the speed in vacuum (i.e. the refractive index is greater than 2).<p>On the other hand, for low frequency radio waves, speeds that are 10 times slower or even 100 times slower than in vacuum are not unusual.</div>
   </div></div>
     <details class="fold"><summary>1 comments tucked away (the fights and one-liners)</summary>
-         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 4 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48433525">all on HN ↗</a>)</p>
+         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 7 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48433525">all on HN ↗</a>)</p>
   </section><section class="story" id="s-48466277" aria-labelledby="st-48466277">
     <div class="shead">
       <span class="srank" aria-hidden="true">13</span>
       <div class="stitle">
         <h3 id="st-48466277"><a target="_blank" rel="noopener" href="https://aarushgupta.io/posts/kan-fpga/">Ultrafast machine learning on FPGAs via Kolmogorov-Arnold Networks</a></h3>
-        <p class="smeta">aarushgupta.io · 237 pts · 35 comments · 16h
+        <p class="smeta">aarushgupta.io · 240 pts · 35 comments · 16h
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48466277">discuss on HN ↗</a></p>
         
       </div>
@@ -687,38 +718,38 @@ Also, each purported fact now has a direct link to the source of the fact, that 
       <span class="srank" aria-hidden="true">14</span>
       <div class="stitle">
         <h3 id="st-48464140"><a target="_blank" rel="noopener" href="https://www.oneusefulthing.org/p/what-it-feels-like-to-work-with-mythos">What it feels like to work with Mythos</a></h3>
-        <p class="smeta">oneusefulthing.org · 300 pts · 251 comments · 18h
+        <p class="smeta">oneusefulthing.org · 301 pts · 255 comments · 18h
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48464140">discuss on HN ↗</a></p>
         
       </div>
     </div>
     <div class="lane"><div class="comment">
-    <p class="cmeta"><b class="author">ianm218</b> · <span class="was">was #99</span> · receipts: sources + numbers
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48466549" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">I’ve been working on implementing some common web infra type projects in Rust lately. Basically trying to use a lot of the great primatives in Rust like rustls (modern openSSL) and Tokio (async) to build memory safe or close, nginx drop in replacements.<p>A small portion of this effort is having a high quality Lua in Rust repo. I’m using mythos to fix some of the performance issues with my Lua interpreter that gpt 5.5&#x2F; opus 4.8 had stone walled on.<p>Not sure if Mythos will be able to crack this but it has been running for a couple hours now with some promising results.<p>Performance charts linked here if your curious <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;ianm199&#x2F;lua-rs" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;ianm199&#x2F;lua-rs</a></div>
-  </div><div class="comment">
-    <p class="cmeta"><b class="author">ianm218</b> · <span class="was">was #101</span> · receipts: sources
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48469052" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">Mlua works for many use cases but is a wrapper around the C code, so you need to bundle C as part of the build. So this is worse for cross compilation and makes it so you can&#x27;t easily use mlua projects in wasm32-unkown-unknown. An example is that it would be hard to run a game in the browser that exposes Lua scripting with mlua.<p>The other reason is that because mlua is just a wrapper around the C code, it has unsafe you can&#x27;t really get around. So for example Lua is used in Redis, which has this critical CVE <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;redis&#x2F;redis&#x2F;security&#x2F;advisories&#x2F;GHSA-4789-qfc9-5f9q" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;redis&#x2F;redis&#x2F;security&#x2F;advisories&#x2F;GHSA-4789...</a> that a memory safe version of Lua wouldn&#x27;t have to deal with.<p>Mlua is still fine or even better for many other cases though!</div>
-  </div><div class="comment">
-    <p class="cmeta"><b class="author">vrganj</b> · <span class="was">was #155</span> · speaks from experience
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48472802" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">In my experience, the refactors are just as bad, just in different ways. All you end up doing is treading water with different iterations of shitty code. By the time you get somewhere acceptable, you could&#x27;ve just fixed it up yourself.<p>My preferred workflow these days is to pair program with an LLM until it gets close-ish and then manually touch it up. Without that, it just produces junk in different forms.</div>
-  </div><details class="more"><summary>+ 3 more worth reading</summary><div class="comment">
-    <p class="cmeta"><b class="author">rglullis</b> · <span class="was">was #157</span> · receipts: code
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473995" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <details class="ctext"><summary>The problem is that this approach is not sustainable. Errors compound. The cost to fix one issue might seem small at first, but over a stretch of time all these &quot;oopsies&quot; become architectural spaghetti that can only be f…</summary><div class="full">The problem is that this approach is not sustainable. Errors compound. The cost to fix one issue might seem small at first, but over a stretch of time all these &quot;oopsies&quot; become architectural spaghetti that can only be fixed with a complete rewrite, which will certainly become more expensive than getting the code &quot;organically&quot; developed.<p>The only way I see AI coding working in the long run is if we go back to a Waterfall&#x2F;BDUF process and having <i>actual</i> engineering. Let engineers really own the architecture. Enforce that any new  feature - no matter how small - to be specced out with complete sequence diagrams. Ensure that every new software package needs to be put on an UML component diagram for the team to review and see each addition interacts with the <i>whole system</i>, etc.<p>If we do that, then we can just give all the documents to a coding agent and say &quot;go ahead and implement this&quot; with a minimal amount of confidence. But in doing this, I bet we will realize the following:<p><pre><code>    - the &quot;effort&quot; has never been about writing code itself. The code is just the material manifest of all the thought that went to think over a solution into the problems that the product is attempting to solve.
-
-   - we will likely be better off by using code generation tools (i.e, UML-to-code) and a &quot;weak&quot; LLM (than can run locally) than by playing the token lottery at the Anthropic Casino.</code></pre></div></details>
-  </div><div class="comment">
-    <p class="cmeta"><b class="author">spicyusername</b> · <span class="was">was #179</span> · receipts: code
+    <p class="cmeta"><b class="author">spicyusername</b> · <span class="was">was #182</span> · receipts: code
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48469958" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext"><p><pre><code>    the quality of produced code and the medium
 </code></pre>
 A thought I have been tossing around in my head as the models get better is that it really may not matter what the code looks like.<p>If the observed behavior of the software is good, then the software is good. 
 If a bug, of whatever kind, can be fixed by a model on a vibe-coded codebase, then that&#x27;s a fixable bug. If there are no exploitable vulnerabilities, then the code is secure. If the performance is adequate, then the code is performant.<p>It simply does not matter what the code looks like if, from the outside, it does what its supposed to, and, from the inside, a model can fix the issue if one is found.<p>More than ever, software engineering is now really a job about making sure the code is doing what its supposed to.<p>And even if it DOES matter what the code looks like, you can have a model fix that too.</div>
   </div><div class="comment">
-    <p class="cmeta"><b class="author">skydhash</b> · <span class="was">was #180</span> · receipts: code
+    <p class="cmeta"><b class="author">ianm218</b> · <span class="was">was #100</span> · receipts: sources + numbers
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48466549" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">I’ve been working on implementing some common web infra type projects in Rust lately. Basically trying to use a lot of the great primatives in Rust like rustls (modern openSSL) and Tokio (async) to build memory safe or close, nginx drop in replacements.<p>A small portion of this effort is having a high quality Lua in Rust repo. I’m using mythos to fix some of the performance issues with my Lua interpreter that gpt 5.5&#x2F; opus 4.8 had stone walled on.<p>Not sure if Mythos will be able to crack this but it has been running for a couple hours now with some promising results.<p>Performance charts linked here if your curious <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;ianm199&#x2F;lua-rs" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;ianm199&#x2F;lua-rs</a></div>
+  </div><div class="comment">
+    <p class="cmeta"><b class="author">ianm218</b> · <span class="was">was #102</span> · receipts: sources
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48469052" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">Mlua works for many use cases but is a wrapper around the C code, so you need to bundle C as part of the build. So this is worse for cross compilation and makes it so you can&#x27;t easily use mlua projects in wasm32-unkown-unknown. An example is that it would be hard to run a game in the browser that exposes Lua scripting with mlua.<p>The other reason is that because mlua is just a wrapper around the C code, it has unsafe you can&#x27;t really get around. So for example Lua is used in Redis, which has this critical CVE <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;github.com&#x2F;redis&#x2F;redis&#x2F;security&#x2F;advisories&#x2F;GHSA-4789-qfc9-5f9q" rel="nofollow">https:&#x2F;&#x2F;github.com&#x2F;redis&#x2F;redis&#x2F;security&#x2F;advisories&#x2F;GHSA-4789...</a> that a memory safe version of Lua wouldn&#x27;t have to deal with.<p>Mlua is still fine or even better for many other cases though!</div>
+  </div><details class="more"><summary>+ 3 more worth reading</summary><div class="comment">
+    <p class="cmeta"><b class="author">vrganj</b> · <span class="was">was #157</span> · speaks from experience
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48472802" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">In my experience, the refactors are just as bad, just in different ways. All you end up doing is treading water with different iterations of shitty code. By the time you get somewhere acceptable, you could&#x27;ve just fixed it up yourself.<p>My preferred workflow these days is to pair program with an LLM until it gets close-ish and then manually touch it up. Without that, it just produces junk in different forms.</div>
+  </div><div class="comment">
+    <p class="cmeta"><b class="author">rglullis</b> · <span class="was">was #159</span> · receipts: code
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473995" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <details class="ctext"><summary>The problem is that this approach is not sustainable. Errors compound. The cost to fix one issue might seem small at first, but over a stretch of time all these &quot;oopsies&quot; become architectural spaghetti that can only be f…</summary><div class="full">The problem is that this approach is not sustainable. Errors compound. The cost to fix one issue might seem small at first, but over a stretch of time all these &quot;oopsies&quot; become architectural spaghetti that can only be fixed with a complete rewrite, which will certainly become more expensive than getting the code &quot;organically&quot; developed.<p>The only way I see AI coding working in the long run is if we go back to a Waterfall&#x2F;BDUF process and having <i>actual</i> engineering. Let engineers really own the architecture. Enforce that any new  feature - no matter how small - to be specced out with complete sequence diagrams. Ensure that every new software package needs to be put on an UML component diagram for the team to review and see each addition interacts with the <i>whole system</i>, etc.<p>If we do that, then we can just give all the documents to a coding agent and say &quot;go ahead and implement this&quot; with a minimal amount of confidence. But in doing this, I bet we will realize the following:<p><pre><code>    - the &quot;effort&quot; has never been about writing code itself. The code is just the material manifest of all the thought that went to think over a solution into the problems that the product is attempting to solve.
+
+   - we will likely be better off by using code generation tools (i.e, UML-to-code) and a &quot;weak&quot; LLM (than can run locally) than by playing the token lottery at the Anthropic Casino.</code></pre></div></details>
+  </div><div class="comment">
+    <p class="cmeta"><b class="author">skydhash</b> · <span class="was">was #183</span> · receipts: code
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48470582" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <details class="ctext"><summary>The thing is that a lot of code rely on multiple layers of abstractions with their own correctness and failure states. And then you overlay the domain correctness and failure cases on top of that. But all of those correc…</summary><div class="full">The thing is that a lot of code rely on multiple layers of abstractions with their own correctness and failure states. And then you overlay the domain correctness and failure cases on top of that.<p>But all of those correctness are imaginary. The hardware only enforce a few (and it may be buggy). The OS adds some more (and it’s buggy). The compiler&#x2F;interpreter may have bugs (but that’s rarely a nuisance) and the libraries are often brittle. There are cracks everywhere in the tower of abstractions.<p>The code has never mattered. What has always mattered is the knowledge of what is the model of correctness of the software (programming as a theory by NauR), so that you can discern where a program is wrong.<p>The thing is a crash or some other immediate errors are actually nice to have. You get to react immediately and can have a core dump or a stacktrace that points you the error. What is truly a terror is silent corruption (wrong order of operations, wrong values for a comparison that has expanded the idea of correctness, security issues that has been backdoored for years,…).<p>As Hoare said:<p><pre><code>  There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies and the other way is to make it so complicated that there are no obvious deficiencies.
   The first method is far more difficult.
@@ -726,13 +757,13 @@ If a bug, of whatever kind, can be fixed by a model on a vibe-coded codebase, th
 LLM are very much the second kind. You write a lot of complicated code, and then you can no longer reason about their correctness.</div></details>
   </div></details></div>
     <details class="fold"><summary>41 comments tucked away (the fights and one-liners)</summary>
-         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 204 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48464140">all on HN ↗</a>)</p>
+         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 208 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48464140">all on HN ↗</a>)</p>
   </section><section class="story" id="s-48468370" aria-labelledby="st-48468370">
     <div class="shead">
       <span class="srank" aria-hidden="true">15</span>
       <div class="stitle">
         <h3 id="st-48468370"><a target="_blank" rel="noopener" href="https://forestwalk.ai/blog/surprise-blacksmith-costs/">Surprise, Pay $1000</a></h3>
-        <p class="smeta">forestwalk.ai · 204 pts · 80 comments · 13h
+        <p class="smeta">forestwalk.ai · 206 pts · 80 comments · 14h
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48468370">discuss on HN ↗</a></p>
         
       </div>
@@ -764,42 +795,18 @@ LLM are very much the second kind. You write a lot of complicated code, and then
   </div></details></div>
     <details class="fold"><summary>12 comments tucked away (the fights and one-liners)</summary>
          <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 62 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48468370">all on HN ↗</a>)</p>
-  </section><section class="story" id="s-48411102" aria-labelledby="st-48411102">
+  </section><section class="story" id="s-48431213" aria-labelledby="st-48431213">
     <div class="shead">
       <span class="srank" aria-hidden="true">16</span>
       <div class="stitle">
-        <h3 id="st-48411102"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eq7fR9ISuCw">I Thought I Knew How Electrolysis Worked [video]</a></h3>
-        <p class="smeta">youtube.com · 49 pts · 3 comments · 5d
-          <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48411102">discuss on HN ↗</a></p>
-        
-      </div>
-    </div>
-    <div class="lane"><div class="comment">
-    <p class="cmeta"><b class="author">robinduckett</b> · receipts: numbers
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473470" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">I didn’t know how electrolysis really worked, and probably still don’t but I know a little more, and these cheap ion filtering membranes are absolutely wild, and turning the graphite fire blanket into a super high surface area electrode is super interesting. I remember when he re-made the “lost” aerogel-like substance a while back and wonder if we can make graphite aerogel-likes using similar processes somehow for super high surface area electrodes. Sometimes I think I’m more interested in practical materials science than software engineering, but at 39 years old I am probably past the point of going to university to actually study. Of course, unless we all get UBI quickly because of Claude 8.5 taking everyone’s jobs.</div>
-  </div><div class="comment">
-    <p class="cmeta"><b class="author">teekert</b> · substance
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473544" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">What a time to be alive, to find such ultra high quality and inspiring materials for free. When I was young I spend so much time with an illegal copy of Encarta (which sparked my career as a scientist) and already considered myself to be fortunate... What a time to be alive.</div>
-  </div><div class="comment">
-    <p class="cmeta"><b class="author">rithdmc</b> · substance
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474861" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">Today I learned Encarta was not free.</div>
-  </div></div>
-    
-  </section><section class="story" id="s-48431213" aria-labelledby="st-48431213">
-    <div class="shead">
-      <span class="srank" aria-hidden="true">17</span>
-      <div class="stitle">
         <h3 id="st-48431213"><a target="_blank" rel="noopener" href="https://www.bbc.com/culture/article/20260603-how-a-26-year-old-german-woman-made-the-worlds-oldest-surviving-animated-feature-film">The oldest surviving animated feature film at 100</a></h3>
-        <p class="smeta">bbc.com · 118 pts · 17 comments · 3d
+        <p class="smeta">bbc.com · 120 pts · 18 comments · 3d
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48431213">discuss on HN ↗</a></p>
         
       </div>
     </div>
     <div class="lane"><div class="comment">
-    <p class="cmeta"><b class="author">klondike_klive</b> · <span class="was">was #16</span> · receipts: sources
+    <p class="cmeta"><b class="author">klondike_klive</b> · <span class="was">was #17</span> · receipts: sources
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473708" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">Animators (and storyboarders, layout artists, illustrators etc) are still taught to prioritise the clarity and readability of the character&#x27;s silhouette, although they&#x27;re usually working with a three quarter view (between side profile and front-on) rather than a profile like the shadow puppets here. Still I can&#x27;t help thinking this film would be a good object of study.<p>Some of the forest scenes remind me of the original King Kong in their use of dark foreground shapes and framing devices to give an impression of scale.<p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;youtu.be&#x2F;j6DaB0Is4jM?t=1720" rel="nofollow">https:&#x2F;&#x2F;youtu.be&#x2F;j6DaB0Is4jM?t=1720</a><p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;youtu.be&#x2F;1vNv-pE8I_c?t=72" rel="nofollow">https:&#x2F;&#x2F;youtu.be&#x2F;1vNv-pE8I_c?t=72</a></div>
   </div><div class="comment">
@@ -815,14 +822,39 @@ LLM are very much the second kind. You write a lot of complicated code, and then
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48472954" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">It can also be watched in full on Wikipedia, as is the case with many films that are public domain in the US. <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;The_Adventures_of_Prince_Achmed" rel="nofollow">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;The_Adventures_of_Prince_Achme...</a></div>
   </div></details></div>
-    <details class="fold"><summary>4 comments tucked away (the fights and one-liners)</summary>
+    <details class="fold"><summary>5 comments tucked away (the fights and one-liners)</summary>
          <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 9 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48431213">all on HN ↗</a>)</p>
+  </section><section class="story" id="s-48411102" aria-labelledby="st-48411102">
+    <div class="shead">
+      <span class="srank" aria-hidden="true">17</span>
+      <div class="stitle">
+        <h3 id="st-48411102"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=eq7fR9ISuCw">I Thought I Knew How Electrolysis Worked [video]</a></h3>
+        <p class="smeta">youtube.com · 50 pts · 4 comments · 5d
+          <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48411102">discuss on HN ↗</a></p>
+        
+      </div>
+    </div>
+    <div class="lane"><div class="comment">
+    <p class="cmeta"><b class="author">robinduckett</b> · receipts: numbers
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473470" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">I didn’t know how electrolysis really worked, and probably still don’t but I know a little more, and these cheap ion filtering membranes are absolutely wild, and turning the graphite fire blanket into a super high surface area electrode is super interesting. I remember when he re-made the “lost” aerogel-like substance a while back and wonder if we can make graphite aerogel-likes using similar processes somehow for super high surface area electrodes. Sometimes I think I’m more interested in practical materials science than software engineering, but at 39 years old I am probably past the point of going to university to actually study. Of course, unless we all get UBI quickly because of Claude 8.5 taking everyone’s jobs.</div>
+  </div><div class="comment">
+    <p class="cmeta"><b class="author">teekert</b> · substance
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473544" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">What a time to be alive, to find such ultra high quality and inspiring materials for free. When I was young I spend so much time with an illegal copy of Encarta (which sparked my career as a scientist) and already considered myself to be fortunate... What a time to be alive.</div>
+  </div><div class="comment">
+    <p class="cmeta"><b class="author">teekert</b> · <span class="was">was #4</span> · substance
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48475081" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">In a sense it was free. And that led to a lot of good things, imho.</div>
+  </div></div>
+    <details class="fold"><summary>1 comments tucked away (the fights and one-liners)</summary>
+         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details>
   </section><section class="story" id="s-48427468" aria-labelledby="st-48427468">
     <div class="shead">
       <span class="srank" aria-hidden="true">18</span>
       <div class="stitle">
         <h3 id="st-48427468"><a target="_blank" rel="noopener" href="https://unsung.aresluna.org/more-molly-guards/">More Molly Guards</a></h3>
-        <p class="smeta">unsung.aresluna.org · 140 pts · 18 comments · 3d
+        <p class="smeta">unsung.aresluna.org · 142 pts · 18 comments · 3d
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48427468">discuss on HN ↗</a></p>
         
       </div>
@@ -847,7 +879,7 @@ LLM are very much the second kind. You write a lot of complicated code, and then
       <span class="srank" aria-hidden="true">19</span>
       <div class="stitle">
         <h3 id="st-48421858"><a target="_blank" rel="noopener" href="https://opencv.org/opencv-5/">OpenCV 5 Is Here: The Biggest Leap in Years for Computer Vision</a></h3>
-        <p class="smeta">opencv.org · 773 pts · 139 comments · 4d
+        <p class="smeta">opencv.org · 776 pts · 139 comments · 4d
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48421858">discuss on HN ↗</a></p>
         
       </div>
@@ -884,7 +916,7 @@ LLM are very much the second kind. You write a lot of complicated code, and then
       <span class="srank" aria-hidden="true">20</span>
       <div class="stitle">
         <h3 id="st-48467896"><a target="_blank" rel="noopener" href="https://jonready.com/blog/posts/claude-fable5-is-allowed-to-sabotage-your-app-if-youre-a-competitor.html">If Claude Fable stops helping you, you'll never know</a></h3>
-        <p class="smeta">jonready.com · 866 pts · 417 comments · 14h
+        <p class="smeta">jonready.com · 874 pts · 419 comments · 14h
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48467896">discuss on HN ↗</a></p>
         
       </div>
@@ -912,13 +944,13 @@ It took me aback. Note: the code had nothing to do with &quot;client value&quot;
     <div class="ctext">Other models arent even close except for gpt 5.5. You&#x27;re dead wrong on that. You read too many benchmarks and&#x2F;or chinese propaganda. There hasn&#x27;t been a serious contender in agentic SWE besides OAI and anthropic for a long time, and no chinese model has even reached opus 4.5 performance yet. The moat isnt insurmountable but it is very solid for at least a 12 month lead time. Which is such an insane amount of time in this landscape and industry. The moat is stretching, not shrinking, on agentic SWE. And that is literally the only moat that matters for RSI.</div>
   </div></details></div>
     <details class="fold"><summary>93 comments tucked away (the fights and one-liners)</summary>
-         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 318 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48467896">all on HN ↗</a>)</p>
+         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 320 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48467896">all on HN ↗</a>)</p>
   </section><section class="story" id="s-48445834" aria-labelledby="st-48445834">
     <div class="shead">
       <span class="srank" aria-hidden="true">21</span>
       <div class="stitle">
         <h3 id="st-48445834"><a target="_blank" rel="noopener" href="https://gitpush--force.com/commits/2026/06/lies-we-tell-ourselves-about-email/">Lies we tell ourselves about email addresses</a></h3>
-        <p class="smeta">gitpush--force.com · 131 pts · 125 comments · 1d
+        <p class="smeta">gitpush--force.com · 131 pts · 128 comments · 1d
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48445834">discuss on HN ↗</a></p>
         
       </div>
@@ -955,13 +987,46 @@ I&#x27;d probably also have a red warning line under the input field for somethi
     <div class="ctext">Add the lie &quot;emails are delivered instantly, so the user can click a link I email them within 1 minute&quot;<p>And the lie &quot;users always read emails on the same device they&#x27;re logging into a website with&quot;<p>And the lie &quot;users can always view HTML email so no need to send a plaintext equivalent, especially if I have a long complex URL I want them to click&quot;<p>And the lie &quot;Clickable links sent in email are more secure than passwords so I&#x27;ll stop supporting passwords and instead rely on email delivery of a link for all logins. Whoever clicks that link first is definitely the user who wanted to log in&quot;</div>
   </div></details></div>
     <details class="fold"><summary>14 comments tucked away (the fights and one-liners)</summary>
-         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 105 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48445834">all on HN ↗</a>)</p>
-  </section><section class="story" id="s-48465675" aria-labelledby="st-48465675">
+         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 108 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48445834">all on HN ↗</a>)</p>
+  </section><section class="story" id="s-48471048" aria-labelledby="st-48471048">
     <div class="shead">
       <span class="srank" aria-hidden="true">22</span>
       <div class="stitle">
+        <h3 id="st-48471048"><a target="_blank" rel="noopener" href="https://www.ddmckinnon.com/2026/06/09/vibe-coding-my-way-to-a-healthy-family-introducing-gamow-labs/">Vibe coding my way to a healthy family: Introducing Gamow Labs</a></h3>
+        <p class="smeta">ddmckinnon.com · 150 pts · 80 comments · 8h
+          <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48471048">discuss on HN ↗</a></p>
+        
+      </div>
+    </div>
+    <div class="lane"><p class="featurednote">▲ 1 comment from this thread featured in Today's rescues above</p><div class="comment">
+    <p class="cmeta"><b class="author">Gareth321</b> · <span class="was">was #35</span> · receipts: sources
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474341" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <details class="ctext"><summary>I think yours is not representative of the majority. Most places in the world can't afford dedicated carers, dedicated villages and housing, dedicated services, etc. [66-70% of Down's syndrome sufferers cannot live indep…</summary><div class="full">I think yours is not representative of the majority. Most places in the world can&#x27;t afford dedicated carers, dedicated villages and housing, dedicated services, etc. [66-70% of Down&#x27;s syndrome sufferers cannot live independently.](<a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.dscba.org&#x2F;files&#x2F;content&#x2F;DS_functional_milestones_Skotko.pdf" rel="nofollow">https:&#x2F;&#x2F;www.dscba.org&#x2F;files&#x2F;content&#x2F;DS_functional_milestones...</a>) Further, [11% cannot feed themselves, 26% cannot dress themselves, 29% cannot use the toilet themselves, and 52-54% cannot shower or bathe themselves.](<a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.mdpi.com&#x2F;2076-3425&#x2F;11&#x2F;8&#x2F;1012" rel="nofollow">https:&#x2F;&#x2F;www.mdpi.com&#x2F;2076-3425&#x2F;11&#x2F;8&#x2F;1012</a>)<p>It gets worse. People with Down’s syndrome face all kinds of health issues. *Half* are born with heart defects. They have higher risk of hearing loss, vision problems, sleep apnoea, thyroid disease, coeliac disease, digestive problems, epilepsy, infections and leukaemia. They also have elevated risk of dementia later in life.<p>This is a hellish existence which no one would wish on their worst enemy. It&#x27;s hell for the sufferers and it&#x27;s hell for the family.</div></details>
+  </div><div class="comment">
+    <p class="cmeta"><b class="author">afc</b> · <span class="was">was #64</span> · firsthand, with sources
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48474076" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">Good luck!<p>In case you find it useful, I wrote what I learned in my first year of fatherhood (the little guy is now 17 months): <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;alejo.ch&#x2F;3hj" rel="nofollow">https:&#x2F;&#x2F;alejo.ch&#x2F;3hj</a><p>As you can see, I never found anything as scary as the possibility, however remote, of my baby being unhealthy. So, yeah, best of luck!</div>
+  </div><div class="comment">
+    <p class="cmeta"><b class="author">fabbbbb</b> · <span class="was">was #17</span> · got 23 people talking
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48472487" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">It reads like a specific genome would lead to deterministic outcomes. It does not. Life is messy.<p>Most Down Syndrome people have happy lives, some can even live alone and have an independent daily live.<p>Life expectancy is up to 60 years.<p>Yet in Iceland „Democratization“ of genetic diagnosis lead to basically 0% Down Syndrome kids (births).<p>Where does this stop? What with someone of a genetic indication of aggressive cancer- life expectancy 55? Abort?<p>The same (detectable) genetic mutation leads to vastly different lives. This is correlation. Nobody sees the many undiagnosed broken genomes with no visible symptoms that would be aborted with more such businesses like this.</div>
+  </div><details class="more"><summary>+ 2 more worth reading</summary><div class="comment">
+    <p class="cmeta"><b class="author">inglor_cz</b> · <span class="was">was #19</span> · got 9 people talking
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473236" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">Most cannot live alone and their parents have to take care about a huge, powerful 100 kg baby that needs constant attention until its death.<p>My friend from elementary school has had a Down kid at 19. She takes it well, but managing a grown-up man five times as strong as her (she is petite) when he decides to do something like &quot;take his bicycle and ride on a busy highway&quot; is exhausting.<p>This is why most people abort Down fetuses.</div>
+  </div><div class="comment">
+    <p class="cmeta"><b class="author">nkrisc</b> · <span class="was">was #36</span> · got 5 people talking
+      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473359" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
+    <div class="ctext">People born with Down syndrome deserve all the respect and dignity any other person does.<p>I have two kids. If I could have chosen whether or not they would be born with Down syndrome I would choose would “without” every single time. If either of them were born with it I would love them the same but I would never choose it, if I had the choice to make.</div>
+  </div></details></div>
+    <details class="fold"><summary>13 comments tucked away (the fights and one-liners)</summary>
+         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 61 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48471048">all on HN ↗</a>)</p>
+  </section><section class="story" id="s-48465675" aria-labelledby="st-48465675">
+    <div class="shead">
+      <span class="srank" aria-hidden="true">23</span>
+      <div class="stitle">
         <h3 id="st-48465675"><a target="_blank" rel="noopener" href="https://www.techdirt.com/2026/06/09/ceos-who-think-ai-replaces-their-employees-are-just-bad-ceos/">CEOs who think AI replaces their employees are just bad CEOs</a></h3>
-        <p class="smeta">techdirt.com · 718 pts · 257 comments · 17h
+        <p class="smeta">techdirt.com · 721 pts · 259 comments · 17h
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48465675">discuss on HN ↗</a></p>
         
       </div>
@@ -975,51 +1040,23 @@ I&#x27;d probably also have a red warning line under the input field for somethi
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48468721" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <details class="ctext"><summary>Well workplace democracy has only been tried in a few corporations. If you want an interesting business case look into Semco Partners in Brazil: https://en.wikipedia.org/wiki/Ricardo_Semler#Semco_1990%E2%8... There is ac…</summary><div class="full">Well workplace democracy has only been tried in a few corporations. If you want an interesting business case look into Semco Partners in Brazil:<p><a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Ricardo_Semler#Semco_1990%E2%80%932004" rel="nofollow">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Ricardo_Semler#Semco_1990%E2%8...</a><p>There is academic research on this too if you&#x27;re curious but it&#x27;s mostly in English, Spanish, and Portuguese.<p>But yes, there isn&#x27;t much &quot;evidence&quot; because this system hasn&#x27;t been tried en masse; however if you look at our current neoliberal hellscape, it&#x27;s pretty hard to imagine it doing worse. Also neoliberalism wasn&#x27;t really &quot;tried&quot; either, it was thrusted upon us by a group of individuals that wanted it.<p>One thing to keep in mind is that society can change quite quickly if you want it to. I&#x27;m sure the children that died working in factories during the 1800s never imagined such a society where children are valued, cared for, educated, and protected but it did happen.<p>It has happen before and it can happen again. It only happened because people were willing to fight for it.<p>The rules are allowed to be changed at anytime if we deem so, a better world is possible.</div></details>
   </div><div class="comment">
-    <p class="cmeta"><b class="author">dijit</b> · <span class="was">was #100</span> · speaks from experience
+    <p class="cmeta"><b class="author">dijit</b> · <span class="was">was #101</span> · speaks from experience
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48467862" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <div class="ctext">&gt; it&#x27;s quite difficult to become a CEO<p>on the contrary, it seems to be one of the few jobs that seems to require absolutely no qualifications to have.<p>What you need to do to be CEO is.... convince someone to lend you money in the hope that you&#x27;ll get it back to them.<p>I&#x27;ve worked under some absolutely awful people who wouldn&#x27;t pass an interview anywhere, but <i>somehow</i> they&#x27;re CEOs, because they can smarm there way into more money consistently.</div>
   </div><details class="more"><summary>+ 1 more worth reading</summary><div class="comment">
-    <p class="cmeta"><b class="author">thewebguyd</b> · <span class="was">was #122</span> · receipts: sources
+    <p class="cmeta"><b class="author">thewebguyd</b> · <span class="was">was #123</span> · receipts: sources
       <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48468106" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
     <details class="ctext"><summary>Consumption by the top 10% of earners: https://www.wsj.com/economy/consumers/us-economy-strength-ri... As for services increasingly unaffordable by the workers providing them, that's Baumol's cost disease ( https://en.wi…</summary><div class="full">Consumption by the top 10% of earners: <a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;www.wsj.com&#x2F;economy&#x2F;consumers&#x2F;us-economy-strength-rich-spending-2c34a571" rel="nofollow">https:&#x2F;&#x2F;www.wsj.com&#x2F;economy&#x2F;consumers&#x2F;us-economy-strength-ri...</a><p>As for services increasingly unaffordable by the workers providing them, that&#x27;s Baumol&#x27;s cost disease (<a target="_blank" rel="noopener noreferrer nofollow" href="https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Baumol_effect" rel="nofollow">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Baumol_effect</a>)<p>I don&#x27;t have any sources regarding someone preferring humans for certain services over robots, just intuition there, and the fact that consuming human labor and time is itself a status signal of wealth, and the current growth of personal services.<p>As for connecting the dots, look at Brazil, one of the world&#x27;s most unequal economies having a small consuming elite and a much, much larger low-wage service underclass. The gulf states as well. Granted, their circumstances don&#x27;t map cleanly to a post-automation Western economy, but it does demonstrate that a largely bifurcated consumption based economy can exist and can be mildly stable.<p>Whether the US falls into that direction too will depending on politics. A bunch of mid-career knowledge workers aren&#x27;t going to willingly to flip burgers in a service economy without some serious surveillance and oppression. But when thinking about it in those terms, the recent push for mass surveillance laws and tech along with the increasingly dangerous rhetoric around protests and &quot;domestic terrorism&quot; start to make sense.</div></details>
   </div></details></div>
     <details class="fold"><summary>47 comments tucked away (the fights and one-liners)</summary>
-         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 204 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48465675">all on HN ↗</a>)</p>
-  </section><section class="story" id="s-48443322" aria-labelledby="st-48443322">
-    <div class="shead">
-      <span class="srank" aria-hidden="true">23</span>
-      <div class="stitle">
-        <h3 id="st-48443322"><a target="_blank" rel="noopener" href="https://invlpg.com/posts/2025-06-19-premature-optimization.html">Premature Optimization Is Fun Sometimes</a></h3>
-        <p class="smeta">invlpg.com · 44 pts · 11 comments · 2d
-          <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48443322">discuss on HN ↗</a></p>
-        
-      </div>
-    </div>
-    <div class="lane"><div class="comment">
-    <p class="cmeta"><b class="author">jdw64</b> · actually explains it
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48472462" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <details class="ctext"><summary>Knuth's warning about premature optimization is really about not increasing complexity based on guesswork without profiling the actual bottleneck. That's about overall architecture design. What's happening here (in this …</summary><div class="full">Knuth&#x27;s warning about premature optimization is really about not increasing complexity based on guesswork without profiling the actual bottleneck. That&#x27;s about overall architecture design. What&#x27;s happening here (in this blog post) is locally for the sake of learning, and further, for intellectual fun - I think it&#x27;s completely justified.
-Usually, the &#x27;don&#x27;t do premature optimization&#x27; quote gets misused as an excuse to avoid careful design, but setting that aside, learning within these kinds of constraints and eventually producing something.
-that&#x27;s not premature optimization in my view.<p>Looking at this code, they saved one AND instruction and reduced a pipeline stall, but it seems like it would be harder for a future maintainer to understand, because not_received feels a bit less readable. I always think
-code that&#x27;s easy for the computer to read and code that&#x27;s easy for humans to understand are different things.<p>After writing my comment, I realized it came across as overly critical. But actually, I think this work is completely justified and beautiful. Honestly, it&#x27;s at a level I couldn&#x27;t achieve myself. I respect it.</div></details>
-  </div><div class="comment">
-    <p class="cmeta"><b class="author">srean</b> · actually explains it
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48473539" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">Premature optimization is that  occasional dessert we serve ourselves because it tastes so good.<p>That said, I agree with you that the maxim is often used to justify poor planning or absence of planning. Premature pessimization is bad too.<p>We don&#x27;t have the bandwidth to test every micro-decision. That&#x27;s what the learning of domain specific principles are for. Then some choices you reason through, some you test and when confronted with a perf problem, test those reasoning based choices that benchmarks point fingers at.</div>
-  </div><div class="comment">
-    <p class="cmeta"><b class="author">KaiserPro</b> · <span class="was">was #6</span> · actually explains it
-      <a class="permalink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48472571" aria-label="Open this comment on Hacker News">open&nbsp;↗</a></p>
-    <div class="ctext">Oh of course its fun, its seductive.<p>Its like writing a thriller where you are the main operative, heroically saving the day with your skill, foresight and tenacity.<p>The problem is, it sets a rigid path far to early that you are unwilling to move away from, either because you had ambitions for those empty stubs, or because the obvious solution means admitting that you current $thing is not as successful as it should be.<p>The problem I have found recently is that it bleeds into the training set that LLMs to use to make software. our platform is pretty well defined and has excellent metrics and logging that come for free.<p>But the LLMs are creating Otel forwarders with custom NATs transport, even though we have all of that for free already (and in the agents.md)</div>
-  </div></div>
-    <details class="fold"><summary>5 comments tucked away (the fights and one-liners)</summary>
-         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 3 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48443322">all on HN ↗</a>)</p>
+         <div class="foldnote">Hidden by default: repetitive back-and-forth arguments, snark, and low-content one-liners. They're all still on HN — expand the thread there if you want them.</div></details><p class="ordinary">+ 206 more on-topic comments (fine, just not the standouts — <a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=48465675">all on HN ↗</a>)</p>
   </section></details>
   </section>
 
   <footer>
     read-only over HN's public APIs — no votes harvested, nothing posted · scoring is transparent heuristics, not a black box:
     <a href="https://github.com/scasella/hn-slow-rank#how-it-scores">how it works</a> · weights cross-checked against blind pairwise judgments (81% held-out agreement,
-    <a href="https://github.com/scasella/hn-slow-rank/blob/main/calibration/REPORT.md">report</a>) · generated 2026-06-10T11:58:50.426Z · <a href="https://github.com/scasella/hn-slow-rank">github</a>
+    <a href="https://github.com/scasella/hn-slow-rank/blob/main/calibration/REPORT.md">report</a>) · generated 2026-06-10T12:15:14.215Z · <a href="https://github.com/scasella/hn-slow-rank">github</a>
   </footer>
   </main>
   <span class="vh" id="announce" aria-live="polite"></span>
