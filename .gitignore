@@ -1,0 +1,4 @@
+.workflow-journal/
+*.workflow.run.*
+node_modules/
+.DS_Store
