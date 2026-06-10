@@ -1,15 +1,36 @@
 #!/usr/bin/env node
-// Hot Thread Slow Rank — MVP
+// Hot Thread Slow Rank — front-page generator.
 // Surface the comment worth reading, hide the fight.
 // Zero-participation: pure read-only over HN's public Firebase + Algolia APIs.
 //
-//   node rerank.js [topStories=24] [perStory=6]
+//   node rerank.js [topStories=24] [perStory=6] [--out=frontpage-reranked.html]
+//                  [--json=dump.json] [--weights=weights.json] [--no-prior-art]
 //
-// Writes frontpage-reranked.html (self-contained, offline).
+// Scoring lives in lib/engine.js (shared with the browser extension and the
+// reddit adapter). --json dumps every scored comment + feature vector for
+// calibration; --weights swaps in fitted weights.
 
-const TOP_N = parseInt(process.argv[2] || '24', 10)
-const PER_STORY = parseInt(process.argv[3] || '6', 10)
+const engine = require('./lib/engine')
+
+const args = process.argv.slice(2)
+const positional = args.filter((a) => !a.startsWith('--'))
+const flag = (name) => {
+  const a = args.find((x) => x === '--' + name || x.startsWith('--' + name + '='))
+  if (!a) return null
+  return a.includes('=') ? a.split('=').slice(1).join('=') : true
+}
+const TOP_N = parseInt(positional[0] || '24', 10)
+const PER_STORY = parseInt(positional[1] || '6', 10)
+const OUT = typeof flag('out') === 'string' ? flag('out') : 'frontpage-reranked.html'
+const JSON_DUMP = typeof flag('json') === 'string' ? flag('json') : null
+const PRIOR_ART = !flag('no-prior-art')
 const CONCURRENCY = 6
+
+let WEIGHTS = engine.DEFAULT_WEIGHTS
+if (typeof flag('weights') === 'string') {
+  WEIGHTS = { ...engine.DEFAULT_WEIGHTS, ...JSON.parse(require('fs').readFileSync(flag('weights'), 'utf8')) }
+  process.stderr.write('Using weights from ' + flag('weights') + '\n')
+}
 
 // ---------------------------------------------------------------------------
 // tiny utils
@@ -19,7 +40,7 @@ const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
 async function getJSON(url, tries = 3) {
   for (let i = 0; i < tries; i++) {
     try {
-      const res = await fetch(url, { headers: { 'user-agent': 'hot-thread-slow-rank/0.1 (read-only)' } })
+      const res = await fetch(url, { headers: { 'user-agent': 'hot-thread-slow-rank/0.2 (read-only)' } })
       if (!res.ok) throw new Error('HTTP ' + res.status)
       return await res.json()
     } catch (e) {
@@ -43,13 +64,7 @@ async function mapLimit(items, limit, fn) {
   return out
 }
 
-const ENT = { '&#x27;': "'", '&#x2F;': '/', '&gt;': '>', '&lt;': '<', '&quot;': '"', '&amp;': '&', '&#x60;': '`', '&#x3D;': '=' }
-function decode(s) {
-  return String(s || '').replace(/&#x27;|&#x2F;|&gt;|&lt;|&quot;|&amp;|&#x60;|&#x3D;/g, (m) => ENT[m] || m)
-}
-function stripTags(html) {
-  return decode(String(html || '').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim()
-}
+const { stripTags, domainOf } = engine
 function escapeHtml(s) {
   return String(s || '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]))
 }
@@ -61,9 +76,6 @@ function safeCommentHtml(html) {
   h = h.replace(/<a\s+href=/gi, '<a target="_blank" rel="noopener noreferrer nofollow" href=')
   return h
 }
-function domainOf(url) {
-  try { return new URL(url).hostname.replace(/^www\./, '') } catch { return '' }
-}
 function ageStr(createdSec) {
   const s = Math.max(0, Math.floor(Date.now() / 1000) - createdSec)
   const h = Math.floor(s / 3600)
@@ -73,157 +85,51 @@ function ageStr(createdSec) {
 }
 
 // ---------------------------------------------------------------------------
-// flatten Algolia tree -> comment list with depth, parent, DFS index
+// prior-art receipts: has HN discussed this before?
 // ---------------------------------------------------------------------------
-function flatten(story) {
-  const list = []
-  const byId = new Map()
-  let dfs = 0
-  function walk(node, depth, parent) {
-    if (!node) return
-    if (node.id !== story.id) {
-      const c = {
-        id: node.id,
-        author: node.author || null,
-        textHtml: node.text || '',
-        text: stripTags(node.text || ''),
-        created: node.created_at_i || 0,
-        points: node.points, // often null for comments — we deliberately ignore for ranking
-        depth,
-        parent,
-        dfsIndex: dfs++, // order HN would display ≈ by-vote/recency position
-        children: [],
-        distinctRepliers: 0,
-        flags: {},
-      }
-      list.push(c)
-      byId.set(c.id, c)
-      if (parent && byId.get(parent)) byId.get(parent).children.push(c.id)
-      var nextParent = c.id
-      var nextDepth = depth + 1
-    } else {
-      var nextParent = null
-      var nextDepth = 0
-    }
-    for (const k of node.children || []) walk(k, nextDepth, nextParent)
-  }
-  walk(story, 0, null)
-
-  // distinct repliers in each comment's subtree (genuine discussion signal)
-  for (const c of list) {
-    const seen = new Set()
-    const stack = [...c.children]
-    while (stack.length) {
-      const k = byId.get(stack.pop())
-      if (!k) continue
-      if (k.author && k.author !== c.author) seen.add(k.author)
-      for (const g of k.children) stack.push(g)
-    }
-    c.distinctRepliers = seen.size
-  }
-
-  // duel detection: longest ancestor suffix that strictly alternates between 2 authors
-  const authorOf = (id) => (byId.get(id) ? byId.get(id).author : null)
-  for (const c of list) {
-    const chain = []
-    let cur = c.id
-    while (cur && byId.has(cur)) { chain.push(authorOf(cur)); cur = byId.get(cur).parent }
-    chain.reverse() // root..self
-    // find longest alternating-2-author suffix ending at self
-    let best = 1
-    for (let start = chain.length - 1; start >= 0; start--) {
-      const seg = chain.slice(start)
-      const uniq = [...new Set(seg.filter(Boolean))]
-      if (uniq.length !== 2) continue
-      let alt = true
-      for (let i = 1; i < seg.length; i++) if (!seg[i] || seg[i] === seg[i - 1]) { alt = false; break }
-      if (alt) best = Math.max(best, seg.length)
-    }
-    c.flags.duel = best >= 4
-  }
-  return list
+const normUrl = (u) => String(u || '').replace(/^https?:\/\/(www\.)?/, '').replace(/[/#?]+$/, '').toLowerCase()
+function titleSim(a, b) {
+  const w = (s) => new Set(String(s).toLowerCase().match(/[a-z0-9]{4,}/g) || [])
+  const A = w(a), B = w(b)
+  if (!A.size || !B.size) return 0
+  let inter = 0
+  for (const x of A) if (B.has(x)) inter++
+  return inter / Math.min(A.size, B.size)
 }
 
-// ---------------------------------------------------------------------------
-// substance scoring — additive, every point carries a reason badge
-// ---------------------------------------------------------------------------
-const FIRSTHAND = [
-  /\bI(?:'ve| have)? (?:work(?:ed)?|built|wrote|made|maintain|created|implemented|designed|run|ran|founded|led|shipped|deployed)\b/i,
-  /\bI(?:'m| am) (?:the|one of the|a) (?:author|maintainer|creator|dev|developer|engineer)\b/i,
-  /\bwe (?:built|wrote|found|shipped|run|ran|maintain|deployed)\b/i,
-  /\bin my experience\b/i,
-  /\b(?:full )?disclosure[:,]/i,
-  /\bI work (?:at|on|for)\b/i,
-  /\bI was (?:there|involved|on the team)\b/i,
-  /\bsource[:,]\s/i,
-]
-const DUNK = /\b(?:lol|lmao|rofl|cope|seethe|ratio'?d?|found the \w+|cool story|ok\b|sure\b|nailed it|exactly this|came here to say|this\.?$|\^+\s*this|\+1\b|big if true|tell me you|the absolute state)\b/i
-const TOXIC = /\b(?:idiot|moron|stupid|clown|shill|fanboy|cope|delusional|braindead|garbage take|trash|dumb)\b/i
-const DIDNT_READ = /\b(?:didn'?t (?:read|rtfa)|did not read|read the (?:article|paper)|clickbait|misleading title|the title says)\b/i
-
-function extractLinks(html) {
+async function priorArt(story) {
   const out = []
-  const re = /href="([^"]+)"/gi
-  let m
-  while ((m = re.exec(html))) {
-    const u = decode(m[1])
-    const d = domainOf(u)
-    if (d && d !== 'news.ycombinator.com') out.push(d)
+  const seen = new Set([story.id])
+  const cutoff = story.time || Math.floor(Date.now() / 1000)
+  const keep = (h) => {
+    const id = +h.objectID
+    if (seen.has(id) || (h.created_at_i || 0) >= cutoff) return false
+    seen.add(id)
+    out.push({
+      id,
+      title: h.title || '',
+      points: h.points || 0,
+      comments: h.num_comments || 0,
+      date: (h.created_at || '').slice(0, 10),
+    })
+    return true
   }
-  return out
-}
-const PRIMARY = /(github\.com|gitlab\.com|arxiv\.org|\.gov$|\.gov\/|datatracker\.ietf\.org|rfc-editor\.org|doi\.org|ncbi\.nlm\.nih\.gov|pubmed|docs\.|developer\.|wikipedia\.org|patents\.google)/i
-
-function scoreComment(c) {
-  const badges = []
-  const reasons = []
-  let score = 0
-  const t = c.text
-  const words = t ? t.split(/\s+/).length : 0
-
-  // negatives first (they gate the lane)
-  if (c.flags.duel) { score -= 4; c.flags.downweight = true; reasons.push('part of a back-and-forth duel') }
-  const isShort = words < 12
-  if (DUNK.test(t) && words < 30) { score -= 3; c.flags.downweight = true; reasons.push('dunk / low-content snark') }
-  if (TOXIC.test(t)) { score -= 3; c.flags.downweight = true; reasons.push('name-calling / toxicity') }
-  if (DIDNT_READ.test(t) && words < 40) { score -= 1.5; reasons.push('“didn’t read” / title complaint') }
-  if (isShort && score <= 0) { score -= 2; c.flags.downweight = true; reasons.push('very short, no substance') }
-  if (/!{2,}/.test(t) || (t.length > 24 && t === t.toUpperCase() && /[A-Z]{6,}/.test(t))) { score -= 1.5; reasons.push('shouting') }
-
-  // positives
-  const links = extractLinks(c.textHtml)
-  if (links.length) {
-    const isPrimary = links.some((d) => PRIMARY.test(d))
-    score += Math.min(links.length, 2) * 2 + (isPrimary ? 1 : 0)
-    badges.push({ icon: '🔗', label: 'source' })
-    reasons.push((isPrimary ? 'cites a primary source (' : 'links out (') + links.slice(0, 2).join(', ') + ')')
-  }
-  if (/<pre>|<code>/.test(c.textHtml) || /(^|\n)\s*(\$ |npm |pip |git |sudo |curl |def |function |const |import |SELECT )/.test(t)) {
-    score += 3; badges.push({ icon: '⟨/⟩', label: 'code' }); reasons.push('includes code / a command')
-  }
-  if (FIRSTHAND.some((re) => re.test(t))) {
-    score += 3; badges.push({ icon: '✋', label: 'firsthand' }); reasons.push('firsthand / disclosed experience')
-  }
-  const nums = (t.match(/\b\d[\d.,]*\s?(?:%|x|ms|s|gb|mb|kb|tb|k|m|b|fps|hz|w|kw|nm|°|years?|months?|days?|hours?|x)\b/gi) || []).length
-  const versions = (t.match(/\bv?\d+\.\d+(\.\d+)?\b/g) || []).length
-  if (nums + versions >= 2) { score += Math.min(2, 1 + Math.floor((nums + versions) / 3)); badges.push({ icon: '📊', label: 'specifics' }); reasons.push('quantified / specific') }
-
-  const paras = (c.textHtml.match(/<p>/g) || []).length + 1
-  if (words >= 60 && words <= 450 && paras >= 2) { score += 2; reasons.push('structured, substantive length') }
-  else if (words >= 40 && words <= 450) { score += 1 }
-  if (words > 700) { score -= 1; reasons.push('very long (wall of text)') }
-
-  if (c.distinctRepliers >= 3 && !c.flags.duel) {
-    score += Math.min(2, c.distinctRepliers * 0.5); badges.push({ icon: '💬', label: 'sparked discussion' })
-    reasons.push(c.distinctRepliers + ' distinct people engaged')
-  }
-  // genuine question that invites expertise
-  if (/\?/.test(t) && words >= 15 && words <= 80 && links.length === 0 && !c.flags.duel) { score += 0.5 }
-
-  c.score = Math.round(score * 10) / 10
-  c.badges = badges
-  c.reasons = reasons
-  return c
+  try {
+    if (story.url && !/news\.ycombinator\.com/.test(story.url)) {
+      const r = await getJSON('https://hn.algolia.com/api/v1/search?query=' + encodeURIComponent(story.url) +
+        '&restrictSearchableAttributes=url&tags=story&hitsPerPage=12')
+      for (const h of r?.hits || []) if (normUrl(h.url) === normUrl(story.url)) keep(h)
+    }
+    const r2 = await getJSON('https://hn.algolia.com/api/v1/search?query=' + encodeURIComponent(story.title) +
+      '&restrictSearchableAttributes=title&tags=story&hitsPerPage=12')
+    for (const h of r2?.hits || []) {
+      if ((h.num_comments || 0) < 5) continue
+      if (titleSim(h.title, story.title) < 0.75) continue
+      keep(h)
+    }
+  } catch { /* prior art is best-effort */ }
+  out.sort((a, b) => (b.points + b.comments) - (a.points + a.comments))
+  return out.slice(0, 4)
 }
 
 // ---------------------------------------------------------------------------
@@ -233,24 +139,8 @@ function processStory(item, rank) {
   const story = item.algolia
   const meta = item.fb
   if (!story || !Array.isArray(story.children)) return null
-  const comments = flatten(story).filter((c) => c.author && c.text) // drop dead/deleted
-  if (!comments.length) return null
-  comments.forEach(scoreComment)
-
-  const duelCount = comments.filter((c) => c.flags.duel).length
-  const duelRatio = duelCount / comments.length
-  const hot = duelCount >= 6 || duelRatio >= 0.18
-
-  const threshold = hot ? 3.5 : 2.5
-  const ranked = [...comments].sort((a, b) => b.score - a.score)
-  let surfaced = ranked.filter((c) => c.score >= threshold && !c.flags.duel).slice(0, PER_STORY)
-  if (surfaced.length < 3) surfaced = ranked.filter((c) => !c.flags.duel).slice(0, Math.min(3, comments.length))
-  const surfacedIds = new Set(surfaced.map((c) => c.id))
-  // honest accounting: only flagged comments (duel/dunk/low/toxic) are "hidden as
-  // low-signal" — the fight. Everything else not surfaced is just ordinary on-topic
-  // comment that didn't make the top lane (still one click away on HN).
-  const flagged = comments.filter((c) => !surfacedIds.has(c.id) && c.flags.downweight)
-  const ordinary = comments.filter((c) => !surfacedIds.has(c.id) && !c.flags.downweight)
+  const analysis = engine.analyzeThread(story, { perStory: PER_STORY, weights: WEIGHTS })
+  if (!analysis) return null
 
   return {
     rank,
@@ -259,13 +149,16 @@ function processStory(item, rank) {
     url: meta.url || story.url || ('https://news.ycombinator.com/item?id=' + story.id),
     domain: domainOf(meta.url || story.url || '') || 'news.ycombinator.com',
     points: meta.score ?? story.points ?? 0,
-    nComments: comments.length,
+    nComments: analysis.comments.length,
     age: ageStr(meta.time || story.created_at_i || 0),
-    hot,
-    duelCount,
-    flaggedCount: flagged.length,
-    ordinaryCount: ordinary.length,
-    surfaced,
+    time: meta.time || story.created_at_i || 0,
+    hot: analysis.hot,
+    duelCount: analysis.duelCount,
+    flaggedCount: analysis.flagged.length,
+    ordinaryCount: analysis.ordinary.length,
+    surfaced: analysis.surfaced,
+    comments: analysis.comments,
+    priorArt: [],
   }
 }
 
@@ -293,6 +186,13 @@ function renderComment(c) {
   </div>`
 }
 
+function renderPriorArt(s) {
+  if (!s.priorArt.length) return ''
+  const links = s.priorArt.map((p) =>
+    `<a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=${p.id}" title="${escapeHtml(p.title)}">${p.date.slice(0, 4)} · ${p.points}&nbsp;pts · ${p.comments}&nbsp;comment${p.comments === 1 ? '' : 's'}</a>`).join('<span class="psep">·</span>')
+  return `<div class="prior">📜 HN has been here before — ${s.priorArt.length} earlier thread${s.priorArt.length > 1 ? 's' : ''}: ${links}</div>`
+}
+
 function renderStory(s) {
   const comments = s.surfaced.map(renderComment).join('')
   const hotBadge = s.hot ? `<span class="hot">🔥 hot thread · combat down-weighted</span>` : ''
@@ -309,6 +209,7 @@ function renderStory(s) {
         <span class="domain">${escapeHtml(s.domain)}</span>
         <div class="smeta">${s.points} pts · ${s.nComments} comments · ${s.age} ${hotBadge}
           <a class="hnlink" target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=${s.id}">discuss on HN ↗</a></div>
+        ${renderPriorArt(s)}
       </div>
     </div>
     <div class="lane"><div class="lanelabel">▲ Worth reading</div>${comments}</div>
@@ -338,6 +239,8 @@ function renderPage(stories, stats) {
   .smeta{font-family:var(--mono);font-size:11.5px;color:var(--dim);margin-top:4px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
   .hnlink{font-size:11.5px}
   .hot{color:var(--hot);font-weight:600}
+  .prior{font-family:var(--mono);font-size:11px;color:#8a6d3b;background:#faf6ea;border:1px solid #eee3c3;border-radius:8px;padding:4px 8px;margin-top:7px;line-height:1.7}
+  .prior a{font-size:11px;white-space:nowrap}.psep{margin:0 6px;color:#c9bd99}
   .lane{margin-top:12px}.lanelabel{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--good);margin-bottom:8px}
   .comment{display:flex;gap:12px;padding:11px 0;border-top:1px dashed var(--line)}
   .comment:first-of-type{border-top:none}
@@ -363,20 +266,21 @@ function renderPage(stories, stats) {
   <style>${css}</style></head><body>
   <header><div class="wrap" style="padding:0">
     <h1>Hacker News, reranked by substance</h1>
-    <div class="tag">Surface the comment worth reading, hide the fight. — front page of ${now.toLocaleString('en-US', { dateStyle: 'long', timeStyle: 'short' })}</div>
+    <div class="tag">Surface the comment worth reading, hide the fight. — front page of ${now.toLocaleString('en-US', { dateStyle: 'long', timeStyle: 'short', timeZone: 'UTC' })} UTC</div>
     <div class="stats">
       <span><b>${stats.stories}</b> stories</span>
       <span><b>${stats.comments.toLocaleString()}</b> comments analyzed</span>
       <span><b>${stats.surfaced}</b> surfaced</span>
       <span><b>${stats.flagged.toLocaleString()}</b> hidden as low-signal</span>
       <span><b>${stats.hot}</b> hot threads</span>
+      <span><b>${stats.priorArt}</b> stories seen before</span>
     </div>
     <div class="legend">
-      <span>🔗 source</span><span>⟨/⟩ code</span><span>✋ firsthand</span><span>📊 specifics</span><span>💬 discussion</span><span>🥊 duel → folded</span>
+      <span>🔗 source</span><span>⟨/⟩ code</span><span>✋ firsthand</span><span>📊 specifics</span><span>💬 discussion</span><span>🥊 duel → folded</span><span>📜 prior art</span>
     </div>
   </div></header>
   <main class="wrap">${stories.map(renderStory).join('')}</main>
-  <footer>Zero participation · built from HN's public Firebase + Algolia APIs · comments re-ranked by transparent substance heuristics, not votes. Generated ${now.toISOString()}.</footer>
+  <footer>Zero participation · built from HN's public Firebase + Algolia APIs · comments re-ranked by transparent substance heuristics, not votes. Generated ${now.toISOString()}. <a href="https://github.com/scasella/hn-slow-rank">source</a></footer>
   </body></html>`
 }
 
@@ -403,8 +307,12 @@ function renderPage(stories, stats) {
     const s = processStory(it, ++ci)
     if (s) stories.push(s)
   })
-  // re-number by surviving order (front-page order preserved)
   stories.forEach((s, i) => (s.rank = i + 1))
+
+  if (PRIOR_ART) {
+    process.stderr.write('Mining prior art (Algolia archive)…\n')
+    await mapLimit(stories, CONCURRENCY, async (s) => { s.priorArt = await priorArt(s) })
+  }
 
   const stats = {
     stories: stories.length,
@@ -412,12 +320,30 @@ function renderPage(stories, stats) {
     surfaced: stories.reduce((a, s) => a + s.surfaced.length, 0),
     flagged: stories.reduce((a, s) => a + s.flaggedCount, 0),
     hot: stories.filter((s) => s.hot).length,
+    priorArt: stories.filter((s) => s.priorArt.length).length,
   }
 
   const fs = require('fs')
-  fs.writeFileSync('frontpage-reranked.html', renderPage(stories, stats))
-  process.stderr.write(`\nDone. ${stats.stories} stories · ${stats.comments} comments analyzed · ${stats.surfaced} surfaced · ${stats.flagged} hidden as low-signal · ${stats.hot} hot threads\n`)
-  process.stderr.write('Wrote frontpage-reranked.html\n')
-  // also emit compact JSON stats to stdout
-  console.log(JSON.stringify({ ...stats, generatedAt: new Date().toISOString(), topExamples: stories.slice(0, 5).map((s) => ({ title: s.title, hot: s.hot, surfaced: s.surfaced.length, flagged: s.flaggedCount, ordinary: s.ordinaryCount, top: s.surfaced[0] && { author: s.surfaced[0].author, score: s.surfaced[0].score, wasPosition: s.surfaced[0].dfsIndex + 1, badges: s.surfaced[0].badges.map((b) => b.label) } })) }, null, 2))
+  fs.writeFileSync(OUT, renderPage(stories, stats))
+
+  if (JSON_DUMP) {
+    const dump = []
+    for (const s of stories) {
+      for (const c of s.comments) {
+        dump.push({
+          storyId: s.id, storyTitle: s.title, hot: s.hot,
+          id: c.id, author: c.author, dfsIndex: c.dfsIndex, depth: c.depth,
+          distinctRepliers: c.distinctRepliers, score: c.score,
+          features: c.features, text: c.text.slice(0, 1600),
+        })
+      }
+    }
+    fs.mkdirSync(require('path').dirname(JSON_DUMP), { recursive: true })
+    fs.writeFileSync(JSON_DUMP, JSON.stringify(dump))
+    process.stderr.write(`Dumped ${dump.length} scored comments to ${JSON_DUMP}\n`)
+  }
+
+  process.stderr.write(`\nDone. ${stats.stories} stories · ${stats.comments} comments analyzed · ${stats.surfaced} surfaced · ${stats.flagged} hidden as low-signal · ${stats.hot} hot threads · ${stats.priorArt} with prior art\n`)
+  process.stderr.write('Wrote ' + OUT + '\n')
+  console.log(JSON.stringify({ ...stats, generatedAt: new Date().toISOString() }))
 })().catch((e) => { console.error('FATAL', e); process.exit(1) })
